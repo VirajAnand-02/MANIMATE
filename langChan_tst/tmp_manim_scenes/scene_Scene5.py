@@ -1,5 +1,5 @@
 import sys
-sys.path.append(r'E:\programming\Notes2Manim\langChan_tst')
+sys.path.append(r'C:\Users\isanham\Documents\temp\langChan_tst')
 from manim import *
 try:
     from manim_layout_manager import LayoutManager, LayoutStrategy, PreferredPosition, BoundingBox
@@ -11,268 +11,131 @@ import numpy as np
 
 class Scene5(TitleAndMainContent):
     def construct_scene(self):
-        # 1. Create the title text
-        title_text = self.create_textbox(
-        "Practical Applications of Pendulums",
-        self.title_region.width * 0.9,
-        self.title_region.height * 0.8
+        # Title
+        title = self.create_textbox(
+        "Complex Number Multiplication: Geometric Interpretation",
+        self.title_region.width,
+        self.title_region.height
+        ).move_to(self.title_region.get_center())
+        self.play(Write(title))
+        self.wait(0.5)
+
+        # Setup NumberPlane
+        plane = NumberPlane(
+        x_range=[-4, 4, 1],
+        y_range=[-4, 4, 1],
+        x_length=self.main_region.width * 0.9,
+        y_length=self.main_region.height * 0.9,
+        background_line_style={"stroke_opacity": 0.5},
+        axis_config={"color": GRAY}
+        ).move_to(self.main_region.get_center())
+        self.play(Create(plane), run_time=1.5)
+
+        # Define complex numbers
+        z1_val = complex(2, 1)
+        z2_val = complex(1, 2)
+        z_product_val = z1_val * z2_val  # Result: 5j
+
+        # Vectors
+        # Using c2p (complex to point) for positioning on the plane
+        z1_vec = Arrow(ORIGIN, plane.c2p(z1_val), buff=0, color=BLUE, tip_length=0.2, stroke_width=6)
+        z2_vec = Arrow(ORIGIN, plane.c2p(z2_val), buff=0, color=GREEN, tip_length=0.2, stroke_width=6)
+        # The final product vector, used as a target for transformation
+        z_product_vec_target = Arrow(ORIGIN, plane.c2p(z_product_val), buff=0, color=RED, tip_length=0.2, stroke_width=6)
+
+        # Labels
+        z1_label = MathTex("z_1").next_to(z1_vec, RIGHT, buff=0.1).shift(0.2 * UP).set_color(BLUE)
+        z2_label = MathTex("z_2").next_to(z2_vec, UP, buff=0.1).shift(0.2 * RIGHT).set_color(GREEN)
+
+        self.play(GrowArrow(z1_vec), Write(z1_label))
+        self.play(GrowArrow(z2_vec), Write(z2_label))
+        self.wait(1.5)
+
+        # Step 1: Scale z1 by |z2|
+        magnitude_z2 = abs(z2_val)
+        z1_scaled_val = z1_val * magnitude_z2
+        z1_scaled_vec_target = Arrow(ORIGIN, plane.c2p(z1_scaled_val), buff=0, color=BLUE, tip_length=0.2, stroke_width=6)
+
+        scaling_text = Text(
+        f"1. Scale z1 by |z2| = {magnitude_z2:.2f}",
+        font_size=36,
+        color=YELLOW
+        ).move_to(self.main_region.get_center() + UP * self.main_region.height * 0.4)
+        self.play(Write(scaling_text))
+
+        # Animate z1_vec transforming to its scaled version
+        self.play(Transform(z1_vec, z1_scaled_vec_target), FadeOut(z1_label), run_time=2)
+        z1_scaled_label = MathTex("z_1 \\cdot |z_2|").next_to(z1_vec, RIGHT, buff=0.1).shift(0.2 * UP).set_color(BLUE)
+        self.play(Write(z1_scaled_label))
+        self.wait(1.5)
+        self.play(FadeOut(scaling_text))
+
+        # Step 2: Rotate scaled z1 by arg(z2)
+        angle_z2 = np.angle(z2_val)  # in radians
+
+        rotation_text = Text(
+        f"2. Rotate scaled z1 by arg(z2) = {np.degrees(angle_z2):.1f}°",
+        font_size=36,
+        color=YELLOW
+        ).move_to(self.main_region.get_center() + UP * self.main_region.height * 0.4)
+        self.play(Write(rotation_text))
+
+        # Create an arc to show the rotation
+        current_angle_z1_scaled = np.angle(z1_scaled_val)
+        arc_radius = np.linalg.norm(plane.c2p(z1_scaled_val)) * 0.3  # Smaller radius for the arc
+        rotation_arc = Arc(
+        start_angle=current_angle_z1_scaled,
+        angle=angle_z2,
+        radius=arc_radius,
+        arc_center=ORIGIN,
+        color=YELLOW,
+        stroke_width=4
         )
-        title_text.move_to(self.title_region.get_center())
-        self.play(Write(title_text))
-        self.wait(1)
+        # Position arc label slightly outside the arc at its midpoint
+        arc_label = MathTex(r"\arg(z_2)").set_color(YELLOW)
+        arc_label.move_to(rotation_arc.point_from_proportion(0.5))
+        arc_label.shift((rotation_arc.point_from_proportion(0.5) - rotation_arc.get_arc_center()).normalize() * 0.5)
 
-        # 2. Grandfather Clock Pendulum
-        # Create a frame for the clock
-        clock_frame = Rectangle(
-        width=self.main_region.width * 0.3,
-        height=self.main_region.height * 0.8,
-        color=BROWN,
-        fill_opacity=0.2
-        )
-        clock_frame.move_to(self.main_region.get_center())
+        self.play(Create(rotation_arc), Write(arc_label))
+        self.play(z1_vec.animate.rotate(angle_z2, about_point=ORIGIN), FadeOut(z1_scaled_label), run_time=2)
+        self.wait(1.5)
+        self.play(FadeOut(rotation_text), FadeOut(rotation_arc), FadeOut(arc_label))
 
-        # Pendulum components
-        pivot_point_clock = clock_frame.get_top() + DOWN * 0.5
-        rod_clock = Line(pivot_point_clock, pivot_point_clock + DOWN * 2, stroke_width=4, color=GRAY)
-        bob_clock = Circle(radius=0.3, color=GOLD, fill_opacity=1).move_to(rod_clock.get_end())
-        pendulum_clock = VGroup(rod_clock, bob_clock)
+        # Step 3: Final product z1 * z2
+        product_text = Text(
+        "3. The final vector is z1 * z2",
+        font_size=36,
+        color=YELLOW
+        ).move_to(self.main_region.get_center() + UP * self.main_region.height * 0.4)
+        self.play(Write(product_text))
 
-        # Initial rotation for the swing
-        initial_angle_clock = 20 * DEGREES
-        pendulum_clock.rotate(-initial_angle_clock, about_point=pivot_point_clock, axis=OUT)
+        # The z1_vec has been rotated. Now transform it to the final product vector.
+        self.play(Transform(z1_vec, z_product_vec_target), run_time=1.5)
+        z_product_label = MathTex("z_1 \\cdot z_2").next_to(z1_vec, RIGHT, buff=0.1).set_color(RED)
+        self.play(Write(z_product_label))
+        self.wait(2.5)
+        self.play(FadeOut(product_text))
 
-        self.play(FadeIn(clock_frame))
-        self.play(Create(pendulum_clock))
-
-        # Pendulum swing animation using ValueTracker and updater
-        angle_tracker_clock = ValueTracker(initial_angle_clock)
-        pendulum_clock.add_updater(
-        lambda m: m.become(
-        VGroup(
-        Line(pivot_point_clock, pivot_point_clock + DOWN * 2, stroke_width=4, color=GRAY),
-        Circle(radius=0.3, color=GOLD, fill_opacity=1).move_to(pivot_point_clock + DOWN * 2)
-        ).rotate(-angle_tracker_clock.get_value(), about_point=pivot_point_clock, axis=OUT)
-        )
-        )
-
+        # Conclude with summary rules
         self.play(
-        angle_tracker_clock.animate.set_value(-initial_angle_clock),
-        rate_func=there_and_back_with_pause,
+        FadeOut(z1_vec),
+        FadeOut(z2_vec),
+        FadeOut(z_product_label),
+        FadeOut(z2_label),
+        FadeOut(plane),
         run_time=1.5
         )
-        self.play(
-        angle_tracker_clock.animate.set_value(initial_angle_clock),
-        rate_func=there_and_back_with_pause,
-        run_time=1.5
-        )
-        self.play(
-        angle_tracker_clock.animate.set_value(-initial_angle_clock),
-        rate_func=there_and_back_with_pause,
-        run_time=1.5
-        )
-        self.wait(0.5)
-        pendulum_clock.remove_updater(pendulum_clock.updaters[0]) # Remove updater to stop animation
-        self.play(FadeOut(pendulum_clock, clock_frame))
 
-        # 3. Metronome
-        metronome_base = Triangle(color=RED_B, fill_opacity=0.8).set_height(self.main_region.height * 0.3)
-        metronome_base.move_to(self.main_region.get_center() + DOWN * (self.main_region.height * 0.2))
+        rule1 = Tex("Multiply Magnitudes", font_size=60, color=BLUE)
+        rule2 = Tex("Add Arguments", font_size=60, color=GREEN)
+        rules_group = VGroup(rule1, rule2).arrange(RIGHT, buff=1.5).move_to(self.main_region.get_center())
 
-        pivot_point_metronome = metronome_base.get_top() + UP * 0.1
-        rod_metronome = Line(pivot_point_metronome, pivot_point_metronome + DOWN * 1.5, stroke_width=3, color=LIGHT_GRAY)
-        bob_metronome = Polygon(
-        [0, 0.2, 0], [0.2, 0, 0], [0, -0.2, 0], [-0.2, 0, 0],
-        color=BLUE_E, fill_opacity=1
-        ).scale(0.5).move_to(rod_metronome.get_end())
-        pendulum_metronome = VGroup(rod_metronome, bob_metronome)
+        self.play(Write(rules_group))
+        self.wait(3.5)
 
-        initial_angle_metronome = 30 * DEGREES
-        pendulum_metronome.rotate(-initial_angle_metronome, about_point=pivot_point_metronome, axis=OUT)
-
-        self.play(FadeIn(metronome_base))
-        self.play(Create(pendulum_metronome))
-
-        angle_tracker_metronome = ValueTracker(initial_angle_metronome)
-        pendulum_metronome.add_updater(
-        lambda m: m.become(
-        VGroup(
-        Line(pivot_point_metronome, pivot_point_metronome + DOWN * 1.5, stroke_width=3, color=LIGHT_GRAY),
-        Polygon(
-        [0, 0.2, 0], [0.2, 0, 0], [0, -0.2, 0], [-0.2, 0, 0],
-        color=BLUE_E, fill_opacity=1
-        ).scale(0.5).move_to(pivot_point_metronome + DOWN * 1.5)
-        ).rotate(-angle_tracker_metronome.get_value(), about_point=pivot_point_metronome, axis=OUT)
-        )
-        )
-
-        self.play(
-        angle_tracker_metronome.animate.set_value(-initial_angle_metronome),
-        rate_func=there_and_back_with_pause,
-        run_time=1
-        )
-        self.play(
-        angle_tracker_metronome.animate.set_value(initial_angle_metronome),
-        rate_func=there_and_back_with_pause,
-        run_time=1
-        )
-        self.play(
-        angle_tracker_metronome.animate.set_value(-initial_angle_metronome),
-        rate_func=there_and_back_with_pause,
-        run_time=1
-        )
-        self.wait(0.5)
-        pendulum_metronome.remove_updater(pendulum_metronome.updaters[0])
-        self.play(FadeOut(pendulum_metronome, metronome_base))
-
-        # 4. Seismograph
-        seismograph_base = Rectangle(
-        width=self.main_region.width * 0.7,
-        height=self.main_region.height * 0.2,
-        color=GRAY_B,
-        fill_opacity=0.7
-        ).move_to(self.main_region.get_center() + DOWN * (self.main_region.height * 0.3))
-
-        # Pendulum (fixed in space due to inertia)
-        seismo_pivot = seismograph_base.get_top() + UP * 1.5
-        seismo_rod = Line(seismo_pivot, seismo_pivot + DOWN * 1.5, stroke_width=3, color=WHITE)
-        seismo_bob = Circle(radius=0.4, color=RED_E, fill_opacity=1).move_to(seismo_rod.get_end())
-        seismo_pendulum = VGroup(seismo_rod, seismo_bob)
-
-        # Pen and its fixed tip
-        seismo_pen_end_fixed = seismo_bob.get_right() + RIGHT * 1.5
-        seismo_pen = Line(seismo_bob.get_right(), seismo_pen_end_fixed, stroke_width=2, color=BLUE)
-        seismo_pen_tip = Dot(seismo_pen_end_fixed, radius=0.01, color=BLACK) # A tiny dot at the pen tip
-
-        # Drum (simplified as a rectangle)
-        drum_width = self.main_region.width * 0.4
-        drum_height = self.main_region.height * 0.3
-        seismo_drum = Rectangle(
-        width=drum_width,
-        height=drum_height,
-        color=WHITE,
-        fill_opacity=1
-        ).next_to(seismograph_base, RIGHT, buff=0.5)
-
-        # TracedPath to draw the movement of the pen tip relative to the moving drum
-        seismo_trace = TracedPath(seismo_pen_tip.get_center, stroke_width=2, color=BLACK)
-
-        # Initial setup
-        self.play(FadeIn(seismograph_base, seismo_pendulum, seismo_drum, seismo_pen, seismo_pen_tip))
-        self.add(seismo_trace) # Add the trace to the scene
-
-        # Animate base shaking and drum moving under the fixed pen tip
-        shake_amplitude = 0.3
-        shake_duration = 0.5
-
-        self.play(
-        seismograph_base.animate.shift(LEFT * shake_amplitude),
-        seismo_drum.animate.shift(LEFT * shake_amplitude),
-        run_time=shake_duration,
-        rate_func=linear
-        )
-        self.play(
-        seismograph_base.animate.shift(RIGHT * shake_amplitude * 2),
-        seismo_drum.animate.shift(RIGHT * shake_amplitude * 2),
-        run_time=shake_duration * 2,
-        rate_func=linear
-        )
-        self.play(
-        seismograph_base.animate.shift(LEFT * shake_amplitude * 2),
-        seismo_drum.animate.shift(LEFT * shake_amplitude * 2),
-        run_time=shake_duration * 2,
-        rate_func=linear
-        )
-        self.play(
-        seismograph_base.animate.shift(RIGHT * shake_amplitude),
-        seismo_drum.animate.shift(RIGHT * shake_amplitude),
-        run_time=shake_duration,
-        rate_func=linear
-        )
-        self.wait(0.5)
-        self.remove(seismo_trace, seismo_pen_tip) # Remove the trace and the helper dot
-        self.play(FadeOut(seismograph_base, seismo_pendulum, seismo_drum, seismo_pen))
-
-        # 5. Foucault Pendulum
-        # Long pendulum base (straight down)
-        foucault_pivot = self.main_region.get_top() + UP * 0.5 # High pivot point
-        foucault_rod_length = self.main_region.height * 0.8
-        foucault_pendulum_base = VGroup(
-        Line(foucault_pivot, foucault_pivot + DOWN * foucault_rod_length, stroke_width=2, color=WHITE),
-        Sphere(radius=0.2, color=BLUE_E, resolution=(10, 10)).move_to(foucault_pivot + DOWN * foucault_rod_length)
-        )
-
-        # Pegs on the floor
-        peg_radius = self.main_region.width * 0.3
-        num_pegs = 12
-        pegs = VGroup(*[
-        Dot(
-        foucault_pivot + DOWN * foucault_rod_length + RIGHT * peg_radius * np.cos(angle) + UP * peg_radius * np.sin(angle),
-        radius=0.05,
-        color=ORANGE
-        )
-        for angle in np.linspace(0, 2 * PI, num_pegs, endpoint=False)
-        ])
-        pegs.move_to(foucault_pivot + DOWN * foucault_rod_length) # Center the pegs at the bob's lowest point
-
-        # ValueTrackers for swing angle and plane rotation
-        initial_swing_angle = 15 * DEGREES
-        plane_rotation_tracker = ValueTracker(0) # Angle of the swing plane around the vertical axis (Z-axis in 2D)
-        swing_angle_tracker = ValueTracker(initial_swing_angle) # Angle of the swing within its plane
-
-        # The actual pendulum mobject, dynamically redrawn
-        swing_mobject = always_redraw(
-        lambda: foucault_pendulum_base.copy()
-        .rotate(plane_rotation_tracker.get_value(), axis=OUT, about_point=foucault_pivot) # Rotate the plane
-        .rotate(-swing_angle_tracker.get_value(), axis=OUT, about_point=foucault_pivot) # Swing within the plane
-        )
-
-        self.play(Create(swing_mobject))
-        self.play(Create(pegs))
-
-        # First swing
-        self.play(
-        swing_angle_tracker.animate.set_value(-initial_swing_angle),
-        rate_func=there_and_back,
-        run_time=2
-        )
-
-        # Rotate the plane and knock a peg
-        self.play(
-        plane_rotation_tracker.animate.increment_value(30 * DEGREES), # Rotate the plane by 30 degrees
-        FadeOut(pegs[0], shift=DOWN*0.2),
-        run_time=1
-        )
-        self.wait(0.5)
-
-        # Second swing
-        self.play(
-        swing_angle_tracker.animate.set_value(initial_swing_angle),
-        rate_func=there_and_back,
-        run_time=2
-        )
-
-        # Rotate again and knock another peg
-        self.play(
-        plane_rotation_tracker.animate.increment_value(30 * DEGREES),
-        FadeOut(pegs[1], shift=DOWN*0.2),
-        run_time=1
-        )
-        self.wait(0.5)
-
-        # Third swing
-        self.play(
-        swing_angle_tracker.animate.set_value(-initial_swing_angle),
-        rate_func=there_and_back,
-        run_time=2
-        )
-
-        self.wait(1)
-        self.remove(swing_mobject) # Remove the always_redraw mobject
-        self.play(FadeOut(pegs))
-
-        self.play(FadeOut(title_text))
-        self.wait(0.5)
+        # Final cleanup
+        self.play(FadeOut(rules_group), FadeOut(title))
 
 # Set narration and duration
-Scene5.narration_text = '''Simple pendulums are more than just physics demonstrations; they have practical applications all around us. They are the heart of grandfather clocks, providing a regular oscillation to keep accurate time. Metronomes, used by musicians, rely on a pendulum to set a steady tempo. Even earthquake sensors, known as seismographs, use principles of pendulums to detect ground motion. And for a truly grand example, the Foucault pendulum demonstrates the Earth\'s rotation! From precise timing to scientific discovery, the simple pendulum continues to be a fascinating and useful invention.'''
+Scene5.narration_text = '''So, to multiply \'z1\' by \'z2\', you first scale \'z1\' by the magnitude of \'z2\', and then rotate that scaled vector by the argument of \'z2\'. The final vector is your product, \'z1 * z2\'. This elegant geometric interpretation reveals why complex numbers are so fundamental in fields like electrical engineering, physics, and computer graphics, especially for operations involving rotations and transformations. Remember: multiply magnitudes, add arguments!'''
 Scene5.audio_duration = 5.0

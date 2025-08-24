@@ -1,0 +1,35 @@
+{
+  "title": "Complex Number Multiplication: A Visual Journey",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to a visual exploration of complex number multiplication! Imagine a special plane, called the Argand Plane, where the horizontal axis is for real numbers and the vertical axis is for imaginary numbers. Any complex number, like 'z = a + bi', can be represented as a point or a vector starting from the origin. This vector has two key properties: its length, called the magnitude, and its angle with the positive real axis, called the argument.",
+      "anim": "Animate the Argand Plane appearing. Plot a sample complex number 'z1 = 3 + 4i' as a point and then as a vector from the origin. Highlight its magnitude (length of vector) and its argument (angle from positive real axis, rotating counter-clockwise).",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "Now, what happens when we multiply complex numbers? It's not just simple component-wise multiplication. Geometrically, complex multiplication is a powerful transformation. Think of it as a combination of scaling and rotation! When you multiply a complex number 'z1' by another complex number 'z2', the vector representing 'z1' undergoes a change in both its length and its direction. This visual insight is key to understanding complex multiplication intuitively.",
+      "anim": "On the left, show a vector 'z' being scaled by a real number 'k'. On the right, show the same vector 'z' subtly transforming, first scaling and then rotating, hinting at the combined effect of complex multiplication. Use subtle arrows to indicate the transformation path.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Let's break down the scaling part. When you multiply two complex numbers, 'z1' and 'z2', the magnitude of the resulting product, 'z1 * z2', is simply the product of their individual magnitudes. So, if 'z1' has a magnitude of 2 and 'z2' has a magnitude of 3, their product 'z1 * z2' will have a magnitude of 6. Visually, the length of the product vector is stretched or shrunk by the magnitude of the second complex number.",
+      "anim": "Display 'z1' and 'z2' as vectors on the Argand plane. Clearly show their magnitudes, for example, |z1|=2 and |z2|=3. Then, demonstrate how the resultant vector 'z1 * z2' has a magnitude of |z1| * |z2| = 6, visually showing the scaling of 'z1' by the factor |z2|.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "Next, let's explore the rotation. The argument, or angle, of the product 'z1 * z2' is the sum of the individual arguments of 'z1' and 'z2'. If 'z1' makes an angle of 30 degrees and 'z2' makes an angle of 60 degrees, their product 'z1 * z2' will make an angle of 90 degrees. This means the vector 'z1' is effectively rotated by the angle of 'z2' around the origin. It's like 'z2' tells 'z1' how much to turn!",
+      "anim": "Show 'z1' and 'z2' as vectors. Highlight their respective arguments, arg(z1) and arg(z2). Then, visually animate 'z1' rotating counter-clockwise by the angle arg(z2) to arrive at the final angle for 'z1 * z2'. Show the sum of angles clearly.",
+      "layout": "custom"
+    },
+    {
+      "seq": 5,
+      "text": "So, to multiply 'z1' by 'z2', you first scale 'z1' by the magnitude of 'z2', and then rotate that scaled vector by the argument of 'z2'. The final vector is your product, 'z1 * z2'. This elegant geometric interpretation reveals why complex numbers are so fundamental in fields like electrical engineering, physics, and computer graphics, especially for operations involving rotations and transformations. Remember: multiply magnitudes, add arguments!",
+      "anim": "Show 'z1' and 'z2' vectors. Then, in a step-by-step animation: 1. Show 'z1' being scaled by '|z2|'. 2. Show the scaled 'z1' then rotating by 'arg(z2)'. 3. The final position is the product vector 'z1 * z2'. Conclude with a clear summary of the two rules side-by-side.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

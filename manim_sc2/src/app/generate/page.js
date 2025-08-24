@@ -295,7 +295,7 @@ const VideoGenerationPage = () => {
       }, 3000); // 3 second loading simulation
     } else {
       // If no generation data, redirect back to home
-      router.push("/");
+      // router.push("/");
     }
   }, [generationData, router, videoStreamUrl]);
 
@@ -521,27 +521,91 @@ Try streaming videos from your Express server!`,
     }
   };
 
-  const toggleFullscreen = () => {
-    if (!videoContainerRef.current) return;
+  const toggleFullscreen = async () => {
+    // Try container first, then video element as fallback
+    const element = videoContainerRef.current || videoRef.current;
+    
+    if (!element) {
+      console.error("No element found for fullscreen");
+      setChatMessages((prev) => [
+        ...prev,
+        {
+          id: Date.now(),
+          type: "assistant",
+          content: "❌ Cannot enter fullscreen: No video element found",
+          timestamp: new Date(),
+        },
+      ]);
+      return;
+    }
 
-    if (!isFullscreen) {
-      // Enter fullscreen
-      if (videoContainerRef.current.requestFullscreen) {
-        videoContainerRef.current.requestFullscreen();
-      } else if (videoContainerRef.current.webkitRequestFullscreen) {
-        videoContainerRef.current.webkitRequestFullscreen();
-      } else if (videoContainerRef.current.msRequestFullscreen) {
-        videoContainerRef.current.msRequestFullscreen();
+    try {
+      if (!isFullscreen) {
+        // Enter fullscreen
+        if (element.requestFullscreen) {
+          await element.requestFullscreen();
+        } else if (element.webkitRequestFullscreen) {
+          await element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) {
+          await element.msRequestFullscreen();
+        } else if (element.mozRequestFullScreen) {
+          await element.mozRequestFullScreen();
+        } else {
+          console.warn("Fullscreen API not supported");
+          setChatMessages((prev) => [
+            ...prev,
+            {
+              id: Date.now(),
+              type: "assistant",
+              content: "❌ Fullscreen not supported in this browser",
+              timestamp: new Date(),
+            },
+          ]);
+          return;
+        }
+        
+        setChatMessages((prev) => [
+          ...prev,
+          {
+            id: Date.now(),
+            type: "assistant",
+            content: "✅ Entered fullscreen mode",
+            timestamp: new Date(),
+          },
+        ]);
+      } else {
+        // Exit fullscreen
+        if (document.exitFullscreen) {
+          await document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+          await document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+          await document.msExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+          await document.mozCancelFullScreen();
+        }
+        
+        setChatMessages((prev) => [
+          ...prev,
+          {
+            id: Date.now(),
+            type: "assistant",
+            content: "✅ Exited fullscreen mode",
+            timestamp: new Date(),
+          },
+        ]);
       }
-    } else {
-      // Exit fullscreen
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen();
-      } else if (document.msExitFullscreen) {
-        document.msExitFullscreen();
-      }
+    } catch (error) {
+      console.error("Fullscreen error:", error);
+      setChatMessages((prev) => [
+        ...prev,
+        {
+          id: Date.now(),
+          type: "assistant",
+          content: `❌ Fullscreen error: ${error.message}. Try clicking the video directly or use F11 key.`,
+          timestamp: new Date(),
+        },
+      ]);
     }
   };
 
@@ -608,12 +672,20 @@ Try streaming videos from your Express server!`,
   // Fullscreen event handler
   useEffect(() => {
     const handleFullscreenChange = () => {
-      setIsFullscreen(!!document.fullscreenElement);
+      const isCurrentlyFullscreen = !!(
+        document.fullscreenElement ||
+        document.webkitFullscreenElement ||
+        document.msFullscreenElement
+      );
+      setIsFullscreen(isCurrentlyFullscreen);
+      console.log("Fullscreen state changed:", isCurrentlyFullscreen);
     };
 
+    // Add event listeners for different browsers
     document.addEventListener("fullscreenchange", handleFullscreenChange);
     document.addEventListener("webkitfullscreenchange", handleFullscreenChange);
     document.addEventListener("msfullscreenchange", handleFullscreenChange);
+    document.addEventListener("mozfullscreenchange", handleFullscreenChange);
 
     return () => {
       document.removeEventListener("fullscreenchange", handleFullscreenChange);
@@ -623,6 +695,10 @@ Try streaming videos from your Express server!`,
       );
       document.removeEventListener(
         "msfullscreenchange",
+        handleFullscreenChange
+      );
+      document.removeEventListener(
+        "mozfullscreenchange",
         handleFullscreenChange
       );
     };
@@ -943,7 +1019,7 @@ Try streaming videos from your Express server!`,
         {/* Video Player Area */}
         <div className="flex-1 flex flex-col bg-black">
           {/* Video Container - Top Section */}
-          <div className="relative bg-black">
+          <div className="relative bg-black" ref={videoContainerRef}>
             {selectedVideo ? (
               <div className="relative">
                 <video
@@ -954,15 +1030,24 @@ Try streaming videos from your Express server!`,
                   className="w-full h-64 md:h-80 object-contain bg-black"
                   crossOrigin="anonymous"
                   preload="metadata"
+                  style={{
+                    filter: 'none',
+                    colorScheme: 'normal'
+                  }}
                   onClick={togglePlayPause}
                   onLoadedMetadata={() => {
                     console.log("Video metadata loaded:", {
                       duration: videoRef.current?.duration,
                       videoWidth: videoRef.current?.videoWidth,
                       videoHeight: videoRef.current?.videoHeight,
+                      src: videoRef.current?.src,
+                      currentSrc: videoRef.current?.currentSrc,
                     });
                     if (videoRef.current) {
                       setDuration(videoRef.current.duration);
+                      // Ensure no filters are applied
+                      videoRef.current.style.filter = 'none';
+                      videoRef.current.style.webkitFilter = 'none';
                     }
                   }}
                   onTimeUpdate={() => {
@@ -1207,37 +1292,4 @@ Try streaming videos from your Express server!`,
                           <button
                             key={index}
                             onClick={() => streamVideoFromServer(video.name)}
-                            className="w-full text-left p-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-all flex items-center justify-between group"
-                          >
-                            <span className="text-gray-300 group-hover:text-white text-sm truncate">
-                              {video.name}
-                            </span>
-                            <span className="text-xs text-gray-500">
-                              {(video.size / 1024 / 1024).toFixed(1)}MB
-                            </span>
-                          </button>
-                        ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <div className="text-center text-gray-400 py-12">
-                <FiFile className="text-4xl mx-auto mb-4 opacity-50" />
-                <h3 className="text-lg font-semibold mb-2">
-                  No Video Selected
-                </h3>
-                <p className="text-sm">
-                  Choose a video from the selection panel above to view details
-                  and start streaming.
-                </p>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default VideoGenerationPage;
+                            className="w-full text-lef

@@ -11,149 +11,197 @@ import numpy as np
 
 class Scene2(SplitScreen):
     def construct_scene(self):
-        # --- Scene Setup ---
-        # Matrices A and B
-        matrix_a = MathTex(r"A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}", font_size=60)
-        matrix_b = MathTex(r"B = \begin{pmatrix} 5 & 6 \\ 7 & 8 \end{pmatrix}", font_size=60)
-        matrix_c_initial = MathTex(r"C = \begin{pmatrix} ? & ? \\ ? & ? \end{pmatrix}", font_size=60)
+        from manim import *
+        import numpy as np
 
-        # Arrange A and B side by side, then C below them in the left_region
-        matrices_ab = VGroup(matrix_a, matrix_b).arrange(RIGHT, buff=1.5)
-        matrices_ab.move_to(self.left_region.get_center() + UP * self.left_region.height / 4)
-
-        matrix_c_initial.next_to(matrices_ab, DOWN, buff=1.0)
-        matrix_c_initial.align_to(matrices_ab, LEFT) # Align C with A
-
-        self.play(
-        Write(matrix_a),
-        Write(matrix_b),
-        Write(matrix_c_initial)
+        # Narration text
+        narration_text_content = (
+        "Now, what happens when we multiply complex numbers? It's not just simple "
+        "component-wise multiplication. Geometrically, complex multiplication is a "
+        "powerful transformation. Think of it as a combination of scaling and rotation! "
+        "When you multiply a complex number 'z1' by another complex number 'z2', the "
+        "vector representing 'z1' undergoes a change in both its length and its direction. "
+        "This visual insight is key to understanding complex multiplication intuitively."
         )
-        self.wait(0.5)
 
-        # --- Highlight Row 1 of A and Column 1 of B ---
-        # Get elements for row 1 of A: 1, 2
-        a_11 = matrix_a.get_entries()[0] # The '1'
-        a_12 = matrix_a.get_entries()[1] # The '2'
-        row1_a = VGroup(a_11, a_12)
+        # Create the initial narration text, placed at the top of the screen.
+        # Assuming 'self.create_textbox' handles fitting the text within the given dimensions.
+        narration_text = self.create_textbox(narration_text_content, config.frame_width * 0.9, config.frame_height * 0.2)
+        narration_text.to_edge(UP)
+        self.play(FadeIn(narration_text), run_time=1)
+        self.wait(5) # Give time to read the initial overview
 
-        # Get elements for col 1 of B: 5, 7
-        b_11 = matrix_b.get_entries()[0] # The '5'
-        b_21 = matrix_b.get_entries()[2] # The '7'
-        col1_b = VGroup(b_11, b_21)
+        # --- Setup Axes for both sides ---
+        # Adjust axes dimensions to fit within the provided regions
+        left_axes = Axes(
+        x_range=[-3, 3, 1], y_range=[-3, 3, 1],
+        x_length=self.left_region.width * 0.8, y_length=self.left_region.height * 0.8,
+        axis_config={"color": GRAY, "stroke_width": 2},
+        tips=False
+        ).move_to(self.left_region.get_center())
+        left_axes.add(left_axes.get_axis_labels(x_label="Re", y_label="Im"))
 
-        # Create surrounding rectangles
-        rect_a1 = SurroundingRectangle(row1_a, color=YELLOW, buff=0.1)
-        rect_b1 = SurroundingRectangle(col1_b, color=YELLOW, buff=0.1)
+        right_axes = Axes(
+        x_range=[-3, 3, 1], y_range=[-3, 3, 1],
+        x_length=self.right_region.width * 0.8, y_length=self.right_region.height * 0.8,
+        axis_config={"color": GRAY, "stroke_width": 2},
+        tips=False
+        ).move_to(self.right_region.get_center())
+        right_axes.add(right_axes.get_axis_labels(x_label="Re", y_label="Im"))
 
         self.play(
-        Create(rect_a1),
-        Create(rect_b1),
-        run_time=1.5
+        Create(left_axes),
+        Create(right_axes),
+        run_time=3
         )
-        self.wait(0.5)
+        self.wait(2)
 
-        # --- Multiplication on the Right ---
-        # Create copies of the elements to move to the right region
-        a_11_copy = a_11.copy().set_color(YELLOW)
-        a_12_copy = a_12.copy().set_color(YELLOW)
-        b_11_copy = b_11.copy().set_color(YELLOW)
-        b_21_copy = b_21.copy().set_color(YELLOW)
+        # --- Initial Vector 'z' ---
+        initial_z_complex = complex(1, 1.5) # Example complex number z = 1 + 1.5i
 
-        # Define target positions in the right region
-        target_pos_1x5_left = self.right_region.get_center() + UP * self.right_region.height / 4 + LEFT * 1.5
-        target_pos_1x5_right = self.right_region.get_center() + UP * self.right_region.height / 4 + RIGHT * 0.5
-        target_pos_2x7_left = self.right_region.get_center() + DOWN * self.right_region.height / 10 + LEFT * 1.5
-        target_pos_2x7_right = self.right_region.get_center() + DOWN * self.right_region.height / 10 + RIGHT * 0.5
+        # Left side vector
+        z_left = Arrow(start=left_axes.c2p(0), end=left_axes.c2p(initial_z_complex), buff=0, color=BLUE, tip_length=0.2)
+        label_z_left = MathTex("z", color=BLUE).next_to(z_left.get_end(), UP + RIGHT * 0.5)
 
-        # Animate copies moving
-        self.play(
-        a_11_copy.animate.move_to(target_pos_1x5_left),
-        b_11_copy.animate.move_to(target_pos_1x5_right),
-        a_12_copy.animate.move_to(target_pos_2x7_left),
-        b_21_copy.animate.move_to(target_pos_2x7_right),
-        FadeOut(rect_a1), # Fade out the highlighting rectangles
-        FadeOut(rect_b1),
-        run_time=1.5
-        )
-        self.wait(0.5)
-
-        # Create multiplication expressions
-        mult_sign1 = MathTex(r"\times", font_size=60).next_to(a_11_copy, RIGHT, buff=0.2)
-        eq_sign1 = MathTex(r"=", font_size=60).next_to(b_11_copy, RIGHT, buff=0.2)
-        result_5 = MathTex("5", font_size=60).next_to(eq_sign1, RIGHT, buff=0.2).set_color(BLUE)
-
-        mult_sign2 = MathTex(r"\times", font_size=60).next_to(a_12_copy, RIGHT, buff=0.2)
-        eq_sign2 = MathTex(r"=", font_size=60).next_to(b_21_copy, RIGHT, buff=0.2)
-        result_14 = MathTex("14", font_size=60).next_to(eq_sign2, RIGHT, buff=0.2).set_color(BLUE)
+        # Right side vector (initially identical to left)
+        z_right_initial = Arrow(start=right_axes.c2p(0), end=right_axes.c2p(initial_z_complex), buff=0, color=BLUE, tip_length=0.2)
+        label_z_right_initial = MathTex("z", color=BLUE).next_to(z_right_initial.get_end(), UP + RIGHT * 0.5)
 
         self.play(
-        Write(mult_sign1),
-        Write(eq_sign1),
-        Write(result_5),
-        Write(mult_sign2),
-        Write(eq_sign2),
-        Write(result_14),
+        GrowArrow(z_left),
+        Write(label_z_left),
+        GrowArrow(z_right_initial),
+        Write(label_z_right_initial),
         run_time=2
         )
-        self.wait(0.5)
+        self.wait(1)
 
-        # --- Summation ---
-        plus_sign = MathTex("+", font_size=60).next_to(result_5, DOWN, buff=0.5).align_to(mult_sign1, LEFT)
-        line_sum = Line(LEFT, RIGHT).set_width(result_14.get_right()[0] - result_5.get_left()[0]).next_to(result_14, DOWN, buff=0.3)
-        line_sum.align_to(result_14, RIGHT) # Align the right end of the line with result_14's right end
-
-        sum_result = MathTex("19", font_size=72).next_to(line_sum, DOWN, buff=0.5).set_color(GREEN)
+        # --- Left Animation: Real Scaling ---
+        # Fade out the general narration and bring in specific narration for the left side.
+        left_narration_content = "On the left, we see simple scaling by a real number. The direction remains the same, only the length changes."
+        left_narration = self.create_textbox(left_narration_content, self.left_region.width * 0.9, config.frame_height * 0.1)
+        left_narration.next_to(left_axes, UP)
 
         self.play(
-        Write(plus_sign),
-        Create(line_sum),
+        FadeOut(narration_text),
+        FadeIn(left_narration),
         run_time=1
         )
-        self.wait(0.5)
+
+        k_scalar = 2
+        scaled_z_complex_left = initial_z_complex * k_scalar
+        scaled_z_point_left = left_axes.c2p(scaled_z_complex_left)
+
+        # Path for scaling (subtle dashed line)
+        scaling_path_left = Line(z_left.get_end(), scaled_z_point_left, stroke_opacity=0.5, stroke_width=2, color=YELLOW)
+        scaling_path_left.set_stroke(dash_array=[0.05, 0.1])
+
+        # Scaled vector
+        scaled_z_left = Arrow(start=left_axes.c2p(0), end=scaled_z_point_left, buff=0, color=GREEN, tip_length=0.2)
+        label_scaled_z_left = MathTex(f"{k_scalar}z", color=GREEN).next_to(scaled_z_left.get_end(), UP + RIGHT * 0.5)
+
         self.play(
-        Write(sum_result),
-        run_time=1.5
+        Create(scaling_path_left),
+        Transform(z_left, scaled_z_left), # z_left transforms into scaled_z_left
+        FadeOut(label_z_left),
+        FadeIn(label_scaled_z_left),
+        run_time=5
+        )
+        self.wait(3)
+
+        # --- Right Animation: Complex Multiplication (Scaling + Rotation) ---
+        # Fade out left narration and bring in specific narration for the right side.
+        right_narration_content = "Complex multiplication involves both scaling and rotation. The vector changes both its length and direction. This visual insight is key to understanding complex multiplication intuitively."
+        right_narration = self.create_textbox(right_narration_content, self.right_region.width * 0.9, config.frame_height * 0.1)
+        right_narration.next_to(right_axes, UP)
+
+        self.play(
+        FadeOut(left_narration),
+        FadeIn(right_narration),
+        run_time=1
+        )
+
+        # Complex multiplier w = magnitude * e^(i * angle)
+        magnitude_w = 1.8
+        angle_w = PI / 3 # 60 degrees
+        w_complex = magnitude_w * np.exp(1j * angle_w)
+        transformed_z_complex_right = initial_z_complex * w_complex
+
+        # Create a ValueTracker for the complex number representing the current state of z_right
+        current_z_tracker = ValueTracker(initial_z_complex)
+
+        # The actual vector for the right side, which will be updated
+        z_right_animated = Arrow(start=right_axes.c2p(0), end=right_axes.c2p(initial_z_complex), buff=0, color=ORANGE, tip_length=0.2)
+
+        # Updater function for the animated vector
+        def update_z_right_vector(mobj):
+        current_complex = current_z_tracker.get_value()
+        mobj.become(Arrow(start=right_axes.c2p(0), end=right_axes.c2p(current_complex), buff=0, color=ORANGE, tip_length=0.2))
+
+        z_right_animated.add_updater(update_z_right_vector)
+        self.add(z_right_animated) # Add the animated vector to the scene
+        self.remove(z_right_initial) # Remove the initial static vector
+        self.remove(label_z_right_initial) # Remove its label
+
+        # Path for the transformation: first scale, then rotate
+        # Intermediate point after scaling only
+        scaled_only_complex_right = initial_z_complex * magnitude_w
+        scaled_only_point_right = right_axes.c2p(scaled_only_complex_right)
+
+        # Path for scaling part (subtle dashed line)
+        path_scale = Line(right_axes.c2p(initial_z_complex), scaled_only_point_right, color=YELLOW, stroke_width=2, stroke_opacity=0.5)
+        path_scale.set_stroke(dash_array=[0.05, 0.1])
+
+        # Path for rotation part (subtle dashed arc)
+        path_rotate = Arc(
+        start_angle=np.angle(scaled_only_complex_right),
+        angle=angle_w,
+        radius=np.abs(scaled_only_complex_right),
+        arc_center=right_axes.c2p(0),
+        color=YELLOW, stroke_width=2, stroke_opacity=0.5
+        )
+        path_rotate.set_stroke(dash_array=[0.05, 0.1])
+
+        # Animate scaling
+        self.play(
+        Create(path_scale),
+        current_z_tracker.animate.set_value(scaled_only_complex_right),
+        run_time=4
         )
         self.wait(1)
 
-        # --- Place Result in C11 ---
-        # Get the position of the '?' in C11
-        c_11_question_mark = matrix_c_initial.get_entries()[0] # The first '?'
-
-        # Create a copy of the '19' from the sum result to move
-        sum_result_copy = sum_result.copy()
-
-        # Animate the '19' moving to the C11 position
+        # Animate rotation
         self.play(
-        sum_result_copy.animate.move_to(c_11_question_mark.get_center()),
-        run_time=1.5
+        Create(path_rotate),
+        current_z_tracker.animate.set_value(transformed_z_complex_right),
+        run_time=4
         )
-        self.wait(0.5)
 
-        # Create the final '19' mobject that will replace the '?' in the matrix
-        final_19_in_matrix = MathTex("19", font_size=60).move_to(c_11_question_mark.get_center())
-        final_19_in_matrix.set_color(GREEN) # Keep the color consistent
+        # Final label for the transformed vector
+        label_transformed_z_right = MathTex("wz", color=ORANGE).next_to(z_right_animated.get_end(), UP + RIGHT * 0.5)
+        self.play(FadeIn(label_transformed_z_right), run_time=1)
 
-        # Replace the '?' with '19' in the matrix and fade out the moving copy
+        self.wait(5) # Give time to read the final narration and observe the result
+
+        # Clean up updaters before ending the scene
+        z_right_animated.remove_updater(update_z_right_vector)
+
+        # Final fade out of all mobjects
         self.play(
-        ReplacementTransform(c_11_question_mark, final_19_in_matrix),
-        FadeOut(sum_result_copy),
-        run_time=1
-        )
-        self.wait(1)
-
-        # --- Cleanup ---
-        # Fade out all elements in the right region and the highlighting elements
-        self.play(
-        FadeOut(a_11_copy), FadeOut(b_11_copy), FadeOut(a_12_copy), FadeOut(b_21_copy),
-        FadeOut(mult_sign1), FadeOut(eq_sign1), FadeOut(result_5),
-        FadeOut(mult_sign2), FadeOut(eq_sign2), FadeOut(result_14),
-        FadeOut(plus_sign), FadeOut(line_sum), FadeOut(sum_result),
-        run_time=1.5
+        FadeOut(left_axes),
+        FadeOut(right_axes),
+        FadeOut(scaled_z_left), # This is the final state of the left vector
+        FadeOut(label_scaled_z_left),
+        FadeOut(scaling_path_left),
+        FadeOut(z_right_animated), # This is the final state of the right vector
+        FadeOut(label_transformed_z_right),
+        FadeOut(path_scale),
+        FadeOut(path_rotate),
+        FadeOut(right_narration),
+        run_time=2
         )
         self.wait(1)
 
 # Set narration and duration
-Scene2.narration_text = '''To find the element in the first row, first column of our result matrix C, often called C11, we take the first row of matrix A and multiply it by the first column of matrix B. We multiply corresponding elements and then sum them up. So, for C11, we multiply (1 times 5) plus (2 times 7). That gives us 5 plus 14, which equals 19. This is our first element!'''
+Scene2.narration_text = '''Now, what happens when we multiply complex numbers? It\'s not just simple component-wise multiplication. Geometrically, complex multiplication is a powerful transformation. Think of it as a combination of scaling and rotation! When you multiply a complex number \'z1\' by another complex number \'z2\', the vector representing \'z1\' undergoes a change in both its length and its direction. This visual insight is key to understanding complex multiplication intuitively.'''
 Scene2.audio_duration = 5.0

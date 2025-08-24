@@ -1,112 +1,126 @@
-import sys
-sys.path.append(r'C:\Users\isanham\Documents\temp\langChan_tst')
+
 from manim import *
-try:
-    from manim_layout_manager import LayoutManager, LayoutStrategy, PreferredPosition, BoundingBox
-    LAYOUT_MANAGER_AVAILABLE = True
-except ImportError:
-    LAYOUT_MANAGER_AVAILABLE = False
-from src.templates.layouts import SplitScreen
 import numpy as np
 
-class Scene3(SplitScreen):
-    def construct_scene(self):
-        from manim import *
+class Scene3(Scene):
+    def construct(self):
+        # --- Setup Argand Plane ---
+        plane = NumberPlane(
+            x_range=[-7, 7, 1],
+            y_range=[-4, 4, 1],
+            x_length=14,
+            y_length=8,
+            axis_config={"color": GRAY},
+            background_line_style={"stroke_color": GRAY, "stroke_opacity": 0.5}
+        ).add_coordinates()
+        self.play(Create(plane, run_time=1.5))
+        self.wait(0.5)
 
-        # --- Setup Matrices ---
-        A = Matrix([[1, 2], [3, 4]])
-        B = Matrix([[5, 6], [7, 8]])
-        C_initial = Matrix([["?", "?"], ["?", "?"]]) # Placeholder for result matrix
+        # --- Define Complex Numbers ---
+        # z1: magnitude 2, angle 0 (purely real for clear scaling visualization)
+        z1_val = complex(2, 0)
+        # z2: magnitude 3, angle PI/4
+        z2_val = complex(3 * np.cos(PI/4), 3 * np.sin(PI/4))
+        # z1 * z2: magnitude |z1|*|z2|=6, angle 0+PI/4=PI/4
+        z_product_val = z1_val * z2_val
 
-        mult_sign = MathTex("\\times")
-        eq_sign = MathTex("=")
+        # Helper to convert complex number to Manim vector coordinates
+        def c_to_v(z):
+            return plane.c2p(z.real, z.imag)
 
-        # Arrange matrices horizontally in the left region
-        matrices_group = VGroup(A, mult_sign, B, eq_sign, C_initial).arrange(RIGHT, buff=0.7)
-        matrices_group.move_to(self.left_region.get_center())
+        # --- Mobjects for z1 ---
+        z1_arrow = Arrow(ORIGIN, c_to_v(z1_val), buff=0, color=BLUE, tip_length=0.2)
+        z1_label = MathTex("z_1", color=BLUE).next_to(z1_arrow, UP + RIGHT, buff=0.1)
+        z1_magnitude_text = MathTex("|z_1| = 2", color=BLUE).to_corner(UL).shift(DOWN * 0.5)
 
-        # Display initial matrices
+        # --- Mobjects for z2 ---
+        z2_arrow = Arrow(ORIGIN, c_to_v(z2_val), buff=0, color=GREEN, tip_length=0.2)
+        z2_label = MathTex("z_2", color=GREEN).next_to(z2_arrow, UP + LEFT, buff=0.1)
+        z2_magnitude_text = MathTex("|z_2| = 3", color=GREEN).next_to(z1_magnitude_text, DOWN, aligned_edge=LEFT)
+
+        # --- Display z1 and its magnitude ---
         self.play(
-        FadeIn(A, shift=LEFT),
-        FadeIn(mult_sign),
-        FadeIn(B, shift=RIGHT),
-        FadeIn(eq_sign),
-        FadeIn(C_initial, shift=RIGHT)
+            GrowArrow(z1_arrow),
+            Write(z1_label),
+            run_time=1.5
         )
+        self.play(Write(z1_magnitude_text))
         self.wait(0.5)
 
-        # --- C12 Calculation ---
-        # Highlight row 1 of A and column 2 of B
-        rect_A_row1 = SurroundingRectangle(A.get_rows()[0], color=YELLOW, buff=0.1)
-        rect_B_col2 = SurroundingRectangle(B.get_columns()[1], color=YELLOW, buff=0.1)
-        self.play(Create(rect_A_row1), Create(rect_B_col2))
-        self.wait(0.5)
-
-        # Show calculation steps on the right
-        calc_c12_line1 = MathTex("(1 \\times 6) + (2 \\times 8)")
-        calc_c12_line2 = MathTex("= 6 + 16")
-        calc_c12_line3 = MathTex("= 22")
-
-        # Arrange calculation lines and position in the right region
-        calc_c12_group = VGroup(calc_c12_line1, calc_c12_line2, calc_c12_line3).arrange(DOWN, aligned_edge=LEFT)
-        calc_c12_group.move_to(self.right_region.get_center())
-
-        self.play(Write(calc_c12_line1))
-        self.wait(0.5)
-        self.play(TransformMatchingTex(calc_c12_line1, calc_c12_line2))
-        self.wait(0.5)
-        self.play(TransformMatchingTex(calc_c12_line2, calc_c12_line3))
-        self.wait(0.5)
-
-        # Animate '22' sliding into the C12 position of matrix C
-        # C[0][1] is the second element in the flat list of entries (index 1)
-        c12_target_pos = C_initial.get_entries()[1].get_center() 
-        result_22_mobj = calc_c12_line3.copy().move_to(c12_target_pos) # Create a copy to move
-
+        # --- Display z2 and its magnitude ---
         self.play(
-        Transform(C_initial.get_entries()[1], result_22_mobj), # Transform the '?' mobject to '22'
-        FadeOut(calc_c12_line3), # Fade out the original calculation result
-        FadeOut(rect_A_row1),
-        FadeOut(rect_B_col2)
+            GrowArrow(z2_arrow),
+            Write(z2_label),
+            run_time=1.5
         )
-        self.wait(0.5)
+        self.play(Write(z2_magnitude_text))
+        self.wait(1)
 
-        # --- C21 Calculation ---
-        # Highlight row 2 of A and column 1 of B
-        rect_A_row2 = SurroundingRectangle(A.get_rows()[1], color=YELLOW, buff=0.1)
-        rect_B_col1 = SurroundingRectangle(B.get_columns()[0], color=YELLOW, buff=0.1)
-        self.play(Create(rect_A_row2), Create(rect_B_col1))
-        self.wait(0.5)
+        # --- Introduce the scaling principle ---
+        scaling_principle = MathTex(
+            "|z_1 \\cdot z_2|", "=", "|z_1|", "\\cdot", "|z_2|",
+            font_size=50
+        ).next_to(plane, DOWN, buff=0.8)
+        self.play(Write(scaling_principle))
+        self.wait(1)
 
-        # Show calculation steps on the right
-        calc_c21_line1 = MathTex("(3 \\times 5) + (4 \\times 7)")
-        calc_c21_line2 = MathTex("= 15 + 28")
-        calc_c21_line3 = MathTex("= 43")
-
-        # Arrange calculation lines and position in the right region
-        calc_c21_group = VGroup(calc_c21_line1, calc_c21_line2, calc_c21_line3).arrange(DOWN, aligned_edge=LEFT)
-        calc_c21_group.move_to(self.right_region.get_center())
-
-        self.play(Write(calc_c21_line1))
-        self.wait(0.5)
-        self.play(TransformMatchingTex(calc_c21_line1, calc_c21_line2))
-        self.wait(0.5)
-        self.play(TransformMatchingTex(calc_c21_line2, calc_c21_line3))
-        self.wait(0.5)
-
-        # Animate '43' sliding into the C21 position of matrix C
-        # C[1][0] is the third element in the flat list of entries (index 2)
-        c21_target_pos = C_initial.get_entries()[2].get_center() 
-        result_43_mobj = calc_c21_line3.copy().move_to(c21_target_pos)
+        # --- Substitute values and show resultant magnitude ---
+        product_magnitudes = MathTex(
+            "|z_1 \\cdot z_2|", "=", "2", "\\cdot", "3", "=", "6",
+            font_size=50
+        ).move_to(scaling_principle)
 
         self.play(
-        Transform(C_initial.get_entries()[2], result_43_mobj), # Transform the '?' mobject to '43'
-        FadeOut(calc_c21_line3), # Fade out the original calculation result
-        FadeOut(rect_A_row2),
-        FadeOut(rect_B_col1)
+            TransformMatchingTex(
+                scaling_principle,
+                product_magnitudes,
+                transform_mismatched_parts=True
+            )
         )
-        self.wait(1) # Final wait
+        self.wait(1.5)
 
-# Set narration and duration
-Scene3.narration_text = '''Next, let\'s find C12, the element in the first row, second column of C. We use the first row of A again, but this time, the second column of B. So, it\'s (1 times 6) plus (2 times 8). That\'s 6 plus 16, resulting in 22. This goes into the C12 spot. Now for C21, second row, first column. We take the second row of A, which is [3, 4], and the first column of B, [5, 7]. This gives us (3 times 5) plus (4 times 7). That\'s 15 plus 28, totaling 43. And that fills our C21 position.'''
-Scene3.audio_duration = 5.0
+        # --- Visual demonstration of scaling ---
+        # Fade out z2 and its label to focus on z1 scaling
+        self.play(FadeOut(z2_arrow, z2_label, z2_magnitude_text))
+        self.wait(0.5)
+
+        # Create a temporary vector that is z1 scaled by |z2| (magnitude 3)
+        # This vector has magnitude 6 and the same angle as z1 (0 degrees)
+        temp_scaled_z1_val = z1_val * abs(z2_val) # complex(6, 0)
+        temp_scaled_z1_arrow = Arrow(ORIGIN, c_to_v(temp_scaled_z1_val), buff=0, color=YELLOW, tip_length=0.2)
+        temp_scaled_z1_label = MathTex("|z_1| \\cdot |z_2|", color=YELLOW).next_to(temp_scaled_z1_arrow, UP, buff=0.1)
+
+        # Animate z1_arrow scaling to temp_scaled_z1_arrow
+        # This visually shows z1's length being stretched by the factor |z2|
+        self.play(
+            Transform(z1_arrow, temp_scaled_z1_arrow),
+            FadeOut(z1_label), # z1 label is no longer accurate for the scaled vector
+            Write(temp_scaled_z1_label),
+            run_time=2
+        )
+        self.wait(1)
+
+        # --- Show the final product vector ---
+        z_product_arrow = Arrow(ORIGIN, c_to_v(z_product_val), buff=0, color=RED, tip_length=0.2)
+        z_product_label = MathTex("z_1 \\cdot z_2", color=RED).next_to(z_product_arrow, UP + RIGHT, buff=0.1)
+        # Position the product magnitude text where z2's magnitude text was
+        z_product_magnitude_text = MathTex("|z_1 \\cdot z_2| = 6", color=RED).move_to(z1_magnitude_text.get_center() + DOWN * 1.0)
+
+
+        # Transform the scaled z1 (yellow) into the actual product (red)
+        # This implicitly shows the rotation, but the magnitude remains 6.
+        self.play(
+            Transform(temp_scaled_z1_arrow, z_product_arrow),
+            FadeOut(temp_scaled_z1_label),
+            Write(z_product_label),
+            Write(z_product_magnitude_text),
+            run_time=2
+        )
+        self.wait(1)
+
+        # Clean up
+        self.play(
+            FadeOut(plane, z1_magnitude_text, z_product_magnitude_text, product_magnitudes, z_product_label, z_product_arrow),
+            run_time=2
+        )
+        self.wait(0.5)

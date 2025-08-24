@@ -1,148 +1,152 @@
 
 from manim import *
+import numpy as np
 
-class GeneratedScene_4(Scene):
+class Scene4(Scene):
     def construct(self):
-        # Define matrices A, B, and C (result)
-        matrix_A_values = [[1, 2], [3, 4]]
-        matrix_B_values = [[5, 6], [7, 8]]
-        matrix_C_values_initial = [["?", "?"], ["?", "?"]]
-        matrix_C_values_partial = [[19, 22], [43, "?"]] # Assuming C11, C12, C21 are done
-        matrix_C_values_final = [[19, 22], [43, 50]]
+        # --- Configuration: Complex Plane ---
+        plane = NumberPlane(
+            x_range=[-4, 4, 1],
+            y_range=[-4, 4, 1],
+            x_length=8,
+            y_length=8,
+            axis_config={"include_numbers": True},
+            background_line_style={"stroke_opacity": 0.5}
+        ).add_coordinates()
+        self.add(plane)
 
-        # Create Mobjects for matrices and signs
-        matrix_A = Matrix(matrix_A_values, h_buff=1.5).scale(0.8)
-        matrix_B = Matrix(matrix_B_values, h_buff=1.5).scale(0.8)
-        matrix_C = Matrix(matrix_C_values_initial, h_buff=1.5).scale(0.8)
-        times_sign = MathTex("\\times").scale(0.8)
-        equals_sign = MathTex("=").scale(0.8)
+        # --- Complex Numbers ---
+        # z1 at 30 degrees, magnitude 2
+        z1_val = 2 * np.exp(1j * 30 * DEGREES)
+        # z2 at 60 degrees, magnitude 1.5
+        z2_val = 1.5 * np.exp(1j * 60 * DEGREES)
+        # Product z1 * z2 will be at 90 degrees, magnitude 3
+        z_product_val = z1_val * z2_val
 
-        # Arrange them on screen
-        matrix_group = VGroup(matrix_A, times_sign, matrix_B, equals_sign, matrix_C).arrange(RIGHT, buff=0.7).to_edge(UP, buff=1)
+        # --- Mobjects: Vectors ---
+        z1_vec = Arrow(ORIGIN, plane.c2p(z1_val), buff=0, color=BLUE, tip_length=0.2)
+        z2_vec = Arrow(ORIGIN, plane.c2p(z2_val), buff=0, color=RED, tip_length=0.2)
+        z_product_vec = Arrow(ORIGIN, plane.c2p(z_product_val), buff=0, color=GREEN, tip_length=0.2)
 
-        self.add(matrix_A, times_sign, matrix_B, equals_sign)
-        self.play(Create(matrix_C))
+        # --- Mobjects: Labels for Vectors ---
+        z1_label = MathTex("z_1").next_to(z1_vec, UP + RIGHT, buff=0.1).set_color(BLUE)
+        z2_label = MathTex("z_2").next_to(z2_vec, UP + LEFT, buff=0.1).set_color(RED)
+        z_product_label = MathTex("z_1 z_2").next_to(z_product_vec, UP + RIGHT, buff=0.1).set_color(GREEN)
+
+        # --- Mobjects: Angles ---
+        # Helper line for angle reference (positive x-axis)
+        x_axis_line = Line(ORIGIN, plane.c2p(plane.x_range[1], 0))
+
+        arg_z1_arc = Angle(x_axis_line, z1_vec, radius=0.5, color=YELLOW)
+        arg_z2_arc = Angle(x_axis_line, z2_vec, radius=0.7, color=ORANGE)
+        arg_product_arc = Angle(x_axis_line, z_product_vec, radius=0.9, color=GREEN)
+
+        # --- Mobjects: Labels for Angles ---
+        arg_z1_label = arg_z1_arc.get_label(MathTex("30^\\circ")).set_color(YELLOW)
+        arg_z2_label = arg_z2_arc.get_label(MathTex("60^\\circ")).set_color(ORANGE)
+        arg_product_label = arg_product_arc.get_label(MathTex("90^\\circ")).set_color(GREEN)
+
+        # --- Introduction of z1 ---
+        self.play(Create(z1_vec), Write(z1_label), run_time=1)
+        self.play(Create(arg_z1_arc), Write(arg_z1_label), run_time=1)
         self.wait(0.5)
 
-        # Fill in the already calculated values (C11, C12, C21)
-        matrix_C_partial_mobj = Matrix(matrix_C_values_partial, h_buff=1.5).scale(0.8).move_to(matrix_C)
-        self.play(Transform(matrix_C, matrix_C_partial_mobj))
+        # --- Introduction of z2 ---
+        self.play(Create(z2_vec), Write(z2_label), run_time=1)
+        self.play(Create(arg_z2_arc), Write(arg_z2_label), run_time=1)
+        self.wait(0.5)
+
+        # --- Text Explanation 1 ---
+        text1_line1 = Text(
+            "Next, let's explore the rotation. The argument, or angle, of the product 'z1 * z2'",
+            font_size=28, disable_ligatures=True
+        ).to_edge(UP)
+        text1_line2 = Text(
+            "is the sum of the individual arguments of 'z1' and 'z2'.",
+            font_size=28, disable_ligatures=True
+        ).next_to(text1_line1, DOWN)
+        self.play(Write(text1_line1))
+        self.play(Write(text1_line2))
+        self.wait(2)
+        self.play(FadeOut(text1_line1, text1_line2))
+
+        # --- Formula ---
+        formula = MathTex(r"\arg(z_1 z_2) = \arg(z_1) + \arg(z_2)", font_size=48).to_edge(UP)
+        self.play(Write(formula))
         self.wait(1.5)
+        self.play(FadeOut(formula))
 
-        # --- C22 Calculation ---
-        c22_target_entry = matrix_C.get_entries_without_brackets()[3] # The '?' for C22
-        c22_target_position = c22_target_entry.get_center()
+        # --- Text Explanation 2 (Specific Angles) ---
+        text2_line1 = Text(
+            "If 'z1' makes an angle of 30 degrees and 'z2' makes an angle of 60 degrees,",
+            font_size=28, disable_ligatures=True
+        ).to_edge(UP)
+        text2_line2 = Text(
+            "their product 'z1 * z2' will make an angle of 90 degrees.",
+            font_size=28, disable_ligatures=True
+        ).next_to(text2_line1, DOWN)
+        self.play(Write(text2_line1))
+        self.play(Write(text2_line2))
+        self.wait(2)
+        self.play(FadeOut(text2_line1, text2_line2))
 
-        # Highlight Row 2 of A and Column 2 of B
-        row2_A = matrix_A.get_rows()[1] # [3, 4]
-        col2_B = matrix_B.get_columns()[1] # [6, 8]
-
+        # --- Animate Rotation ---
+        # Dim z1 and its angle, keep z2 and its angle for reference
         self.play(
-            Indicate(row2_A, color=YELLOW),
-            Indicate(col2_B, color=YELLOW),
-            run_time=2
+            z1_vec.animate.set_opacity(0.5),
+            z1_label.animate.set_opacity(0.5),
+            arg_z1_arc.animate.set_opacity(0.5),
+            arg_z1_label.animate.set_opacity(0.5),
+            run_time=0.7
         )
-        self.wait(1.5)
 
-        # Display calculation: (3 * 6) + (4 * 8)
-        calc_text_1 = MathTex("(3 \\times 6)", "+", "(4 \\times 8)").next_to(matrix_group, DOWN, buff=1)
-        self.play(Write(calc_text_1), run_time=2)
-        self.wait(2)
+        # Create a copy of z1_vec and its angle to animate
+        z1_vec_copy = Arrow(ORIGIN, plane.c2p(z1_val), buff=0, color=BLUE, tip_length=0.2)
+        arg_z1_arc_copy = Angle(x_axis_line, z1_vec_copy, radius=0.5, color=YELLOW)
+        arg_z1_label_copy = arg_z1_arc_copy.get_label(MathTex("30^\\circ")).set_color(YELLOW)
+        self.add(z1_vec_copy, arg_z1_arc_copy, arg_z1_label_copy)
 
-        # Display intermediate sum: 18 + 32
-        calc_text_2 = MathTex("18", "+", "32").move_to(calc_text_1)
-        self.play(TransformMatchingTex(calc_text_1, calc_text_2), run_time=2)
-        self.wait(2)
-
-        # Display final result: 50
-        calc_text_3 = MathTex("50").move_to(calc_text_2)
-        self.play(TransformMatchingTex(calc_text_2, calc_text_3), run_time=2)
-        self.wait(2)
-
-        # Slide '50' into the C22 position
-        c22_value_mobj = MathTex("50").scale(0.8).move_to(calc_text_3)
-        self.play(
-            c22_value_mobj.animate.move_to(c22_target_position),
-            FadeOut(calc_text_3, shift=DOWN),
-            run_time=1.5
-            # Indicate animations fade out on their own, no explicit FadeOut needed for highlights
-        )
+        # Text explanation for rotation
+        text3_line1 = Text(
+            "This means the vector 'z1' is effectively rotated by the angle of 'z2'",
+            font_size=28, disable_ligatures=True
+        ).to_edge(UP)
+        text3_line2 = Text(
+            "around the origin.",
+            font_size=28, disable_ligatures=True
+        ).next_to(text3_line1, DOWN)
+        self.play(Write(text3_line1))
+        self.play(Write(text3_line2))
         self.wait(1)
 
-        # Update matrix_C to show the final '50'
-        matrix_C_final_mobj = Matrix(matrix_C_values_final, h_buff=1.5).scale(0.8).move_to(matrix_C)
-        self.play(Transform(matrix_C, matrix_C_final_mobj), run_time=2.5)
-        self.wait(2.5)
-
-        # --- Final Matrix Display ---
-        # Move the complete C matrix to the center and make it prominent
-        final_C_prominent = Matrix(matrix_C_values_final, h_buff=1.5).scale(1.5)
+        # Animate z1_vec_copy rotating by arg(z2)
+        # Simultaneously, animate arg_z1_arc_copy extending to arg_product_arc
+        # Also, fade out z2_vec and its angle as z1 rotates by its angle
         self.play(
-            FadeOut(matrix_A, times_sign, matrix_B, equals_sign),
-            Transform(matrix_C, final_C_prominent),
-            run_time=2
-        )
-        self.wait(4)
-
-        # --- Recap Animation ---
-        # Re-position the final C matrix and bring back A and B for the recap
-        recap_matrix_A = Matrix(matrix_A_values).scale(0.7).shift(LEFT * 3 + UP * 1.5)
-        recap_matrix_B = Matrix(matrix_B_values).scale(0.7).shift(RIGHT * 3 + UP * 1.5)
-        recap_times_sign = MathTex("\\times").scale(0.7).next_to(recap_matrix_A, RIGHT, buff=0.5)
-        recap_equals_sign = MathTex("=").scale(0.7).next_to(recap_matrix_B, RIGHT, buff=0.5)
-
-        # Transform the prominent C matrix to its recap position and size
-        recap_matrix_C_mobj = Matrix(matrix_C_values_final).scale(0.7).next_to(recap_equals_sign, RIGHT, buff=0.5)
-
-        self.play(
-            Transform(matrix_C, recap_matrix_C_mobj), # matrix_C now refers to recap_matrix_C_mobj
-            FadeIn(recap_matrix_A, recap_times_sign, recap_matrix_B, recap_equals_sign),
-            run_time=2
-        )
-        self.wait(2)
-
-        # Create arrows for each calculation
-        arrow_config = {"buff": 0.1, "max_stroke_width_to_length_ratio": 0.5, "max_tip_length_to_length_ratio": 0.25, "stroke_width": 6}
-
-        # C11: Row 1 of A to Col 1 of B
-        r1_A_recap = recap_matrix_A.get_rows()[0]
-        c1_B_recap = recap_matrix_B.get_columns()[0]
-        arrow_c11 = Arrow(r1_A_recap.get_right(), c1_B_recap.get_left(), color=RED, **arrow_config)
-        c11_label_recap = matrix_C.get_entries_without_brackets()[0] # Use matrix_C as it's the current recap matrix
-
-        # C12: Row 1 of A to Col 2 of B
-        r1_A_recap = recap_matrix_A.get_rows()[0]
-        c2_B_recap = recap_matrix_B.get_columns()[1]
-        arrow_c12 = Arrow(r1_A_recap.get_right(), c2_B_recap.get_left(), color=BLUE, **arrow_config)
-        c12_label_recap = matrix_C.get_entries_without_brackets()[1]
-
-        # C21: Row 2 of A to Col 1 of B
-        r2_A_recap = recap_matrix_A.get_rows()[1]
-        c1_B_recap = recap_matrix_B.get_columns()[0]
-        arrow_c21 = Arrow(r2_A_recap.get_right(), c1_B_recap.get_left(), color=GREEN, **arrow_config)
-        c21_label_recap = matrix_C.get_entries_without_brackets()[2]
-
-        # C22: Row 2 of A to Col 2 of B
-        r2_A_recap = recap_matrix_A.get_rows()[1]
-        c2_B_recap = recap_matrix_B.get_columns()[1]
-        arrow_c22 = Arrow(r2_A_recap.get_right(), c2_B_recap.get_left(), color=YELLOW, **arrow_config)
-        c22_label_recap = matrix_C.get_entries_without_brackets()[3]
-
-        # Animate each arrow and corresponding label
-        self.play(Create(arrow_c11), Indicate(c11_label_recap, scale_factor=1.2), run_time=1.2)
-        self.wait(0.5)
-        self.play(Create(arrow_c12), Indicate(c12_label_recap, scale_factor=1.2), run_time=1.2)
-        self.wait(0.5)
-        self.play(Create(arrow_c21), Indicate(c21_label_recap, scale_factor=1.2), run_time=1.2)
-        self.wait(0.5)
-        self.play(Create(arrow_c22), Indicate(c22_label_recap, scale_factor=1.2), run_time=1.2)
-        self.wait(2)
-
-        # Fade out recap elements (arrows, A, B, signs), leaving only the final matrix C
-        self.play(
-            FadeOut(arrow_c11, arrow_c12, arrow_c21, arrow_c22,
-                    recap_matrix_A, recap_times_sign, recap_matrix_B, recap_equals_sign),
-            matrix_C.animate.scale(1.5/0.7).move_to(ORIGIN), # Scale C back to prominent size and center
+            Rotate(z1_vec_copy, angle=np.angle(z2_val), about_point=ORIGIN, rate_func=smooth),
+            Transform(arg_z1_arc_copy, arg_product_arc),
+            Transform(arg_z1_label_copy, arg_product_label),
+            FadeOut(z2_vec, z2_label, arg_z2_arc, arg_z2_label),
             run_time=3
         )
-        self.wait(3)
+        self.wait(0.5)
+        self.play(FadeOut(text3_line1, text3_line2))
+
+        # Final text
+        text4 = Text(
+            "It's like 'z2' tells 'z1' how much to turn!",
+            font_size=28, disable_ligatures=True
+        ).to_edge(UP)
+        self.play(Write(text4))
+        self.wait(1)
+
+        # Show the final product vector
+        self.play(
+            ReplacementTransform(z1_vec_copy, z_product_vec),
+            Write(z_product_label),
+            run_time=1.5
+        )
+        self.wait(2)
+
+        # --- Clean up ---
+        self.play(FadeOut(*self.mobjects))
