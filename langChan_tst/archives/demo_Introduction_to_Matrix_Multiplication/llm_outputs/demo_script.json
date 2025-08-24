@@ -1,0 +1,29 @@
+{
+  "title": "Introduction to Matrix Multiplication",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to our educational video about linear algebra. Today we'll explore matrix multiplication and its applications.",
+      "anim": "Show a title screen with mathematical symbols and matrices in the background.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "A matrix is a rectangular array of numbers, symbols, or expressions arranged in rows and columns.",
+      "anim": "Display a sample 2x3 matrix with clear labels for rows and columns.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Matrix multiplication requires the number of columns in the first matrix to equal the number of rows in the second matrix.",
+      "anim": "Show two matrices and highlight how dimensions must align for multiplication to be possible.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 4,
+      "text": "Let's work through a concrete example step by step to see how matrix multiplication works in practice.",
+      "anim": "Animate the step-by-step multiplication of two 2x2 matrices showing each calculation.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

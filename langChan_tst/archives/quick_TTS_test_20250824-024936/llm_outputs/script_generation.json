@@ -1,0 +1,35 @@
+{
+  "title": "Quick TTS Test: Finding Your Voice",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome! This video is a quick test to help you find the perfect Text-to-Speech (TTS) voice for your project. We'll explore different styles and accents to give you a feel for what's available and how to choose the right one.",
+      "anim": "Animated logo of a speech bubble transforming into various voices and accents, then settling on a microphone icon.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "First, let's hear a few different American English voices. Consider the tone – is it professional, friendly, or authoritative? Think about how the voice aligns with your content and target audience. For example, a children's story might benefit from a playful, upbeat tone.",
+      "anim": "Split screen. Left side: Text scrolling with different American English TTS voices reading it. Right side: Images representing different content types (e.g., business presentation, children's book, news report).",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Now, let's explore some international accents. TTS technology offers a wide range of voices from around the world. Think about the context of your project. Does a specific accent add authenticity or cultural relevance? Remember to be mindful and avoid using accents in a stereotypical or insensitive way.",
+      "anim": "Animated world map highlighting different regions as corresponding TTS voices are played. Include text labels identifying the accent and region.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "Beyond accents, many TTS platforms offer customization options. You might be able to adjust the speaking rate, pitch, and even add pauses for emphasis. Experiment with these settings to fine-tune the voice and make it sound more natural and engaging.",
+      "anim": "Screen recording of a TTS software interface, showing adjustable sliders for speed, pitch, and pause length. The voice reading a sentence changes in real-time as the sliders are adjusted.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 5,
+      "text": "Ultimately, the best TTS voice is the one that best serves your project's goals and resonates with your audience. Take the time to experiment and find the perfect fit! Thanks for watching!",
+      "anim": "Montage of various projects using TTS (e.g., e-learning module, audiobook, accessibility tool). End screen with links to popular TTS platforms.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

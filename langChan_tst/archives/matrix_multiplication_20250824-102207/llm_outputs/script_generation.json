@@ -1,0 +1,29 @@
+{
+  "title": "Matrix Multiplication: The Essential Guide",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to our deep dive into matrix multiplication! You might be familiar with matrices as rectangular arrays of numbers. But when it comes to multiplying them, it's not as simple as multiplying corresponding elements. Matrix multiplication is a fundamental operation in mathematics, crucial for everything from computer graphics and data science to physics and engineering. It allows us to perform complex transformations and solve systems of equations efficiently. So, let's unlock the secrets of this powerful operation!",
+      "anim": "Opens with a title 'Matrix Multiplication: The Essential Guide'. Transition to showing a simple 2x2 matrix, then a 3x3 matrix, emphasizing their structure. Briefly show text snippets like 'Computer Graphics', 'Data Science', 'Physics' appearing around the matrices to hint at applications.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "The key to matrix multiplication lies in the 'row by column' rule. To find a single element in the resulting matrix, say at row 'i' and column 'j', you take the 'i-th' row of the first matrix and the 'j-th' column of the second matrix. Then, you multiply their corresponding elements and sum up those products. Let's look at a simple example: If we want to find the element in the first row, first column of our result, we'll use the first row of Matrix A and the first column of Matrix B. Multiply element by element, then add them up. This sum gives us just one entry in our new matrix.",
+      "anim": "Split screen. Left side shows Matrix A (e.g., 2x2), right side shows Matrix B (e.g., 2x2). In the center, a new matrix C appears, initially empty. Highlight the first row of A, then the first column of B. Show arrows connecting corresponding elements (A11*B11, A12*B21). Display the products and their sum, which then populates the C11 position in the result matrix.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Now, let's apply this rule to multiply two entire 2x2 matrices, A and B, to get matrix C. For C11, we take A's first row and B's first column, multiply and sum. For C12, A's first row and B's second column. For C21, A's second row and B's first column. And finally, for C22, A's second row and B's second column. Notice how each element in the resulting matrix C is a sum of products. This systematic process ensures that we correctly combine the information from both matrices. It might seem like a lot of steps, but with practice, it becomes second nature!",
+      "anim": "Show Matrix A and Matrix B side-by-side, with an arrow pointing to an empty 2x2 Matrix C. Step-by-step, animate the calculation for each element of C: C11, then C12, then C21, then C22. For each calculation, highlight the relevant row of A and column of B, show the individual products and their sum, then populate the corresponding cell in C. Use clear color coding for active rows/columns.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "Before you multiply, always check the dimensions! For two matrices A (m x n) and B (p x q) to be multiplied, the number of columns in A must equal the number of rows in B. That is, 'n' must equal 'p'. The resulting matrix will then have the dimensions 'm x q'. Matrix multiplication is not commutative, meaning A times B is generally not equal to B times A. This operation is fundamental for transformations like rotations and scaling in 3D graphics, solving linear systems, and much more. Keep practicing, and you'll master this essential mathematical tool!",
+      "anim": "Display two matrices, A (e.g., 2x3) and B (e.g., 3x2). Highlight the inner dimensions (3 and 3) to show they must match. Then, show the outer dimensions (2 and 2) forming the size of the result matrix (2x2). Briefly show an animation of a 2D shape being rotated or scaled using a transformation matrix. End with a summary screen encouraging practice.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

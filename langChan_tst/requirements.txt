@@ -1,0 +1,8 @@
+python-dotenv
+google-genai  # adjust version if needed; this is for the "google" client shown in your examples
+langchain
+manim
+# API dependencies (optional)
+fastapi
+uvicorn[standard]
+pydantic

@@ -1,0 +1,35 @@
+{
+  "title": "Matrix Multiplication: A Visual Guide",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome! Today, we're diving into matrix multiplication. It might seem intimidating, but we'll break it down step-by-step. Get ready to unlock a powerful tool used in computer graphics, data science, and more!",
+      "anim": "Title card animation: 'Matrix Multiplication' appears with gears turning behind it. Then, examples of matrix applications flash briefly (e.g., computer graphics rendering, data analysis visualization).",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "Unlike regular multiplication, matrix multiplication has specific rules. It's all about rows and columns! To multiply two matrices, the number of columns in the first matrix MUST equal the number of rows in the second matrix. If they don't match, the multiplication is undefined.",
+      "anim": "Split screen. Left side: Matrix A (2x3) and Matrix B (3x2) appear with labels 'Matrix A' and 'Matrix B'. Arrows highlight the 3 columns of A and the 3 rows of B, with text 'Columns of A = Rows of B'. Right side: Matrix C (2x2) appears with a checkmark, and a 2x2 matrix multiplied by a 3x2 matrix appears with a red 'X' and the text 'Undefined'.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Let's see how it works! We take the first row of the first matrix and the first column of the second matrix. We multiply corresponding elements and then add the results. This gives us the element in the first row and first column of the resulting matrix.",
+      "anim": "Matrix A (1 2 3; 4 5 6) and Matrix B (7 8; 9 10; 11 12) appear. Highlight the first row of A (1 2 3) and the first column of B (7 9 11). Show 1*7 + 2*9 + 3*11 = 58. The result '58' populates the first row, first column of the resulting matrix C.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 4,
+      "text": "We repeat this process for each row of the first matrix and each column of the second matrix. So, for the first row of the first matrix and the second column of the second matrix, we multiply and add again. This gives us the element in the first row, second column of the resulting matrix.",
+      "anim": "Matrix A (1 2 3; 4 5 6) and Matrix B (7 8; 9 10; 11 12) reappear. Highlight the first row of A (1 2 3) and the second column of B (8 10 12). Show 1*8 + 2*10 + 3*12 = 64. The result '64' populates the first row, second column of the resulting matrix C. Then the process is repeated for the second row of A.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 5,
+      "text": "And that's matrix multiplication! Remember to check that your matrices are compatible, and carefully multiply corresponding rows and columns. Keep practicing, and you'll be a pro in no time!",
+      "anim": "The complete multiplication is displayed: Matrix A * Matrix B = Matrix C, with all elements filled in. The words 'Practice Makes Perfect!' appear with encouraging animations like thumbs up and stars.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

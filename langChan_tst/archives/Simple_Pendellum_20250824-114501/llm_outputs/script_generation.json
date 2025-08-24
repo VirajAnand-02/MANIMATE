@@ -1,0 +1,29 @@
+{
+  "title": "Unveiling the Simple Pendulum: The Science of Swing",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Ever wondered how some clocks keep perfect time, or how a simple swing moves back and forth? The secret lies in the Simple Pendulum! At its core, a simple pendulum is just a point mass, called the 'bob,' suspended from a fixed pivot by a massless, inextensible string. When it's not moving, it rests at its 'equilibrium position,' hanging straight down due to gravity.",
+      "anim": "Start with a title screen 'The Simple Pendulum'. Then, a clear, animated diagram of a pendulum appears. Label 'Pivot', 'String', 'Bob', 'Length (L)'. Show the bob at rest, highlighting the 'Equilibrium Position' with a dotted line.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "Once displaced from its equilibrium, the pendulum begins to swing. Gravity pulls the bob downwards, but the string's tension keeps it moving along an arc. As it swings down, potential energy converts to kinetic energy, reaching maximum speed at the bottom. Then, it swings upwards, kinetic energy converting back to potential energy, slowing down until it momentarily stops at its highest point, before gravity pulls it back down again. This continuous back-and-forth motion is called 'oscillation'.",
+      "anim": "Show the pendulum being pulled to one side and released. An arrow indicates the path of the bob. Use energy bars (Potential Energy, Kinetic Energy) that dynamically change as the pendulum swings, highlighting the conversion. Overlay force vectors (gravity, tension, and net restoring force component) at different points of the swing.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Two important characteristics define a pendulum's swing: its 'amplitude' – the maximum displacement from equilibrium – and its 'period' – the time it takes for one complete back-and-forth swing. Interestingly, for small angles of swing, the period of a simple pendulum depends mainly on two things: the 'length' of the string and the 'acceleration due to gravity'. It does *not* depend on the mass of the bob, nor on the amplitude of the swing! A longer string means a longer period, while a shorter string results in a faster swing.",
+      "anim": "Split screen showing three side-by-side experiments.\n1. Two pendulums with same length, same amplitude, but different masses. Both swing in sync. Text overlay: 'Mass doesn't affect period!'\n2. Two pendulums with same length, same mass, but different small amplitudes. Both swing in sync. Text overlay: 'Amplitude (small angles) doesn't affect period!'\n3. Two pendulums with same mass, same small amplitude, but different lengths (one short, one long). The shorter one swings faster. Text overlay: 'Length *does* affect period!'",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 4,
+      "text": "The predictable motion of pendulums makes them incredibly useful. From the rhythmic tick-tock of grandfather clocks, where the pendulum's consistent period ensures accurate timekeeping, to metronomes that help musicians keep pace, and even in scientific instruments like seismographs, which detect earthquakes. Understanding the simple pendulum gives us insight into oscillatory motion, a fundamental concept in physics that's all around us. So next time you see something swinging, remember the fascinating science at play!",
+      "anim": "Show dynamic examples:\n1. An antique grandfather clock with a swinging pendulum.\n2. A digital metronome ticking, with a visual representation of a pendulum.\n3. A simplified animation of a seismograph detecting ground motion using a pendulum.\nEnd with a recap of key terms: 'Period', 'Amplitude', 'Length', 'Gravity' appearing on screen with a final shot of a gently swinging pendulum.",
+      "layout": "custom"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "title": "Unlocking Matrix Multiplication: A Step-by-Step Guide",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to understanding matrix multiplication! Matrices are powerful tools in math, science, and computing. But multiplying them isn't as simple as multiplying numbers element by element. If we have two matrices, say A and B, their product C isn't just A_ij times B_ij. Instead, it involves a specific process of combining rows from the first matrix with columns from the second. Let's dive into how this unique operation works.",
+      "anim": "Start with a title card: 'Understanding Matrix Multiplication'. Show a 2x2 matrix A ([[a, b], [c, d]]) appear, then a 2x2 matrix B ([[e, f], [g, h]]) appear next to it. Briefly show a red 'X' over an attempt to multiply them element-wise (e.g., a*e). Then show highlighting of rows of A and columns of B, emphasizing the different components.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "The key to matrix multiplication lies in calculating each individual element of the resulting matrix. For an element at position (i, j) in the product matrix C, we take the i-th row of the first matrix, A, and the j-th column of the second matrix, B. We then multiply corresponding elements from that row and column, and sum up all those products. This is often called a 'dot product'. Let's see it in action for one element, C_11.",
+      "anim": "On the left, display Matrix A ([[1, 2], [3, 4]]) and Matrix B ([[5, 6], [7, 8]]). On the right, focus on calculating C_11. Highlight the first row of A ([1, 2]) and the first column of B ([[5], [7]]). Show arrows connecting 1 to 5 and 2 to 7. Then display the calculation: (1 * 5) + (2 * 7) = 5 + 14 = 19. Show '19' appearing as C_11 in a blank result matrix C.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Now that we know how to find a single element, let's build the entire product matrix. To find the element in the first row, second column of the result matrix C, denoted C_12, we combine the first row of A with the second column of B using our dot product rule. This systematic process is repeated for every position in the resulting matrix, filling it out one element at a time. Let's calculate C_12 and C_21.",
+      "anim": "Display Matrix A ([[1, 2], [3, 4]]) and Matrix B ([[5, 6], [7, 8]]) at the top, and a partially filled Matrix C ([[19, ?], [?, ?]]) below. Highlight the first row of A ([1, 2]) and the second column of B ([[6], [8]]). Show the calculation: (1 * 6) + (2 * 8) = 6 + 16 = 22. '22' fills in C_12. Next, highlight the second row of A ([3, 4]) and the first column of B ([[5], [7]]). Show calculation: (3 * 5) + (4 * 7) = 15 + 28 = 43. '43' fills in C_21.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "Let's complete our example and reveal the full product matrix. For C_22, we combine the second row of A with the second column of B. An important rule to remember: for two matrices A (m x n) and B (p x q) to be multiplied, the number of columns in A must equal the number of rows in B – so 'n' must equal 'p'. The resulting matrix C will have dimensions 'm x q'. Matrix multiplication is not commutative, meaning A times B is generally not equal to B times A. Keep practicing, and you'll master this essential operation!",
+      "anim": "On the left, show Matrix A ([[1, 2], [3, 4]]) and Matrix B ([[5, 6], [7, 8]]) with a partially filled C ([[19, 22], [43, ?]]). Highlight the second row of A ([3, 4]) and the second column of B ([[6], [8]]). Show calculation: (3 * 6) + (4 * 8) = 18 + 32 = 50. '50' fills in C_22, completing the matrix C ([[19, 22], [43, 50]]). On the right, transition to showing the dimension rule: (m x n) * (n x p) -> (m x p), with 'n' highlighted as matching and 'm' and 'p' forming the new dimensions. Briefly display 'A * B ≠ B * A' to illustrate non-commutativity.",
+      "layout": "split_screen"
+    }
+  ]
+}

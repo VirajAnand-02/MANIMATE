@@ -1,0 +1,35 @@
+{
+  "title": "Understanding the Simple Pendulum",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome! Today, we'll explore the fascinating world of the simple pendulum. We'll learn what it is, how it works, and the factors that influence its motion. Get ready to swing into action!",
+      "anim": "Opening animation: A simple pendulum swinging rhythmically. The title 'Understanding the Simple Pendulum' appears on screen.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "A simple pendulum is, well, simple! It consists of a mass, called the bob, suspended from a fixed point by a light string or rod. When displaced from its resting position and released, gravity pulls it back, causing it to swing. This back-and-forth motion is called oscillation.",
+      "anim": "Animation showing a pendulum at rest, then being pulled to the side and released. Arrows indicate the force of gravity pulling the bob downwards. Highlight the bob and the string/rod.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "The time it takes for one complete swing, from one side to the other and back again, is called the period. The period of a simple pendulum depends primarily on two things: the length of the pendulum and the acceleration due to gravity.",
+      "anim": "Animation showing a pendulum completing one full swing (period). A timer displays the time taken. Then, show two pendulums side-by-side, one with a longer string. The longer pendulum swings slower. Text labels: 'Length' and 'Gravity'.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 4,
+      "text": "Interestingly, the mass of the bob doesn't significantly affect the period! A heavier bob and a lighter bob, with the same length and under the same gravity, will swing with nearly the same period. This is because the increased inertia of the heavier bob is counteracted by the increased gravitational force acting on it.",
+      "anim": "Animation showing two pendulums with different sized bobs swinging side-by-side. Show the force of gravity acting on each, with a larger arrow on the heavier bob. Emphasize that they swing at nearly the same rate.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 5,
+      "text": "So, the next time you see a pendulum swinging, remember the simple yet elegant physics at play. The length, gravity, and the bob's journey create a beautiful dance between potential and kinetic energy. Thanks for watching!",
+      "anim": "Animation: A pendulum swinging smoothly. Superimpose the equation for the period of a simple pendulum: T = 2π√(L/g). Fade out to a thank you screen with credits and links to further resources.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

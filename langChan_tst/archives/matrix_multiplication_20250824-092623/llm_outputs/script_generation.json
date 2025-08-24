@@ -1,0 +1,29 @@
+{
+  "title": "Mastering Matrix Multiplication",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to this quick guide on matrix multiplication! Matrices are rectangular arrays of numbers, and multiplying them isn't as straightforward as multiplying regular numbers. The first, crucial rule is about their dimensions. If you have Matrix A with 'm' rows and 'n' columns, and you want to multiply it by Matrix B, which has 'n' rows and 'p' columns, the number of columns in Matrix A MUST equal the number of rows in Matrix B. This 'n' value must match, otherwise, multiplication is not possible! The resulting matrix will then have 'm' rows and 'p' columns.",
+      "anim": "Start with a visual of a generic matrix. Then, two matrices appear side-by-side, labeled 'Matrix A (m x n)' and 'Matrix B (n x p)'. Highlight the 'n' in both dimensions with a matching color or glowing effect, emphasizing they must be equal. An arrow then points to a new, empty matrix labeled 'Result (m x p)'.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "So, how do we actually multiply them? Each element in the resulting matrix is found by taking the 'dot product' of a row from the first matrix and a column from the second. Let's visualize this. To find the element in the first row, first column of our result, we take the first row of Matrix A and multiply each of its elements by the corresponding elements in the first column of Matrix B. Then, we sum those products. This sum becomes that single element in our new matrix. We repeat this process, pairing each row of the first matrix with each column of the second.",
+      "anim": "On the left, display Matrix A (e.g., 2x2) and Matrix B (e.g., 2x2) with placeholders. On the right, an empty result matrix. Animate the first row of Matrix A highlighting and sliding over to meet the first column of Matrix B. Show individual elements multiplying (e.g., A[1,1]*B[1,1] and A[1,2]*B[2,1]), then their sum. This sum then animates into the (1,1) position of the result matrix on the right. Repeat this for one more element, perhaps (1,2), to demonstrate the pattern.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Let's put this into practice with an example. Here we have Matrix A: [[1, 2], [3, 4]] and Matrix B: [[5, 6], [7, 8]]. Both are 2x2, so our inner dimensions match, and the result will also be 2x2. To find the top-left element: take row 1 of A (1, 2) and column 1 of B (5, 7). Multiply (1*5) + (2*7) = 5 + 14 = 19. For the top-right: row 1 of A (1, 2) and column 2 of B (6, 8). Multiply (1*6) + (2*8) = 6 + 16 = 22. Now, for the bottom-left: row 2 of A (3, 4) and column 1 of B (5, 7). Multiply (3*5) + (4*7) = 15 + 28 = 43. Finally, bottom-right: row 2 of A (3, 4) and column 2 of B (6, 8). Multiply (3*6) + (4*8) = 18 + 32 = 50. Our resulting matrix is [[19, 22], [43, 50]].",
+      "anim": "Display Matrix A and Matrix B prominently. On the right, an empty 2x2 result matrix. For each of the four calculations: highlight the specific row in A and column in B being used. Show the multiplication and summation steps clearly. As each result is calculated, it animates into the correct cell of the result matrix. The final result matrix should appear fully populated.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "Remember, the dimensions of the resulting matrix are determined by the 'outer' dimensions of the original matrices: 'm' rows from the first and 'p' columns from the second. So, an 'm x n' matrix times an 'n x p' matrix gives an 'm x p' matrix. Matrix multiplication is fundamental in many fields, from computer graphics to solving complex systems of equations. Key takeaways: inner dimensions must match, use the row-by-column dot product method, and the outer dimensions determine the result size. Keep practicing, and you'll master it in no time!",
+      "anim": "Reiterate the dimension rule visually: show A(m x n) and B(n x p) -> C(m x p), with arrows emphasizing the 'm' and 'p'. Then, transition to a summary screen with three bullet points appearing one by one: '1. Inner dimensions must match.', '2. Row by Column Dot Product.', '3. Outer dimensions determine result size.' End with a positive, encouraging graphic.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

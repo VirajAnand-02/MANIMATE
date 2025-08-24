@@ -1,0 +1,29 @@
+{
+  "title": "Debugging Smarter: An Introduction to Test Enhanced Logging",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Ever stared at a log file, wondering which specific test run or scenario produced that cryptic error? Traditional application logs, while vital, often lack the crucial context from the testing environment. This missing link can turn debugging into a time-consuming, frustrating detective novel without clues. Today, we're unveiling 'Test Enhanced Logging' – a powerful technique that injects vital, test-specific information directly into your logs, transforming vague errors into actionable insights and making your debugging process significantly more efficient.",
+      "anim": "Scene opens with a magnifying glass hovering over a dense, generic log file. Text overlays appear: 'Log File', 'Error: NullPointerException'. A thought bubble above the magnifying glass shows a confused face. Then, a lightbulb animation appears, and the screen transitions to 'Test Enhanced Logging' title card with gears turning in the background, symbolizing an improved process.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "At its heart, Test Enhanced Logging means enriching your application's logs with specific details from the test environment as your tests execute. Imagine your logs not just saying 'Error: Database connection failed', but 'Error: Database connection failed in `CheckoutProcessTest.testGuestUserCheckout()` with userId: 123, scenario: 'empty cart', test ID: 'TC-456'. We can inject a variety of context: the test method name, a unique test run ID, input parameters used, the user story being tested, or even associated bug IDs. This immediate context tells you *what* test failed, *under what conditions*, and *with what data*, drastically cutting down debugging time and helping you pinpoint the root cause faster.",
+      "anim": "Split screen. Left side shows a simple code snippet of a test method (e.g., `testGuestUserCheckout`). As narration describes context, animated overlays highlight parts of the code. Right side shows a log output window. Initially, it shows a generic error. Then, as narration continues, the log message dynamically updates to include enhanced details like 'testName: testGuestUserCheckout', 'userId: 123', 'scenario: empty cart'. Arrows point from code elements to their corresponding log entries.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Implementing Test Enhanced Logging often involves leveraging your existing testing framework or logging library's capabilities. A common approach is to use thread-local context, like Mapped Diagnostic Contexts (MDC) in Log4j or Logback. Before a test method runs, you push relevant test context (test name, parameters, etc.) into the MDC. Any log message generated within that thread during the test automatically includes this context. After the test completes, the context is cleared. This can be integrated using setup/teardown methods in your testing framework, or by employing aspect-oriented programming (AOP) to automatically weave context injection around test execution. The goal is seamless, automated context enrichment without cluttering your test code.",
+      "anim": "Custom layout showing a conceptual flow. Start with 'Test Runner' box. An arrow leads to 'Test Setup (BeforeEach)' box. Inside, 'MDC.put('testName', 'MyTest')'. An arrow leads to 'Application Code (Log Call)'. A log icon appears, showing a message with 'testName' automatically included. Another arrow leads to 'Test Teardown (AfterEach)' box, showing 'MDC.clear()'. Visuals include code snippets for MDC calls and a simplified diagram of a logging pipeline.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "Beyond basic unit tests, Test Enhanced Logging truly shines in complex scenarios like integration or end-to-end tests, where multiple services interact. It helps pinpoint exactly which part of a larger transaction failed. For best practices, always use structured logging formats like JSON for easy parsing and analysis by log management tools. Be mindful of log levels, ensuring critical test failures are easily identifiable. And crucially, never log sensitive user data without proper redaction or anonymization. By embracing Test Enhanced Logging, you're not just writing tests; you're building a more robust, debuggable, and transparent testing pipeline. Start enhancing your logs today and transform debugging from a chore into a precise, efficient process!",
+      "anim": "Scene transitions to a dashboard-like view with various graphs and log entries, showing how structured logs can be analyzed. Highlighted log entries show clear test context. A 'Security Warning' icon flashes briefly as narration mentions sensitive data. The screen then shows a 'Before' vs 'After' comparison: 'Before' shows a tangled mess of wires (debugging), 'After' shows a clear, organized circuit board. The final frame displays the video title and a call to action: 'Enhance Your Logs!'.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "title": "Matrix Multiplication: A Visual Guide",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to Matrix Multiplication! Ever wondered how to combine data in a structured way? Matrices and their multiplication are key. We'll break it down visually and simply.",
+      "anim": "Title card animates in, showcasing two matrices merging into a new one. Text overlays: 'Matrix Multiplication: A Visual Guide'",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "First, dimensions matter! To multiply matrix A by matrix B, the number of columns in A must equal the number of rows in B. If A is m x n and B is n x p, the result will be m x p.",
+      "anim": "Screen splits. Left side: Matrix A (m x n) highlighted. Right side: Matrix B (n x p) highlighted. Arrows indicate matching dimensions. Resultant matrix (m x p) appears below.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Each element in the resulting matrix is calculated by taking the dot product of a row from the first matrix and a column from the second matrix. Let's see that in action!",
+      "anim": "Shows a 2x2 matrix A and a 2x2 matrix B. A row from A and a column from B are highlighted. An animation shows the corresponding elements being multiplied and then summed. The result appears in the correct position in the resultant matrix.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 4,
+      "text": "For example: (1,2) * (3,4) becomes (1*3) + (2*4) = 11. This '11' populates the corresponding cell in the resultant matrix. Repeat this for every row-column combination.",
+      "anim": "Focuses on the specific calculation from scene 3. Numbers animate and change as the calculation progresses. The '11' animates into its correct position in the resultant matrix, highlighting the row and column used to derive it.",
+      "layout": "custom"
+    },
+    {
+      "seq": 5,
+      "text": "Matrix multiplication is used in computer graphics, data analysis, and much more! Understanding this fundamental concept unlocks powerful applications. Thanks for watching!",
+      "anim": "Shows a montage of applications of matrix multiplication: 3D rendering, image processing, data analysis charts. Ends with a screen saying 'Thanks for Watching!'",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

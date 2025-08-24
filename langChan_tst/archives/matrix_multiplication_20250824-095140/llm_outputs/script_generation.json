@@ -1,0 +1,29 @@
+{
+  "title": "Matrix Multiplication: The Essential Guide",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to the world of matrix multiplication! Matrices are powerful tools, essentially grids of numbers, used everywhere from computer graphics to scientific simulations. Unlike simple number multiplication, multiplying matrices has a unique set of rules. It's not just multiplying corresponding elements. Instead, it involves a special 'row by column' operation. Understanding this is key to unlocking their power. Let's dive in and demystify how it works.",
+      "anim": "Scene opens with a title card: 'Matrix Multiplication: The Essential Guide'. Then, a simple 2x2 matrix appears, followed by a 3x3 matrix. Briefly show a scalar multiplication (e.g., 2 * [1 2; 3 4]) resulting in [2 4; 6 8] for contrast. Then, fade to two empty matrix shells with a question mark between them, emphasizing the 'how' of matrix-by-matrix multiplication. Introduce the concept of 'row by column' with a visual hint.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "The heart of matrix multiplication lies in the 'dot product' of a row and a column. To find a single element in our result matrix, we take a row from the first matrix and a column from the second. We then multiply the first element of the row by the first element of the column, the second by the second, and so on. Finally, we sum up all these products. This sum gives us one element in our new matrix. Imagine sliding a row across a column, multiplying as you go, then adding everything up.",
+      "anim": "Two generic matrices, A and B, are displayed side-by-side. Highlight the first row of matrix A (e.g., [a11 a12]) and the first column of matrix B (e.g., [b11; b21]). Arrows connect a11 to b11, and a12 to b21. The calculation (a11*b11) + (a12*b21) appears step-by-step. The final sum then smoothly moves to populate the C11 position in a third, empty 'Result Matrix C' shell.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Let's put this into practice with a 2x2 example. Consider Matrix A: [1, 2; 3, 4] and Matrix B: [5, 6; 7, 8]. To find the top-left element of our result, we take Row 1 of A and Column 1 of B. That's (1*5) + (2*7), which equals 5 + 14 = 19. For the top-right, Row 1 of A times Column 2 of B: (1*6) + (2*8) = 6 + 16 = 22. We repeat this for all combinations: Row 2 of A by Column 1 of B gives (3*5) + (4*7) = 15 + 28 = 43. And finally, Row 2 of A by Column 2 of B: (3*6) + (4*8) = 18 + 32 = 50. Our resulting matrix is [19, 22; 43, 50].",
+      "anim": "Display Matrix A and Matrix B clearly. Step-by-step, visually highlight the specific row from A and column from B. Show the individual multiplications and their sum appearing next to the matrices, then smoothly animate the final result into the corresponding cell of the 'Result Matrix C'. Repeat this process for all four elements, using distinct colors or visual cues for each calculation to maintain clarity.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "Before you can multiply, there's a critical dimension rule: the number of columns in your first matrix must exactly match the number of rows in your second matrix. If you're multiplying an M x N matrix by an N x P matrix, notice how the 'inner' N's match. This ensures that when you take a row from the first and a column from the second, you always have a perfect number of pairs to multiply. The resulting matrix will then have the dimensions M x P. If these inner dimensions don't align, matrix multiplication is simply undefined. Always check your dimensions first!",
+      "anim": "Illustrate the dimension rule: Display 'Matrix A (M x N)' and 'Matrix B (N x P)'. Highlight the 'N' from A's columns and the 'N' from B's rows, showing them matching with a green checkmark or glowing effect. Then, show the resulting 'Matrix C (M x P)'. Next, show an example of invalid multiplication: 'Matrix A (2x3)' and 'Matrix B (2x2)'. Highlight '3' and '2', showing they don't match with a red 'X' and an 'Undefined' text box. Emphasize the importance of the matching inner dimensions.",
+      "layout": "split_screen"
+    }
+  ]
+}

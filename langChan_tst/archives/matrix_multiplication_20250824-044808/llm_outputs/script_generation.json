@@ -1,0 +1,29 @@
+{
+  "title": "Mastering Matrix Multiplication",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to our deep dive into matrix multiplication! Unlike simple scalar multiplication, multiplying two matrices is a bit more involved, but incredibly powerful for tasks like 3D graphics, data transformations, and solving complex systems of equations. Before we jump into the 'how,' there's a crucial 'if.' You can only multiply two matrices if the number of columns in the first matrix equals the number of rows in the second matrix. Think of it like a puzzle piece fitting together. If Matrix A is an 'm by n' matrix, and Matrix B is an 'n by p' matrix, then their product, Matrix C, will be an 'm by p' matrix. The 'n's must match!",
+      "anim": "Start with a title 'Matrix Multiplication: The Basics'. Show two generic matrices, A (m x n) and B (n x p), with their dimensions clearly labeled. Animate an arrow connecting the 'n' columns of A to the 'n' rows of B, highlighting that they must match. Then, show the resulting matrix C (m x p) with its dimensions.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "So, how do we actually multiply them? It's all about 'rows by columns.' To find a single element in the resulting product matrix, say at position (i, j), you take the i-th row of the first matrix and multiply it by the j-th column of the second matrix. This isn't just multiplying corresponding elements; it's a 'dot product.' You multiply the first element of the row by the first element of the column, the second element of the row by the second element of the column, and so on. Then, you sum all those products together. This sum gives you just one single element in your new matrix. Let's visualize this process.",
+      "anim": "Display two generic matrices, A and B. Highlight the first row of A and the first column of B. Animate arrows connecting the first element of the row to the first element of the column, the second to the second, etc. Show the individual multiplications (e.g., a1*b1, a2*b2) and then their sum, resulting in a single value. Place this value into the (1,1) position of an empty result matrix C.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Let's put this into practice with an example. Here we have Matrix A, a 2x2 matrix, and Matrix B, also a 2x2 matrix. First, check compatibility: 2 columns in A, 2 rows in B – they match! Our result will be a 2x2 matrix. To find the top-left element (C11), we take Row 1 of A and Column 1 of B: (1 times 5) plus (2 times 7) equals 5 plus 14, which is 19. For C12, Row 1 of A and Column 2 of B: (1 times 6) plus (2 times 8) equals 6 plus 16, which is 22. Now for the second row. C21: Row 2 of A and Column 1 of B: (3 times 5) plus (4 times 7) equals 15 plus 28, which is 43. And finally, C22: Row 2 of A and Column 2 of B: (3 times 6) plus (4 times 8) equals 18 plus 32, which is 50. Our resulting matrix C is [ [19, 22], [43, 50] ].",
+      "anim": "Display Matrix A: `[[1, 2], [3, 4]]` and Matrix B: `[[5, 6], [7, 8]]`. Animate highlighting Row 1 of A and Column 1 of B. Show the calculation `(1*5) + (2*7) = 19` step-by-step. Place `19` in the C11 position of a new result matrix. Repeat this visual process for C12, C21, and C22, showing the highlighted row/column, the calculation, and placing the result in the corresponding position. Finally, display the complete resulting matrix C.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "To quickly recap, remember two key rules for matrix multiplication: first, the inner dimensions must match – columns of the first matrix must equal rows of the second. Second, each element in the product matrix is found by taking the dot product of a row from the first matrix and a column from the second. This powerful operation is fundamental in computer graphics for transforming objects in 3D space, in machine learning for neural networks, and in various scientific computations. Keep practicing, and you'll master this essential skill!",
+      "anim": "Quick visual recap of the compatibility rule (A (m x n) * B (n x p) -> C (m x p)). Then, a quick visual recap of the row-by-column dot product process (highlighting a row, a column, and the resulting single element). Transition to icons representing applications: a spinning 3D cube (graphics), a neural network diagram (machine learning), and a scientific calculator or data visualization (scientific computing). End with a 'Thank You for Watching!' message.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

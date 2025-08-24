@@ -1,0 +1,25 @@
+{
+  "title": "Understanding Matrix Multiplication",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to this video on matrix multiplication, a fundamental operation in linear algebra with wide-ranging applications in computer graphics, data science, and physics.",
+      "anim": "Display title card 'Understanding Matrix Multiplication'. Transition to abstract visuals of matrices, then quick animated flashes of a 3D graphic rendering, a data table being processed, and a physics simulation (e.g., planetary orbits)."
+    },
+    {
+      "seq": 2,
+      "text": "Before we multiply, we must check if the matrices are compatible. For matrix A multiplied by matrix B, the number of columns in A must precisely equal the number of rows in B. The resulting product matrix will then have the number of rows from A and the number of columns from B.",
+      "anim": "Visually display two matrices: Matrix A (dimensions 'm x n') and Matrix B (dimensions 'p x q'). Highlight 'n' (columns of A) and 'p' (rows of B) and show an equals sign between them to indicate compatibility. Then, reveal the resulting product matrix C with dimensions 'm x q', color-coding 'm' and 'q' to match A and B respectively."
+    },
+    {
+      "seq": 3,
+      "text": "Let's dive into how it works. To find any single element in the product matrix, say at row 'i' and column 'j', you take the 'i-th' row of the first matrix and the 'j-th' column of the second matrix. Then, you multiply corresponding elements from that row and column, and sum them all up. This is essentially a dot product operation.",
+      "anim": "Animate two generic matrices, A and B. Highlight a specific row 'i' of matrix A and a specific column 'j' of matrix B. Show elements within the highlighted row and column being multiplied pairwise (e.g., A[i,1]*B[1,j], A[i,2]*B[2,j], etc.). Then, show these products being summed up to form the element C[i,j] in the result matrix. Use arrows and a temporary highlight to show the flow of calculation."
+    },
+    {
+      "seq": 4,
+      "text": "Let's illustrate with an example: a 2x2 matrix A multiplied by a 2x2 matrix B. We'll systematically calculate each element of the product. For the top-left element, we multiply the first row of A by the first column of B. For the top-right, the first row of A by the second column of B, and so on for all four positions.",
+      "anim": "Display specific matrices: A = [[1, 2], [3, 4]] and B = [[5, 6], [7, 8]]. Systematically animate the calculation for each element of the product matrix C. Show: (1*5 + 2*7) = 19 for C[0,0], then (1*6 + 2*8) = 22 for C[0,1], then (3*5 + 4*7) = 43 for C[1,0], and finally (3*6 + 4*8) = 50 for C[1,1]. Each calculation should be clearly shown step-by-step, forming the final product matrix C = [[19, 22], [43, 50]]."
+    }
+  ]
+}

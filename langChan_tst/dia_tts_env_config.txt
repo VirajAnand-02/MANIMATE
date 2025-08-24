@@ -1,0 +1,13 @@
+# Add these to your .env file for DiaTTS configuration:
+
+# DiaTTS Timeout (in seconds) - increase if server is slow
+DIA_TTS_TIMEOUT=180
+
+# DiaTTS Fallback - set to false to disable fallback to mock TTS
+DIA_TTS_ENABLE_FALLBACK=true
+
+# Optional: Alternative DiaTTS endpoint if main server is down
+# DIA_TTS_BASE_URL=http://your-backup-server:8003
+
+# Optional: API key for DiaTTS authentication
+# DIA_TTS_API_KEY=your_api_key_here

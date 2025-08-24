@@ -1,0 +1,29 @@
+{
+  "title": "The Simple Pendulum: Understanding Oscillations",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to the fascinating world of physics! Today, we're exploring the simple pendulum – a fundamental concept that helps us understand oscillations and time itself. A simple pendulum is essentially a point mass, called a bob, suspended from a fixed point by a light, inextensible string. When displaced from its resting position and released, it swings back and forth due to gravity. This repetitive motion is called oscillation.",
+      "anim": "Start with a title card. Then, show a beautifully animated simple pendulum. Clearly label the 'bob', 'string', and 'pivot point'. Show it at rest in the equilibrium position, then displaced to one side, and finally oscillating smoothly back and forth.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "Let's define some key terms. The 'equilibrium position' is where the bob rests when not moving – directly below the pivot. When we pull the bob to the side, the maximum displacement from equilibrium is called the 'amplitude'. The time it takes for one complete back-and-forth swing, returning to its starting point, is the 'period' of the pendulum. And the number of complete swings per second is its 'frequency'. Gravity pulls the bob down, but the tension in the string keeps it from falling straight. When displaced, a component of gravity acts as a 'restoring force', pulling the bob back towards equilibrium.",
+      "anim": "Split screen. Left side: Animated pendulum showing equilibrium, then highlighting amplitude, and finally tracing one full 'period' of motion. Right side: Text definitions for 'Equilibrium Position', 'Amplitude', 'Period', 'Frequency', and 'Restoring Force' appear clearly as narrated.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "What makes a pendulum swing faster or slower? The period of a simple pendulum is primarily determined by two factors: the length of the string, and the acceleration due to gravity. Surprisingly, for small angles of swing, the mass of the bob does not affect its period! Also, the amplitude only significantly affects the period if the swing is very wide. The longer the string, the longer the period, meaning it swings slower. On the other hand, if gravity were stronger, the pendulum would swing faster. This relationship is captured by the formula: T equals two pi times the square root of L over g.",
+      "anim": "Custom layout. Show two pendulums side-by-side: one with a short string and one with a long string, clearly demonstrating the difference in their periods (long string = longer period). Then, briefly show a pendulum on Earth vs. a slower one on the Moon to illustrate 'g'. A clear text overlay of the formula T = 2π√(L/g) appears.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "Simple pendulums aren't just for physics classrooms; they have practical applications! From the rhythmic tick-tock of old grandfather clocks, where the pendulum's consistent period keeps time, to metronomes that help musicians keep tempo, pendulums are everywhere. Even seismographs, which detect earthquakes, use a pendulum-like principle to measure ground motion. Understanding the simple pendulum lays the groundwork for more complex oscillatory systems. It's a beautiful example of how fundamental physics principles govern the world around us. Keep observing, keep questioning, and keep exploring!",
+      "anim": "Split screen. Left side: Show animations of a grandfather clock pendulum swinging, a metronome ticking, and a simplified representation of a seismograph's pendulum mechanism. Right side: Key takeaways text appears: 'Consistent Period', 'Timekeeping Devices', 'Musical Tempo', 'Earthquake Detection'.",
+      "layout": "split_screen"
+    }
+  ]
+}

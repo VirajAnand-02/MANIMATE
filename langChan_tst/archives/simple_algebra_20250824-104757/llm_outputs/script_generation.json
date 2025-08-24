@@ -1,0 +1,35 @@
+{
+  "title": "Unlocking the Mystery: Simple Algebra Explained!",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to 'Unlocking the Mystery: Simple Algebra Explained!' Have you ever encountered a puzzle where you need to find a missing number? That's exactly what algebra helps us do! It's a powerful tool in mathematics where letters, called variables, stand in for unknown numbers. Our goal is always to find the value of these mysterious variables, often represented by 'X' or 'Y'. Think of an equation as a perfectly balanced scale: whatever you do to one side, you must do to the other to keep it level.",
+      "anim": "Opening sequence with animated gears turning, then a question mark morphing into an 'X'. A simple balance scale appears, showing two equal sides, then an 'X' replaces one of the weights.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "Let's start with basic addition and subtraction. Imagine we have the equation: X + 5 = 10. Our mission is to get 'X' by itself. To undo adding 5, we do the opposite: subtract 5. Remember, whatever we do to one side of the equation, we must do to the other to keep it balanced! So, we subtract 5 from both sides: X + 5 - 5 = 10 - 5. This simplifies to X = 5! Similarly, for Y - 3 = 7, we add 3 to both sides to isolate Y, giving us Y = 10.",
+      "anim": "Equation 'X + 5 = 10' appears on screen. Numbers '5' animate as they are subtracted from both sides, showing the balance scale remaining level. Then 'Y - 3 = 7' appears, with '3' being added to both sides.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Now, let's tackle multiplication and division. Consider the equation: 2X = 12. This means '2 multiplied by X equals 12'. To undo multiplication, we use its opposite: division. We divide both sides of the equation by 2. So, 2X / 2 = 12 / 2, which gives us X = 6! What about X / 4 = 3? To get 'X' alone, we do the opposite of dividing by 4, which is multiplying by 4. Multiply both sides by 4, and we find X = 12. The principle remains the same: always keep the equation balanced!",
+      "anim": "Equation '2X = 12' appears. The number '2' animates as it divides both sides, showing the result. Then 'X / 4 = 3' appears, with '4' multiplying both sides, demonstrating the solution.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 4,
+      "text": "Algebra isn't just for abstract puzzles; it helps us solve real-world problems! Imagine you bought 3 identical notebooks and a pen for a total of $10. If the pen cost $1, how much did each notebook cost? Let 'N' represent the cost of one notebook. Our equation becomes: 3N + 1 = 10. First, subtract 1 (the pen's cost) from both sides: 3N = 9. Now, divide both sides by 3 (the number of notebooks): N = 3. So, each notebook cost $3! See how algebra helps us quickly find the unknown?",
+      "anim": "An animated scene showing a person buying notebooks and a pen. The items appear on a counter. The equation '3N + 1 = 10' forms on screen, with numbers animating as the problem is solved step-by-step, revealing the cost of one notebook.",
+      "layout": "custom"
+    },
+    {
+      "seq": 5,
+      "text": "And there you have it – the basics of simple algebra! We've learned that variables are placeholders for unknown numbers, and the key to solving equations is to isolate that variable by performing opposite operations. Always remember to do the same thing to both sides of the equation to maintain balance. With practice, you'll be able to solve for 'X' in no time and unlock countless mathematical mysteries. Keep exploring, keep learning, and keep balancing those equations!",
+      "anim": "A montage of the key concepts: 'Variable', 'Opposite Operations', and 'Balance' appearing as text. The balance scale visual returns, then a final 'X' with a spotlight on it, concluding with a celebratory animation.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "title": "Exploring Basic Geometry Shapes",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome, curious minds, to the fascinating world of geometry! Geometry is all about shapes, sizes, positions, and properties of objects. Look around you – shapes are everywhere! From the screen you're watching this on to the ball you play with, shapes form the building blocks of our visual world. Today, we're going to uncover some of the most basic and fundamental shapes that help us understand the space around us. Let's start by understanding the difference between flat shapes, called 2D shapes, and solid shapes, which are 3D shapes. Get ready to spot shapes like never before!",
+      "anim": "Title card 'Exploring Basic Geometry Shapes'. Transition to animated lines forming into simple 2D shapes (square, circle, triangle) then morphing into outlines of real-world objects (window, coin, pizza slice). Text '2D Shapes: Flat' and '3D Shapes: Solid' appear.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "First, let's dive into 2D shapes. These are flat shapes that only have length and width. Think of them as drawings on a piece of paper. Our first shape is the Triangle, which has three straight sides and three corners, or vertices. Next up is the Square, easily recognizable with its four equal straight sides and four vertices. Similar to a square, but with two long sides and two short sides, is the Rectangle, also having four straight sides and four vertices. And finally, the Circle! A perfectly round shape with no straight sides and no vertices, just a continuous curved line.",
+      "anim": "Split screen. Left side: Animated drawing of each shape appearing. As narration mentions sides/vertices, they highlight. Right side: Real-world examples fading in for each shape (e.g., pizza slice for triangle, window for square, door for rectangle, coin for circle).",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Now, let's step into the world of 3D shapes! These shapes have length, width, and height, meaning they take up space and you can hold them. Imagine a box; that's a Cube! It has six flat, square faces. Next, we have the Sphere, which is perfectly round like a ball and has no flat faces, edges, or vertices. Think of a can of soda, that's a Cylinder! It has two circular bases and one curved side. And finally, the Cone, which has one circular base and tapers up to a single point, just like an ice cream cone. These 3D shapes are everywhere, from the food we eat to the buildings we live in!",
+      "anim": "Split screen. Left side: Animated 3D models of each shape rotating slowly. Faces, edges, and vertices highlight as mentioned. Right side: Real-world objects appearing (e.g., dice for cube, basketball for sphere, soda can for cylinder, party hat for cone).",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 4,
+      "text": "Fantastic job exploring the basic geometry shapes! We've learned about flat 2D shapes like triangles, squares, rectangles, and circles. And we've discovered solid 3D shapes such as cubes, spheres, cylinders, and cones. Geometry isn't just for textbooks; it's a way of looking at the world around us. So, here's a challenge for you: next time you're outside, or even in your own room, try to identify as many 2D and 3D shapes as you can! You'll be amazed at how many you find. Keep exploring, keep learning, and keep seeing the shapes in everything!",
+      "anim": "A montage of all the 2D and 3D shapes learned, quickly cycling through. Then, a scene depicting a simplified house and garden, with highlights appearing over different objects (e.g., roof as triangle, window as square, tree trunk as cylinder, ball as sphere). Final text overlay: 'What shapes can YOU find?' with a friendly closing graphic.",
+      "layout": "custom"
+    }
+  ]
+}

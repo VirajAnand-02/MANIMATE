@@ -1,0 +1,70 @@
+{
+  "topic": "simple pendulum",
+  "timestamp": "20250824-021841",
+  "total_scenes": 5,
+  "generation_stats": {
+    "topic": "simple pendulum",
+    "total_scenes": 5,
+    "scenes": [],
+    "script_llm": {
+      "success": true
+    },
+    "tts_stats": {
+      "success": 0,
+      "failed": 5,
+      "fallback": 0,
+      "thinking_success": 0,
+      "non_thinking_success": 0,
+      "self_corrected": 0,
+      "correction_attempts": 0
+    },
+    "manim_stats": {
+      "success": 5,
+      "failed": 0,
+      "fallback": 0,
+      "thinking_success": 0,
+      "non_thinking_success": 0,
+      "self_corrected": 0,
+      "correction_attempts": 0
+    },
+    "render_stats": {
+      "success": 0,
+      "failed": 0,
+      "fallback": 0,
+      "thinking_success": 0,
+      "non_thinking_success": 0,
+      "self_corrected": 3,
+      "correction_attempts": 4
+    },
+    "audio_mux_stats": {
+      "success": 0,
+      "failed": 0,
+      "fallback": 0,
+      "thinking_success": 0,
+      "non_thinking_success": 0,
+      "self_corrected": 0,
+      "correction_attempts": 0
+    },
+    "layout_stats": {
+      "title_and_main_content": 0,
+      "split_screen": 0,
+      "custom": 0
+    },
+    "total_duration": 0.0
+  },
+  "archive_path": "E:\\programming\\Notes2Manim\\langChan_tst\\archives\\simple_pendulum_20250824-021841",
+  "audio_files": [],
+  "scene_codes": [
+    "scene_1_code.py",
+    "scene_2_code.py",
+    "scene_3_code.py",
+    "scene_4_code.py",
+    "scene_5_code.py"
+  ],
+  "final_videos": [
+    "simple_pendulum_final.mp4"
+  ],
+  "llm_outputs": [
+    "script_generation.json"
+  ]
+}

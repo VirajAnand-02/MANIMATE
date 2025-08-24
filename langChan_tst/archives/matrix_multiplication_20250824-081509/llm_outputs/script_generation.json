@@ -1,0 +1,29 @@
+{
+  "title": "Unlocking Matrix Multiplication: A Step-by-Step Guide",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Ever wondered how your computer rotates 3D objects or processes complex data? Often, it's thanks to matrix multiplication! A matrix is simply a rectangular array of numbers. Matrix multiplication is a fundamental operation that combines two matrices to produce a third. It's not just basic arithmetic; it's a powerful tool essential in computer graphics, physics, engineering, and machine learning. Today, we'll unravel how it works and why it's so important.",
+      "anim": "Start with a title 'Matrix Multiplication: The Basics'. Show various examples of matrices appearing (2x2, 3x3, 2x3). Then, transition to abstract representations of matrices combining. Briefly show icons representing applications: a rotating 3D cube, a graph of data points, a robot arm, all with subtle matrix grid overlays.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "Before we dive into the 'how,' let's understand the 'when.' Not all matrices can be multiplied! The golden rule is: the number of columns in the first matrix MUST equal the number of rows in the second matrix. If Matrix A is 'm x n' and Matrix B is 'p x q', then 'n' must equal 'p'. If they match, the resulting matrix, C, will have dimensions of 'm x q' – the outer dimensions. Think of it as a compatibility check before you start the operation.",
+      "anim": "On the left, display Matrix A (labeled 'm x n') and Matrix B (labeled 'p x q'). Visually highlight 'n' (columns of A) and 'p' (rows of B) in distinct colors, with an arrow connecting them and a 'match required' text. On the right, show the resulting Matrix C (labeled 'm x q'), with 'm' (rows of A) and 'q' (columns of B) highlighted to show its dimensions. Briefly animate a 'thumbs up' for matching dimensions and an 'X' for non-matching ones.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Now for the core process! To find an element in the resulting matrix, say C_ij (the element in row 'i' and column 'j'), you take the dot product of row 'i' from the first matrix and column 'j' from the second matrix. This means you multiply corresponding elements and then sum those products. For example, to get the element in the first row, first column of C, you multiply elements from the first row of A by the first column of B, pair by pair, and add them up. It's a precise, systematic process that you repeat for every element in the new matrix.",
+      "anim": "Display two generic matrices, A (2x2) and B (2x2), with placeholder elements (a11, a12, b11, b12, etc.). Focus on calculating C_11. Visually highlight and 'pull out' the first row of A and the first column of B. Show the calculation step-by-step: (a11 * b11) + (a12 * b21), with animated arrows showing the multiplication of pairs and then the summation into a single result. Briefly indicate how this process would extend to C_12, C_21, C_22 with quick highlight flashes.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "Let's put it into practice with a quick example. If Matrix A is [[1, 2], [3, 4]] and Matrix B is [[5, 6], [7, 8]]. To find C_11, we take (1 * 5) + (2 * 7) = 5 + 14 = 19. For C_12, it's (1 * 6) + (2 * 8) = 6 + 16 = 22. And so on! The resulting matrix C will be [[19, 22], [43, 50]]. This systematic approach powers everything from complex 3D transformations, where matrices describe rotations and scaling, to machine learning algorithms processing vast datasets. Understanding matrix multiplication is a gateway to truly comprehending many advanced computational and scientific fields. Keep practicing, and you'll master this essential skill!",
+      "anim": "On the left, display Matrix A and B side-by-side. On the right, show an empty Matrix C. Animate the step-by-step calculation for C_11 (highlighting row 1 of A and col 1 of B, showing multiplication and sum) and then populate C_11. Repeat for C_12, C_21, C_22, filling in Matrix C. After the example, transition to a montage of applications: a rotating globe made of polygons, a heatmap of data points, a neural network diagram with data flowing, emphasizing the underlying matrix operations. End with a 'Thank you for watching!' or 'Practice makes perfect!' message.",
+      "layout": "split_screen"
+    }
+  ]
+}

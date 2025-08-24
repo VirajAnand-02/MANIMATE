@@ -1,0 +1,35 @@
+{
+  "title": "The Simple Pendulum: Understanding Oscillations",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Have you ever wondered how a grandfather clock keeps time? Or how a swing set moves back and forth? The answer often lies with a simple pendulum! A simple pendulum is a fundamental concept in physics, typically consisting of a small, heavy mass, called a 'bob', suspended from a fixed point by a light, inextensible string or rod. When displaced from its resting position and released, it swings back and forth under the influence of gravity. It's a classic example of periodic motion, which we'll explore in this video.",
+      "anim": "Start with a fixed support at the top of the screen. A string appears hanging vertically from it. Then a small, spherical bob attaches to the end of the string. Labels appear: 'Fixed Support', 'String', 'Bob' pointing to each component.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "Let's observe how it moves. The pendulum's journey begins from its 'equilibrium position' – that's when the bob hangs straight down, perfectly still. When we pull the bob to one side and release it, gravity pulls it back towards equilibrium. But due to inertia, it swings past, reaching the opposite side before gravity pulls it back again. This continuous back-and-forth motion is called 'oscillation'. The point where it momentarily stops before changing direction is its maximum displacement.",
+      "anim": "Left side: A simple pendulum swinging smoothly. Highlight the 'equilibrium position' as a vertical dotted line. Show an arrow indicating the force of gravity acting on the bob at its highest point. Right side: Text definitions appear: 'Equilibrium Position: The resting position where the bob hangs vertically.', 'Oscillation: The back-and-forth motion of the pendulum around its equilibrium.'",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "To understand pendulums better, we use three key terms: Amplitude, Period, and Frequency. 'Amplitude' is the maximum displacement or angle from the equilibrium position to either side. 'Period', denoted by 'T', is the time it takes for one complete back-and-forth swing, or oscillation. Imagine the bob starting from one side, swinging to the other, and returning to its original starting point – that's one period. 'Frequency', denoted by 'f', is the number of complete oscillations per unit of time, usually per second, and it's simply the inverse of the period: f = 1/T.",
+      "anim": "A central animation of a pendulum swinging. First, highlight the 'amplitude' by showing an arc and an angle from equilibrium to one maximum displacement point. Then, animate one full swing, with a digital timer counting 'T' for 'Period' as it completes. Finally, show a counter increasing for 'Frequency' as the pendulum swings multiple times, illustrating 'oscillations per second'.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "What factors affect a pendulum's period? Surprisingly, for small angles, the mass of the bob does not affect the period! A heavy bob and a light bob, with the same string length, will swing with the same period. The two main factors are the length of the string and the acceleration due to gravity. A longer string results in a longer period, meaning it swings slower. On the other hand, if gravity were stronger, the pendulum would swing faster, resulting in a shorter period. This is why a pendulum clock would run differently on the Moon than on Earth!",
+      "anim": "Split screen. Left panel: Two pendulums swinging. One with a short string, one with a long string (same bob mass). Show the long-string pendulum swinging slower. Right panel: Two pendulums with the same string length, but different bob masses (one heavy, one light). Show them swinging at the exact same rate. Briefly transition to show a pendulum swinging on Earth vs. a cartoon Moon background, emphasizing gravity's effect on speed.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 5,
+      "text": "Simple pendulums are more than just physics demonstrations; they have practical applications all around us. They are the heart of grandfather clocks, providing a regular oscillation to keep accurate time. Metronomes, used by musicians, rely on a pendulum to set a steady tempo. Even earthquake sensors, known as seismographs, use principles of pendulums to detect ground motion. And for a truly grand example, the Foucault pendulum demonstrates the Earth's rotation! From precise timing to scientific discovery, the simple pendulum continues to be a fascinating and useful invention.",
+      "anim": "Montage of images/short animations: 1. A close-up of a grandfather clock's pendulum swinging. 2. A metronome ticking with its pendulum swinging. 3. A simplified animation of a seismograph pen drawing on a rotating drum as the base shakes. 4. A Foucault pendulum slowly knocking over pegs arranged in a circle on the floor.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

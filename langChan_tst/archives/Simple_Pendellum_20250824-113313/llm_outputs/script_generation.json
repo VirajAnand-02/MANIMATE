@@ -1,0 +1,29 @@
+{
+  "title": "Unraveling the Simple Pendulum: A Swing into Physics",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to the fascinating world of the Simple Pendulum! At its core, a simple pendulum is just a point mass, often called a 'bob,' suspended from a fixed point by a light, inextensible string. When displaced from its resting position and released, it swings back and forth, exhibiting what we call periodic motion. This simple setup has profound implications for understanding fundamental physics.",
+      "anim": "Opening shot with a stylized title animation. Then, an animated diagram of a simple pendulum appears, clearly labeling the 'fixed point,' 'string,' and 'bob.' The pendulum then begins to swing gently, illustrating periodic motion.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "Let's break down the key terms. The lowest point of its swing is the 'equilibrium position.' When it moves away, that's 'displacement.' One complete back-and-forth swing is an 'oscillation.' The maximum displacement from equilibrium is the 'amplitude.' The time it takes for one complete oscillation is the 'period,' measured in seconds. And the number of oscillations per second is its 'frequency,' measured in Hertz. These concepts are crucial for understanding any rhythmic motion.",
+      "anim": "A pendulum swings on the left side of the screen. As narration progresses, text overlays appear on the right side defining: 'Equilibrium Position' (highlighting the lowest point), 'Displacement' (showing an arrow from equilibrium), 'Oscillation' (a full swing highlighted), 'Amplitude' (max displacement arrow), 'Period' (a timer icon appears and counts one full swing), and 'Frequency' (a counter showing swings per second).",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "What makes a pendulum swing faster or slower? Surprisingly, for small angles, the mass of the bob *doesn't* affect the period! Neither does the amplitude. The two main factors are the length of the string – a longer string means a longer period – and the acceleration due to gravity. The stronger the gravity, the shorter the period. This precise relationship makes pendulums incredibly useful!",
+      "anim": "Three mini-pendulum animations side-by-side. First, two pendulums with different bob masses swing at the same rate. Second, two pendulums with different small amplitudes swing at the same rate. Third, two pendulums with different string lengths show the longer one swinging slower. A final animation shows a pendulum swinging, with 'g' (gravity) value changing, illustrating its effect on the period.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "From ancient timekeeping to modern science, simple pendulums have played a vital role. They are the heart of many grandfather clocks and metronomes, providing a steady beat. Seismographs use pendulums to detect ground motion during earthquakes. And perhaps most famously, the Foucault pendulum dramatically demonstrates the Earth's rotation, a testament to its predictable and observable motion. Pretty cool for a simple swinging weight, right?",
+      "anim": "A montage of images/short video clips: a beautiful grandfather clock, a musical metronome ticking, a seismograph needle charting movement, and finally, a striking animation of a Foucault pendulum slowly rotating its plane of swing over time, clearly showing Earth's rotation beneath it. End with a question mark animation.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

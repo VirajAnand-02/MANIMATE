@@ -1,0 +1,29 @@
+{
+  "title": "Demystifying Matrix Multiplication",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to the fascinating world of matrix multiplication! Matrices are rectangular arrays of numbers, and multiplying them isn't as simple as multiplying individual numbers. But it's a fundamental operation in computer graphics, scientific computing, machine learning, and many other fields. In this video, we'll demystify how to multiply matrices, step-by-step, and understand why it's so important.",
+      "anim": "Start with a title 'Matrix Multiplication'. Show abstract matrices appearing on screen. Briefly animate a 3D object rotating (computer graphics), then a neural network diagram (machine learning), and a data table (scientific computing) to hint at applications. Transition to a question mark over two matrices.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "Before we dive into the 'how,' let's talk about 'when.' You can only multiply two matrices if the number of columns in the first matrix equals the number of rows in the second matrix. This is called the 'compatibility rule.' If matrix A is 'm by n' and matrix B is 'n by p,' then their product C will be 'm by p.' Now, for the calculation itself: to find each element in the resulting matrix, you'll take a row from the first matrix and a column from the second. You multiply corresponding elements and then sum up those products. Let's visualize this.",
+      "anim": "Left side: Display Matrix A (m x n) and Matrix B (n x p). Visually highlight 'n' columns of A and 'n' rows of B, showing them matching with a 'check' mark. The resulting matrix C (m x p) appears. Right side: Illustrate a generic row vector from A and a generic column vector from B. Show arrows connecting corresponding elements, then a multiplication symbol, then a summation symbol, leading to a single scalar result.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Let's try a concrete example. We have Matrix A, a 2x2, and Matrix B, also a 2x2. First, let's find the element in the first row, first column of our result, C11. We take the first row of A and the first column of B. Multiply the first elements: A11 times B11. Then, multiply the second elements: A12 times B21. Add these products together, and that's C11! To find C12, we use the first row of A and the second column of B, repeating the process. For C21, it's row two of A and column one of B. And finally, C22 is row two of A and column two of B. See how each element is a sum of products?",
+      "anim": "Display Matrix A = [[a11, a12], [a21, a22]] and Matrix B = [[b11, b12], [b21, b22]]. Show a blank result matrix C. Step-by-step: 1. Highlight Row 1 of A and Col 1 of B. Show (a11*b11) + (a12*b21) calculating C11. 2. Highlight Row 1 of A and Col 2 of B. Show (a11*b12) + (a12*b22) calculating C12. 3. Highlight Row 2 of A and Col 1 of B. Show (a21*b11) + (a22*b21) calculating C21. 4. Highlight Row 2 of A and Col 2 of B. Show (a21*b12) + (a22*b22) calculating C22. Fill in the C matrix as each element is calculated.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "One crucial thing to remember about matrix multiplication is that it's generally not commutative. That means A times B is usually not the same as B times A. The order matters! This is a big difference from multiplying regular numbers. So, always pay attention to the order. To recap, check compatibility, then systematically multiply rows by columns, summing the products. Mastering this operation opens doors to understanding complex transformations in graphics, solving systems of equations, and powering modern AI algorithms. Keep practicing, and you'll master it in no time!",
+      "anim": "Show A x B = C, then show B x A = D, with C and D clearly different matrices (perhaps with a 'not equal' sign between C and D). Briefly flash icons representing applications: a rotating 3D cube, a graph showing data transformation, and a simplified neuron firing in a neural network. End with the video title and a 'Thank You' message.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

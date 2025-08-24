@@ -1,0 +1,35 @@
+{
+  "title": "Understanding the Simple Pendulum",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome! Today, we're diving into the fascinating world of physics with a simple yet powerful tool: the simple pendulum. We'll explore its basic components, how it swings, and the factors that influence its motion.",
+      "anim": "Animation showing a simple pendulum swinging, labeled with key parts like 'bob', 'string', and 'pivot point'. Highlight the angle of displacement.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "A simple pendulum consists of a point mass, or 'bob', suspended from a fixed point by a massless, inextensible string. In reality, we use a small, dense object attached to a light string. The key is that the mass of the bob is much larger than the mass of the string.",
+      "anim": "Split screen. On one side, show an ideal simple pendulum diagram. On the other, show a real-world pendulum with a small metal sphere and a thin string. Label the differences.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "The pendulum's motion is governed by gravity. When displaced from its resting position, gravity pulls the bob back towards equilibrium. This creates a restoring force that causes the pendulum to oscillate or swing back and forth.",
+      "anim": "Animation showing the pendulum swinging. Arrows indicate the force of gravity and the restoring force at different points in the swing. Highlight how the restoring force changes with the angle.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 4,
+      "text": "The time it takes for one complete swing, going back and forth, is called the period. Interestingly, the period of a simple pendulum depends primarily on its length and the acceleration due to gravity. The mass of the bob has almost no effect!",
+      "anim": "Animation showing two pendulums of different lengths swinging side-by-side. The longer pendulum swings slower. Also, show two pendulums of the same length but different bob masses swinging at the same rate.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 5,
+      "text": "The period (T) can be calculated using the formula: T = 2π√(L/g), where L is the length of the pendulum and g is the acceleration due to gravity. This formula is an approximation that works well for small angles of displacement. For larger angles, the motion becomes more complex!",
+      "anim": "Animation displaying the formula T = 2π√(L/g). Show a pendulum swinging with a small angle and then a pendulum swinging with a large angle, highlighting how the period changes slightly in the latter case. Overlay text explaining the limitations of the formula.",
+      "layout": "custom"
+    }
+  ]
+}

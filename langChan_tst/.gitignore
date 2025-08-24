@@ -1,0 +1,42 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*
+
+# Build output
+dist/
+build/
+out/
+
+# IDEs
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Misc
+*.local
+coverage/
+
+# Ignore render outputs
+langChan_tst/renders/
+langChan_tst/tmp_manim_scenes/
+langChan_tst/archives/
+langChan_tst/.old/
+langChan_tst/__pycache__/
+__pycache__/

@@ -1,0 +1,29 @@
+{
+  "title": "Mastering Matrix Multiplication",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to the fascinating world of matrix multiplication! You've probably encountered matrices as rectangular arrays of numbers. But what happens when we want to multiply them? Unlike simple number multiplication, matrix multiplication has a unique set of rules and powerful applications. From transforming objects in computer graphics to solving complex systems in engineering, understanding this operation is crucial. Before we dive into the 'how,' let's quickly remember that for two matrices, A and B, to be multiplied, the number of columns in A must equal the number of rows in B. This is a fundamental rule we'll see in action. Let's get started!",
+      "anim": "Title slide 'Mastering Matrix Multiplication'. Then, a simple 2x2 matrix appears with text 'Rectangular arrays of numbers'. Show quick visual examples of applications: a rotating 3D cube, a graph of data points, a system of equations. Finally, two matrices A (m x n) and B (n x p) appear, with the 'n's highlighted, showing the compatibility rule for dimensions.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "The heart of matrix multiplication lies in the 'row by column' rule. Imagine we have two matrices, Matrix A and Matrix B. To find an element in the resulting product matrix, say at position (i, j), we take the i-th row of Matrix A and multiply each of its elements by the corresponding elements in the j-th column of Matrix B. Then, we sum up these products. This might sound a bit abstract, so let's visualize it. We're essentially performing a dot product between a row vector from the first matrix and a column vector from the second. Each element in our new matrix is the result of one such dot product. Let's see how this works with a small example.",
+      "anim": "Two 2x2 matrices, A and B, appear side-by-side. Highlight the first row of A and the first column of B. Show arrows connecting elements (A11*B11, A12*B21) with their products. Then show the sum of these products forming the (1,1) element of the result matrix C. Repeat the highlighting for the first row of A and the second column of B, showing the calculation for the (1,2) element of C.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Let's work through a slightly larger example to solidify our understanding. Suppose we have Matrix A, a 2x3 matrix, and Matrix B, a 3x2 matrix. First, check the dimensions: 3 columns in A matches 3 rows in B, so multiplication is possible, and our result will be a 2x2 matrix. To find the element in the first row, first column of our result, we take the first row of A and the first column of B, multiply corresponding elements, and sum them up. Next, for the first row, second column, we use the first row of A and the second column of B. We continue this process for the second row of A, pairing it with both columns of B to fill out the second row of our product matrix. Notice how each step is a repetition of that 'row by column' dot product we just discussed. And there you have it – our resulting 2x2 matrix!",
+      "anim": "Show Matrix A (2x3) and Matrix B (3x2) on the left. An empty 2x2 result matrix C appears on the right. Step 1: Highlight row 1 of A and column 1 of B. Show calculation (A11*B11 + A12*B21 + A13*B31) = C11. Fill C11 in the result matrix. Step 2: Highlight row 1 of A and column 2 of B. Show calculation (A11*B12 + A12*B22 + A13*B32) = C12. Fill C12. Continue this for C21 and C22, dynamically filling the result matrix. Finally, show the complete product matrix C.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "So, what are the key takeaways? First, always check the dimensions: the inner dimensions must match. Second, remember the 'row by column' rule – it's the foundation for every element in your product matrix. Matrix multiplication is not commutative, meaning A times B is generally not equal to B times A, which is a crucial difference from scalar multiplication. This operation is fundamental in many fields: in computer graphics, it's used for transformations like rotations, scaling, and translations. In data science, it helps process large datasets and perform statistical analyses. In physics, it describes quantum states and transformations. Keep practicing with different matrix sizes, and you'll master this essential concept. Thanks for watching!",
+      "anim": "Summary points appear on screen: '1. Dimensions must match (m x N) * (N x p)'. '2. Row by Column rule'. '3. Not Commutative (AB ≠ BA)'. Show quick visual examples of applications: a 3D model rotating, a scatter plot of data points transforming, a quantum physics diagram. Text overlay: 'Practice makes perfect!'",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

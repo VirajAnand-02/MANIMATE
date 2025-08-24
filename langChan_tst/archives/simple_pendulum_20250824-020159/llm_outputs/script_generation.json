@@ -1,0 +1,35 @@
+{
+  "title": "Understanding the Simple Pendulum",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Hey everyone, welcome! Today we're diving into the fascinating world of physics to explore the simple pendulum. We'll learn what it is, how it works, and what factors influence its motion. Get ready for some swinging good science!",
+      "anim": "Title card animates onto screen: 'Understanding the Simple Pendulum'. Followed by a real-world example montage: grandfather clock, playground swing, pendulum art.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "A simple pendulum is, well, simple! It consists of a mass, called a bob, suspended from a fixed point by a lightweight string or rod. We assume the string is massless and doesn't stretch. When pulled to the side and released, gravity pulls the bob back towards the center, causing it to swing back and forth.",
+      "anim": "A diagram of a simple pendulum appears. The bob and string are labeled. An arrow shows the force of gravity acting on the bob. The pendulum swings back and forth. Highlight the fixed point and the length of the string.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 3,
+      "text": "The time it takes for one complete swing – that is, from one side to the other and back again – is called the period. Interestingly, the period of a simple pendulum depends primarily on two things: the length of the pendulum and the acceleration due to gravity. The mass of the bob *doesn't* affect the period!",
+      "anim": "Split screen. Left side: Animated pendulum swinging. A timer displays the period. Right side: Two pendulums with different lengths swinging. Their periods are displayed, showing the longer pendulum has a longer period. Then show two pendulums with different masses, but the same length, swinging with the same period.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 4,
+      "text": "We can actually calculate the period using a simple formula: T = 2π√(L/g), where T is the period, L is the length of the pendulum, and g is the acceleration due to gravity (approximately 9.8 m/s² on Earth). Let's try an example: if a pendulum is 1 meter long, its period would be about 2 seconds.",
+      "anim": "The formula T = 2π√(L/g) appears on screen. Each variable is labeled. Then, a calculation is shown: T = 2π√(1/9.8) ≈ 2 seconds. The pendulum swinging is displayed with a visual timer showing the period of 2 seconds.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 5,
+      "text": "So, the simple pendulum is a great example of how physics can explain everyday phenomena! From clocks to swings, understanding the factors that affect its motion helps us appreciate the world around us. Thanks for watching!",
+      "anim": "Montage of applications of pendulums: grandfather clock mechanism, seismograph, metronome. End screen with call to action: Subscribe for more physics videos!",
+      "layout": "custom"
+    }
+  ]
+}

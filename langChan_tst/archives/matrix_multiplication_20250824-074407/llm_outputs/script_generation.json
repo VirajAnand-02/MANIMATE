@@ -1,0 +1,35 @@
+{
+  "title": "Matrix Multiplication: The Core of Linear Algebra",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome! Ever wondered how to multiply matrices? It's not as simple as multiplying individual numbers. Matrix multiplication is a fundamental operation in linear algebra, essential for everything from computer graphics to data science. It combines rows from the first matrix with columns from the second in a very specific way. Let's dive in and demystify this powerful concept!",
+      "anim": "Starts with a title card: 'Matrix Multiplication'. Then shows a simple 2x2 matrix, highlighting its rows and columns. Briefly shows two matrices side-by-side (Matrix A and Matrix B), then a large question mark between them, implying their product.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "The key to matrix multiplication lies in the 'dot product'. To find a single element in the resulting matrix, say at row 'i' and column 'j', you take the 'i'-th row of the first matrix and the 'j'-th column of the second matrix. You then multiply corresponding elements and sum them up. For example, if we want the element in the first row, first column of the result, we'd multiply elements of the first row of matrix A by the first column of matrix B, element by element, and add them all together.",
+      "anim": "Left side: Displays two generic matrices, A and B. Right side: Visually highlights Row 1 of Matrix A (e.g., [a11 a12]) and Column 1 of Matrix B (e.g., [b11; b21]). Arrows connect a11 to b11, and a12 to b21. Then, the calculation (a11*b11) + (a12*b21) appears, leading to a single value, which then slides into the 'C11' position of a nascent result matrix C.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Let's walk through a complete example with two 2x2 matrices. Suppose Matrix A is [1 2; 3 4] and Matrix B is [5 6; 7 8]. To find the first element of the result, we take Row 1 of A [1 2] and Column 1 of B [5 7]. Multiply: (1*5) + (2*7) = 5 + 14 = 19. For the second element in Row 1, we use Row 1 of A and Column 2 of B [6 8]. Multiply: (1*6) + (2*8) = 6 + 16 = 22. We repeat this for Row 2 of A with both columns of B. This systematic approach ensures every element is correctly calculated.",
+      "anim": "Shows Matrix A and Matrix B side-by-side, with an empty result matrix C. Step-by-step: 1. Highlights A's R1 and B's C1. Shows calculation (1*5) + (2*7) = 19. Places 19 in C11. 2. Highlights A's R1 and B's C2. Shows calculation (1*6) + (2*8) = 22. Places 22 in C12. 3. Highlights A's R2 and B's C1. Shows calculation (3*5) + (4*7) = 43. Places 43 in C21. 4. Highlights A's R2 and B's C2. Shows calculation (3*6) + (4*8) = 50. Places 50 in C22. Finally, displays the complete resulting matrix C.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "There are crucial rules for matrix multiplication. First, for two matrices A (m x n) and B (p x q) to be multiplied, the number of columns in A must equal the number of rows in B. That is, 'n' must equal 'p'. The resulting matrix C will have dimensions 'm x q'. Second, matrix multiplication is NOT commutative. A times B is generally NOT equal to B times A. This is a significant difference from scalar multiplication. Always check dimensions and remember the order matters!",
+      "anim": "Left side: Displays two matrices A (m x n) and B (p x q). An arrow connects 'n' and 'p', showing they must match. The resulting matrix C (m x q) appears. Right side: Shows 'A x B = C' then 'B x A = ?' with a large red 'X' over it, emphasizing non-commutativity. Briefly shows a simple counter-example (e.g., A*B gives a 2x2, B*A gives an error or a different dimension).",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 5,
+      "text": "Why is matrix multiplication so important? It's the backbone of many real-world applications! In computer graphics, it transforms 3D objects, scaling, rotating, and translating them on your screen. In machine learning, it's used in neural networks for processing data. From solving systems of linear equations to complex scientific simulations and cryptography, understanding matrix multiplication opens doors to countless fields. It's a powerful tool that helps us model and understand the world around us.",
+      "anim": "Starts with a title card: 'Where is it used?'. Then a quick visual montage: A 3D cube rotating and scaling on a screen. A simplified neural network diagram with data flowing through layers. A graph showing data points being analyzed. A scientist looking at complex simulation data on multiple monitors. Ends with a 'Thank You' message.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

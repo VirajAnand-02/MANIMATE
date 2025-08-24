@@ -1,0 +1,9 @@
+# This file is used internally by FFMPEG.
+file 'file:E:/programming/Notes2Manim/langChan_tst/renders/video/scene_4/videos/scene_Scene4/1080p60/partial_movie_files/Scene4/3529212410_3419832521_223132457.mp4'
+file 'file:E:/programming/Notes2Manim/langChan_tst/renders/video/scene_4/videos/scene_Scene4/1080p60/partial_movie_files/Scene4/3040924799_1839128356_3849263073.mp4'
+file 'file:E:/programming/Notes2Manim/langChan_tst/renders/video/scene_4/videos/scene_Scene4/1080p60/partial_movie_files/Scene4/3040924799_2838739299_2451069418.mp4'
+file 'file:E:/programming/Notes2Manim/langChan_tst/renders/video/scene_4/videos/scene_Scene4/1080p60/partial_movie_files/Scene4/3040924799_1734327179_3953311698.mp4'
+file 'file:E:/programming/Notes2Manim/langChan_tst/renders/video/scene_4/videos/scene_Scene4/1080p60/partial_movie_files/Scene4/3040924799_555573917_2142847567.mp4'
+file 'file:E:/programming/Notes2Manim/langChan_tst/renders/video/scene_4/videos/scene_Scene4/1080p60/partial_movie_files/Scene4/3040924799_2850123598_691969773.mp4'
+file 'file:E:/programming/Notes2Manim/langChan_tst/renders/video/scene_4/videos/scene_Scene4/1080p60/partial_movie_files/Scene4/3040924799_388579202_1930786390.mp4'
+file 'file:E:/programming/Notes2Manim/langChan_tst/renders/video/scene_4/videos/scene_Scene4/1080p60/partial_movie_files/Scene4/3040924799_2559431492_1516148326.mp4'

@@ -1,0 +1,29 @@
+{
+  "title": "Mastering Matrix Multiplication",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to the world of matrices! You might think multiplying matrices is as simple as multiplying corresponding numbers, but for matrices, it's a bit more profound. Matrix multiplication isn't just about combining individual elements; it's about combining entire rows and columns in a very specific way. This unique operation is fundamental to computer graphics, physics simulations, and data analysis. It allows us to perform complex transformations and calculations that simple element-wise multiplication just can't achieve. Let's dive in and unravel this powerful mathematical tool.",
+      "anim": "Opens with a title card 'Matrix Multiplication'. Fades to show a grid of numbers (a matrix). Then, two simple matrices appear side-by-side. A question mark hovers over an attempt at element-wise multiplication, which then dissolves. Different complex applications icons (3D cube, graph, data points) appear, hinting at the importance of matrix multiplication.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "The core rule for matrix multiplication is 'row by column.' To find an element in the resulting matrix, you take a row from the first matrix and a column from the second matrix. Then, you multiply their corresponding elements, pair by pair, and sum up those products. This sum becomes one single element in your new matrix. For example, to find the element in the first row, first column of the result, you'd use the first row of the first matrix and the first column of the second matrix. It's like performing a series of dot products.",
+      "anim": "Two matrices, A and B, are displayed. Matrix A is highlighted row by row, and Matrix B is highlighted column by column. As narration explains, a specific row from A and a specific column from B slide closer. Their corresponding elements are highlighted, multiplied, and then summed, with the result appearing in the correct position in a third, empty 'Result Matrix' below. This process repeats for one more element, showing the 'row by column' concept clearly.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Let's work through an example: multiplying two 2x2 matrices. Say Matrix A is [[1, 2], [3, 4]] and Matrix B is [[5, 6], [7, 8]]. To find the first element of our result, we combine Row 1 of A with Column 1 of B: (1*5) + (2*7) equals 19. For the second element, it's Row 1 of A with Column 2 of B: (1*6) + (2*8) equals 22. Moving to the second row. The third element comes from Row 2 of A and Column 1 of B: (3*5) + (4*7) equals 43. And finally, the fourth element is Row 2 of A with Column 2 of B: (3*6) + (4*8) equals 50. The resulting matrix is [[19, 22], [43, 50]]. Practice makes perfect!",
+      "anim": "Matrices A and B are shown on the left. An empty result matrix C is on the right. Step-by-step, highlights move: Row 1 of A and Column 1 of B are highlighted. The calculation (1*5)+(2*7)=19 is shown, and 19 appears in C[0,0]. Then Row 1 of A and Column 2 of B, calculation (1*6)+(2*8)=22, and 22 appears in C[0,1]. This repeats for the second row, filling C[1,0] and C[1,1]. Calculations are clear and visually distinct.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "Before you multiply, always check the dimensions! For matrices A (m x n) and B (p x q) to be multiplied, the number of columns in A must equal the number of rows in B. That means 'n' must equal 'p'. The resulting matrix will have dimensions 'm x q'. If the inner dimensions don't match, multiplication is impossible. Matrix multiplication is crucial in many fields: from 3D computer graphics for rotating and scaling objects, to solving systems of linear equations, and even powering machine learning algorithms. It's a fundamental concept for anyone delving deeper into mathematics or computer science.",
+      "anim": "Two generic matrices, A (m x n) and B (p x q) are shown. The 'n' in A and 'p' in B are highlighted and shown to connect, with a large 'n = p' rule appearing. Then, 'm' from A and 'q' from B are highlighted, forming the dimensions of the resulting matrix (m x q). Quick animated icons representing 3D transformations (rotating cube), data analysis (scatter plot), and AI (neural network) pop up, illustrating applications.",
+      "layout": "split_screen"
+    }
+  ]
+}

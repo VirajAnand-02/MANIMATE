@@ -1,0 +1,35 @@
+{
+  "title": "Matrix Multiplication: A Visual Guide",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome! Today, we'll explore matrix multiplication. It's not just about numbers; it's a powerful tool in computer graphics, data analysis, and more! We'll break down the process step-by-step, making it easy to understand.",
+      "anim": "Title card animation: 'Matrix Multiplication: A Visual Guide' with rotating matrices in the background. Highlight the applications with short clips (e.g., a 3D model rotating, a data visualization graph changing)",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "First, the basics: Matrix multiplication is only possible if the number of columns in the first matrix equals the number of rows in the second matrix. If you have a matrix A (m x n) and matrix B (n x p), the resulting matrix C will be (m x p).",
+      "anim": "Screen split into two halves. Left: Matrix A (m x n) highlighted. Right: Matrix B (n x p) highlighted. An arrow points from the 'n' of Matrix A to the 'n' of Matrix B, then another arrow goes from A and B to a new Matrix C (m x p) which is then highlighted. Show an example with actual numbers: A(2x3) and B(3x2) resulting in C(2x2).",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "To find each element in the resulting matrix, we take the dot product of a row from the first matrix and a column from the second matrix. This means multiplying corresponding elements and then adding them together.",
+      "anim": "Show the matrices A and B from the previous scene. Focus on the first row of Matrix A and the first column of Matrix B. Highlight corresponding elements (e.g., A11 and B11, A12 and B21, A13 and B31) as they are multiplied. An equation showing the dot product calculation appears: (A11 * B11) + (A12 * B21) + (A13 * B31) = C11, with C11 being the first element of Matrix C, which appears on the screen.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 4,
+      "text": "Let's work through a full example! Consider multiplying a 2x2 matrix by another 2x2 matrix. We'll calculate each element of the resulting matrix step-by-step.",
+      "anim": "Show two 2x2 matrices with numerical values (e.g., [[1, 2], [3, 4]] and [[5, 6], [7, 8]]). Animate the dot product calculation for each element of the resulting matrix. Show the multiplication and addition steps clearly, highlighting the corresponding rows and columns. Animate the resulting 2x2 matrix forming as each element is calculated.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 5,
+      "text": "And that's matrix multiplication! Remember the row-by-column rule and the dot product. With practice, you'll be multiplying matrices like a pro! Keep exploring and applying this powerful tool!",
+      "anim": "Show the complete matrix multiplication example from the previous scene. Zoom out to show various applications of matrix multiplication (e.g., 3D graphics transformation, image processing, solving linear equations). End with a screen that says 'Thanks for watching!'.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

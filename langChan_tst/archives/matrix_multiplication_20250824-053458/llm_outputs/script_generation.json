@@ -1,0 +1,35 @@
+{
+  "title": "Unlocking Matrix Multiplication: The Essential Guide",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to the fascinating world of matrices! A matrix is simply a rectangular array of numbers, symbols, or expressions, arranged in rows and columns. They're fundamental in computer graphics, data science, physics, and engineering. But unlike regular numbers, multiplying matrices has its own unique rules. Forget everything you know about standard multiplication for a moment, because matrix multiplication is a whole different beast. Let's dive in and demystify it!",
+      "anim": "An animated grid of numbers appears, forming a matrix. Text overlays show examples of matrix applications: a spinning 3D cube, a graph of data points, a circuit board. Transition to a title card: 'Matrix Multiplication: The Basics'.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "The very first step in matrix multiplication is checking compatibility. You can only multiply two matrices, say Matrix A and Matrix B, if the number of columns in Matrix A is equal to the number of rows in Matrix B. If Matrix A is an 'm by n' matrix (m rows, n columns) and Matrix B is an 'n by p' matrix (n rows, p columns), then they are compatible! The resulting product matrix will have the dimensions 'm by p' – matching the outer dimensions of the original matrices. If those inner numbers don't match, you simply cannot multiply them!",
+      "anim": "Two generic matrices, 'A' (m x n) and 'B' (n x p), appear side-by-side. The 'n' (number of columns in A) and 'n' (number of rows in B) are highlighted and connected with an arrow, emphasizing they must be equal. Then, a third matrix 'C' (m x p) appears, with 'm' (rows of A) and 'p' (columns of B) highlighted to show the resulting dimensions. An 'X' appears if the inner dimensions don't match.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Now for the core process: how do we get the numbers in our new matrix? To find an element at a specific position, say row 'i' and column 'j', in the product matrix, you take the i-th row of the first matrix and the j-th column of the second matrix. You then multiply the corresponding elements from that row and column, and finally, sum up all those products. This operation is often called a 'dot product.' It's like a focused, element-by-element dance between a row and a column.",
+      "anim": "Matrix A and Matrix B are displayed. An arrow highlights the first row of Matrix A. Another arrow highlights the first column of Matrix B. As they meet, the individual elements are shown multiplying (e.g., A11*B11, A12*B21, etc.), then a plus sign appears, summing them up to form the element C11 in the result matrix. This process is animated clearly for one element.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "Let's walk through a quick example. Consider Matrix A: [[1, 2], [3, 4]] and Matrix B: [[5, 6], [7, 8]]. Both are 2x2, so the result will also be 2x2. To find the top-left element, C_11: we take row 1 of A [1, 2] and column 1 of B [5, 7]. (1*5) + (2*7) = 5 + 14 = 19. For C_12: row 1 of A [1, 2] and column 2 of B [6, 8]. (1*6) + (2*8) = 6 + 16 = 22. You repeat this for every position. C_21: (3*5) + (4*7) = 15 + 28 = 43. And C_22: (3*6) + (4*8) = 18 + 32 = 50. So, the final product matrix is [[19, 22], [43, 50]].",
+      "anim": "Matrices A and B are shown on the left. On the right, a blank result matrix C appears. Step-by-step, highlight the relevant row from A and column from B, show the multiplication and summation for C_11, then C_12, C_21, and C_22, filling in the result matrix as each calculation is completed. Use distinct colors for each calculation step.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 5,
+      "text": "So, to recap: check dimensions first – inner numbers must match. The result's dimensions are the outer numbers. Then, for each element in your new matrix, perform a dot product: a row from the first matrix multiplied by a column from the second. Matrix multiplication might seem complex at first, but with practice, it becomes a powerful tool. Keep practicing, and you'll be a matrix master in no time! Thanks for watching!",
+      "anim": "A summary slide appears, listing the key rules: 1. Check Dimensions (Inner Match), 2. Result Dimensions (Outer Numbers), 3. Dot Product (Row x Column). A final animation shows various applications of matrices (e.g., a spinning 3D object, a neural network diagram) to emphasize their real-world importance. A 'Thank You' message appears.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "title": "Introduction to Matrices: The Basics",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to a quick introduction to matrices! Ever wondered how computers handle complex data or graphics? Often, it's with the help of matrices. Simply put, a matrix is a rectangular array of numbers, symbols, or expressions, arranged in rows and columns. Think of it like a spreadsheet or a table, but with specific mathematical rules. They're fundamental tools in mathematics, science, engineering, and computer graphics, used to organize and manipulate data efficiently. Ready to dive in?",
+      "anim": "Animated title 'Introduction to Matrices'. A grid appears, numbers fill it forming a simple 3x3 matrix. Brief visuals of data points or a simple 2D shape transforming to hint at applications.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "Let's look inside a matrix. Every matrix has rows, which run horizontally, and columns, which run vertically. Each individual number inside the matrix is called an element. We identify each element by its position: 'a sub i j', where 'i' is the row number and 'j' is the column number. For example, 'a one one' is the element in the first row, first column. The size of a matrix is called its order or dimension, defined by the number of rows 'm' by the number of columns 'n', written as 'm x n'. A 3x2 matrix has three rows and two columns. Understanding this notation is key to working with matrices.",
+      "anim": "A 3x3 matrix appears on the left. Highlight a row, then a column. Zoom in on an element, showing 'a_ij' notation. On the right, text labels 'Row', 'Column', 'Element', 'Order (m x n)' appear and point to the corresponding parts of the matrix. Then, a 3x2 matrix appears with '3 x 2' clearly displayed next to it.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "So, why are matrices so useful? They're fantastic for organizing data. Imagine you're tracking daily sales for different products – a matrix can neatly store this. In computer graphics, matrices are used to perform transformations like scaling objects, rotating them, or moving them across the screen. When you see a 3D model spin or resize in a game, matrices are often working behind the scenes. They also help solve systems of linear equations, which appear in almost every scientific and engineering field. From economics to physics, matrices provide a powerful framework for problem-solving.",
+      "anim": "Scene transitions. First, a simple table/spreadsheet visual for sales data (Product A, Product B, Day 1, Day 2). Then, a 2D square on a grid rotating and scaling. Finally, a brief animation showing lines intersecting to represent solving equations.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "Just like regular numbers, matrices can be added, subtracted, and even multiplied, though matrix multiplication has its own unique rules! These operations allow us to manipulate entire datasets or geometric transformations in a structured way. For instance, adding two matrices might combine two different sets of data, while multiplying them could represent a sequence of transformations. We'll explore these operations in more detail in future videos, but for now, remember that matrices are not just static arrays; they are dynamic tools that can be operated on to achieve powerful results. You've just taken your first step into the world of matrices!",
+      "anim": "Two simple 2x2 matrices appear with a '+' sign between them, then an '=' and an empty matrix. Repeat for '-' and 'x' (multiplication). Briefly show an arrow indicating 'Future Topic: Matrix Operations'. End with a 'Thank You for Watching!' screen.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

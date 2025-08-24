@@ -1,0 +1,29 @@
+{
+  "title": "Understanding Simple Parallel Testing",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to our quick guide on Simple Parallel Testing! Ever wondered how companies switch to new systems without things breaking? That's where parallel testing comes in. It's a powerful strategy where you run a new system alongside an existing, proven one, processing the exact same inputs. Think of it as a safety net, ensuring your new system performs identically or better, before you fully commit. It's crucial for minimizing risk during system upgrades or migrations, giving confidence to businesses and users alike.",
+      "anim": "Title card: 'Simple Parallel Test'. Then, two distinct, animated system boxes labeled 'Old System' and 'New System' appear side-by-side. A stream of identical inputs (e.g., small data packets) flows into both simultaneously. A question mark icon appears over the new system, then a checkmark over the old. Finally, a comparison icon (like a balance scale) appears between them, tilting towards 'New System' once validated.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "So, how does this magic happen? First, you define the scope: which functions or modules of the new system will be tested. Then, you duplicate real-world data or transactions. This identical set of inputs is fed into both the old, production system and the new, candidate system. Both systems process the data independently. Finally, the outputs from both systems are meticulously compared. Any discrepancies are flagged, investigated, and resolved, ensuring the new system's accuracy and reliability before it ever goes live.",
+      "anim": "Split screen. Left side: 'Old System' box with data flowing in and an output box. Right side: 'New System' box with identical data flowing in and an output box. A central animated arrow shows 'Identical Inputs' going to both. Then, a 'Comparison Engine' icon appears at the bottom, taking outputs from both and highlighting differences (red X for difference, green check for match).",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Let's imagine a bank upgrading its core transaction processing system. For a few weeks, every customer transaction – deposits, withdrawals, transfers – is processed not just by the old, trusted system, but simultaneously by the new system running in the background. The bank doesn't use the new system's outputs for live operations yet. Instead, their engineers compare every single transaction record. If the old system says a balance is $500 after a deposit, and the new system says $490, that's a critical bug that needs fixing before the new system goes live. This ensures zero financial errors when they finally make the switch.",
+      "anim": "Custom layout showing a 'Customer Transaction' icon (e.g., a person with money). An arrow branches this transaction to two parallel pipelines: 'Old Banking System' and 'New Banking System'. Each pipeline shows processing (e.g., gear icons, database icons). Output data (e.g., account balance numbers) emerges from both. A 'Comparison' screen highlights a discrepancy (e.g., Old: $500, New: $490, with a red alert). Then, after correction, both show $500, with a green checkmark.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "The benefits of simple parallel testing are huge. Firstly, it drastically reduces risk by catching critical errors before they impact live users. Secondly, it builds confidence in the new system's accuracy and performance, providing tangible proof that it works as expected. Thirdly, it helps validate data migration, ensuring all historical data is correctly handled. And finally, it offers a safety net, allowing for a smooth and controlled transition without unexpected disruptions. So, next time you hear about a major system upgrade, remember the quiet heroes: parallel tests, working behind the scenes to keep everything running seamlessly!",
+      "anim": "Title card: 'Benefits of Parallel Testing'. Bullet points animate in: 'Reduces Risk' (with a shield icon), 'Builds Confidence' (with a thumbs-up icon), 'Validates Data' (with a magnifying glass on data), 'Smooth Transition' (with a smooth arrow path). End with a final summary graphic: 'Parallel Testing: Your Upgrade Safety Net. Seamless Transitions, Guaranteed Confidence.'",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

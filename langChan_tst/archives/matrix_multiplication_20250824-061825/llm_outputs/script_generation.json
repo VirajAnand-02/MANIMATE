@@ -1,0 +1,29 @@
+{
+  "title": "Mastering Matrix Multiplication",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to the exciting world of matrix multiplication! This operation is fundamental in fields like computer graphics, physics, and data science. But before we dive into *how* to multiply, there's a crucial rule about *when* you can multiply. For two matrices, say A and B, to be multiplied (A * B), the number of columns in the first matrix (A) *must* equal the number of rows in the second matrix (B). If matrix A is m x n, and matrix B is n x p, then the resulting matrix C will be m x p. Remember, inner dimensions must match!",
+      "anim": "Opens with a title 'Matrix Multiplication: The Foundation'. Two abstract matrices, A (2x3) and B (3x2), appear side-by-side. Highlight the '3' columns of A and '3' rows of B, using a pulsating effect to show them matching. Then, a new matrix C (2x2) forms, highlighting its outer dimensions (2 rows from A, 2 columns from B).",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "Now for the 'how'! To find an element in the resulting matrix, you take a specific row from the first matrix and a specific column from the second matrix. Let's say we want the element in row 'i' and column 'j' of the result. You'll multiply each element in row 'i' of the first matrix by its corresponding element in column 'j' of the second matrix, and then sum up all those products. This is often called the 'dot product' of the row and column. The position of this sum directly corresponds to the row and column you selected in the result matrix.",
+      "anim": "Two matrices A (2x2) and B (2x2) are displayed on the left. On the right, a blank result matrix C (2x2) appears. Highlight the first row of A (e.g., in blue) and the first column of B (e.g., in red). Show arrows connecting corresponding elements (A11 with B11, A12 with B21). Then, show the multiplication (A11*B11 + A12*B21) and the sum appearing in the C11 position of the result matrix, using animated numbers.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Let's walk through an example. Suppose we have Matrix A: [ [1, 2], [3, 4] ] and Matrix B: [ [5, 6], [7, 8] ]. First, dimensions: A is 2x2, B is 2x2. Inner dimensions match (2=2), so the result will be 2x2. To find C11, we take Row 1 of A (1, 2) and Column 1 of B (5, 7). That's (1*5) + (2*7) = 5 + 14 = 19. For C12, Row 1 of A (1, 2) and Column 2 of B (6, 8). That's (1*6) + (2*8) = 6 + 16 = 22. Next, C21: Row 2 of A (3, 4) and Column 1 of B (5, 7). (3*5) + (4*7) = 15 + 28 = 43. Finally, C22: Row 2 of A (3, 4) and Column 2 of B (6, 8). (3*6) + (4*8) = 18 + 32 = 50. So the resulting matrix is [ [19, 22], [43, 50] ].",
+      "anim": "Display Matrix A and Matrix B prominently. A blank result matrix C (2x2) appears below them. Step-by-step, highlight the current row from A and column from B. Show the individual multiplications and sums for C11 in a small calculation bubble, then fill '19' into C11. Repeat this process for C12, C21, and C22, dynamically filling in the result matrix with '22', '43', and '50' respectively. Use clear visual cues and color changes for each step.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "To recap: Matrix multiplication requires the inner dimensions to match. Each element in the result matrix is found by taking the dot product of a row from the first matrix and a column from the second. While it might seem complex at first, this operation is incredibly powerful. It's used in 3D computer graphics to transform objects – rotating, scaling, and translating them. In machine learning, it's fundamental for neural networks to process data. And in physics, it helps solve systems of equations. Keep practicing, and you'll master this essential mathematical tool!",
+      "anim": "A summary slide appears showing the dimension rule (m x n * n x p = m x p) and a simplified visual of the row-by-column concept. Then, transition to quick visual examples of applications: a spinning 3D wireframe cube transforming, a simple neural network diagram with data flowing, and a graph representing system transformations. End with an encouraging message and a 'Matrix Multiplication Mastered!' graphic.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

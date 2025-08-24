@@ -1,0 +1,17 @@
+{
+  "title": "Mathematics: Matrix Multiplication",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to our educational video about mathematics.",
+      "anim": "Show a title and mathematical symbols floating in the background.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "Let's explore the concept of matrix multiplication.",
+      "anim": "Display two matrices and show the multiplication process step by step.",
+      "layout": "split_screen"
+    }
+  ]
+}

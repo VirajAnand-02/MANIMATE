@@ -1,0 +1,25 @@
+{
+  "title": "Understanding Matrix Multiplication",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to our video on Matrix Multiplication! Matrices are powerful tools in mathematics, used in everything from computer graphics to solving complex equations. But how do we multiply them?",
+      "anim": "Intro animation: Title card 'Matrix Multiplication' with a swirling background of abstract matrices. Transition to showing a 2x2 matrix and a 2x3 matrix on screen."
+    },
+    {
+      "seq": 2,
+      "text": "Before we multiply, there's an important rule: the number of columns in the first matrix must equal the number of rows in the second matrix. If you have an M by N matrix and an N by P matrix, the result will be an M by P matrix. Otherwise, multiplication is not possible!",
+      "anim": "Visually represent two matrices: Matrix A (2x3) and Matrix B (3x2). Highlight the inner dimensions (3 and 3) matching. Then show a red 'X' over Matrix C (2x2) and Matrix D (3x2) to illustrate non-matching dimensions."
+    },
+    {
+      "seq": 3,
+      "text": "To find an element in the product matrix, you take a row from the first matrix and a column from the second matrix. Multiply corresponding elements and sum the results. For example, to get the element in row 1, column 1 of the product, you multiply row 1 of the first matrix by column 1 of the second matrix.",
+      "anim": "Demonstrate with a 2x2 matrix A and a 2x2 matrix B. Show an arrow highlighting row 1 of A and column 1 of B. Then show (a11*b11) + (a12*b21) calculating the first element of the product matrix. Repeat for a second element, e.g., row 1 of A and column 2 of B."
+    },
+    {
+      "seq": 4,
+      "text": "Let's work through a quick example. Multiply a 2x2 matrix by another 2x2 matrix. The result will also be a 2x2 matrix. Take your time, practice, and soon you'll be multiplying matrices like a pro! Thanks for watching!",
+      "anim": "Show a full step-by-step calculation of a 2x2 matrix multiplication. Matrix A: [[1, 2], [3, 4]], Matrix B: [[5, 6], [7, 8]]. Animate each element of the resulting matrix being calculated and filled in. End with a summary of the final product matrix."
+    }
+  ]
+}

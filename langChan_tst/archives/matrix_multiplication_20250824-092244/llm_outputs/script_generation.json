@@ -1,0 +1,29 @@
+{
+  "title": "Mastering Matrix Multiplication",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to the exciting world of matrices! You might have seen matrices before as rectangular arrays of numbers. But when it comes to multiplying them, it's not as simple as multiplying individual elements. Matrix multiplication is a fundamental operation in mathematics with vast applications, from computer graphics to data analysis. The key idea? It's all about combining rows from the first matrix with columns from the second. Let's unravel this powerful concept!",
+      "anim": "Open with a title 'Matrix Multiplication: The Basics'. Show a simple 2x2 matrix appearing. Then, two different matrices appear side-by-side, with a large 'X' between them and a question mark, emphasizing 'not element-wise'. Briefly animate a row highlighting from the first matrix and a column highlighting from the second, moving towards a new blank matrix, hinting at the 'row by column' rule.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "Before we dive into the calculations, there are two crucial rules regarding matrix dimensions. First, for two matrices, A and B, to be multiplied, the number of columns in the first matrix, A, must equal the number of rows in the second matrix, B. If A is an 'm by n' matrix and B is an 'n by p' matrix, then their product C will be an 'm by p' matrix. Think of it as the 'inner dimensions' needing to match, and the 'outer dimensions' determining the size of your answer. Let's visualize this with a 2x3 matrix A and a 3x2 matrix B. Notice how the '3's match up, and our result will be a 2x2 matrix.",
+      "anim": "Split screen. Left side: Text explaining the dimension rule (m x n * n x p = m x p) with animated arrows highlighting the 'n's matching and the 'm' and 'p' forming the result. Right side: Matrix A (2x3) appears. Then Matrix B (3x2) appears next to it. Visually highlight the '3' (columns of A) and '3' (rows of B) matching with a glowing effect. Then show a blank 2x2 matrix C appearing, with its dimensions highlighted from A's 'm' and B's 'p'.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Now, let's get to the actual multiplication. To find an element in the resulting matrix C, say C sub (i, j), we take the i-th row of matrix A and multiply it by the j-th column of matrix B. We multiply corresponding elements and then sum those products. For example, to find C sub (1,1), we take row 1 of A and column 1 of B. Multiply the first elements, then the second, and so on, then add them all up. Let's do this step by step for our 2x2 result. For C sub (1,1), we multiply (A11 * B11) + (A12 * B21). We repeat this process, combining rows from A with columns from B, for all elements in C.",
+      "anim": "Custom layout focusing on the calculation. Display a 2x2 matrix A and a 2x2 matrix B side-by-side, with a blank 2x2 matrix C on the right. Highlight row 1 of A and column 1 of B. Show the individual multiplications (e.g., A11*B11, then A12*B21) appearing, then their sum populating C11. Repeat this process for C12 (row 1 A, col 2 B), C21 (row 2 A, col 1 B), and C22 (row 2 A, col 2 B), showing the elements populating C one by one with clear visual paths for the row-by-column interaction.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "Let's quickly recap with a numerical example. If A is [[1, 2], [3, 4]] and B is [[5, 6], [7, 8]], then C sub (1,1) is (1*5) + (2*7) = 5 + 14 = 19. C sub (1,2) is (1*6) + (2*8) = 6 + 16 = 22. C sub (2,1) is (3*5) + (4*7) = 15 + 28 = 43. And C sub (2,2) is (3*6) + (4*8) = 18 + 32 = 50. So, C is [[19, 22], [43, 50]]. Remember, matrix multiplication is not commutative, meaning A times B is generally not equal to B times A. This operation is crucial in fields like 3D graphics for transforming objects, in machine learning for neural networks, and in physics for quantum mechanics. Keep practicing, and you'll master this powerful tool!",
+      "anim": "Show the numerical example from the text. Display matrices A and B clearly. Then, step-by-step, show the calculation for each element of C, similar to Scene 3 but faster, with the numbers appearing and summing up. The final matrix C appears. Briefly show a simple 3D cube rotating to represent graphics, then a simplified neural network diagram, then a quantum wave function. End with 'Keep Practicing!' text on screen.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

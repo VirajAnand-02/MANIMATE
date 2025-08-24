@@ -1,0 +1,35 @@
+{
+  "title": "Matrix Multiplication: Demystified",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome! Today, we're diving into the fascinating world of matrix multiplication. It's a fundamental operation in linear algebra with applications in computer graphics, data science, and beyond. Don't worry, we'll break it down step-by-step!",
+      "anim": "Title card appears with the title 'Matrix Multiplication: Demystified'. Then, show examples of real-world applications like a 3D model rotating, a recommendation system interface, and weather forecasting visualizations.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "Before we multiply, let's talk about dimensions. A matrix is defined by its rows and columns. To multiply two matrices, say A and B, the number of *columns* in A must equal the number of *rows* in B. If A is an m x n matrix and B is an n x p matrix, the resulting matrix C will be an m x p matrix.",
+      "anim": "Show a matrix A (e.g., 2x3) and a matrix B (e.g., 3x2). Highlight the columns of A and the rows of B with different colors. Then show the resulting matrix C (2x2) and label its dimensions.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Now, for the multiplication process! Each element in the resulting matrix C is calculated by taking the dot product of a row from matrix A and a column from matrix B. The element in the i-th row and j-th column of C is the dot product of the i-th row of A and the j-th column of B.",
+      "anim": "Focus on a specific element in matrix C (e.g., C[1,1]). Highlight the first row of matrix A and the first column of matrix B. Show the calculation of the dot product: (a[1,1]*b[1,1] + a[1,2]*b[2,1] + a[1,3]*b[3,1] = c[1,1]). Animate the numbers appearing and being summed up.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 4,
+      "text": "Let's work through a concrete example. Consider a 2x2 matrix A and another 2x2 matrix B. We'll calculate each element of the resulting 2x2 matrix C step-by-step, showing the dot product calculation for each position.",
+      "anim": "Display two 2x2 matrices A and B with numerical values. Step-by-step, calculate each element of the resulting matrix C. For each element, highlight the corresponding row and column in A and B, and show the dot product calculation clearly. Use color coding to differentiate the rows and columns being multiplied.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 5,
+      "text": "Matrix multiplication isn't commutative – meaning A times B is generally not the same as B times A. It's also associative, meaning (A times B) times C equals A times (B times C). Understanding these properties is key to using matrix multiplication effectively. Keep practicing, and you'll master this powerful tool!",
+      "anim": "Show an example where A * B != B * A using numerical matrices. Then, demonstrate the associative property with a different set of matrices. End with a screen encouraging practice and further learning resources.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

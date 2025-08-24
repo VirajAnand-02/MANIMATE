@@ -1,0 +1,35 @@
+{
+  "title": "Mastering Matrix Multiplication",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome! Today, we'll unravel the mystery of matrix multiplication. It's a fundamental operation in linear algebra with applications in computer graphics, data science, and much more. Get ready to level up your math skills!",
+      "anim": "Title card animation: 'Mastering Matrix Multiplication' appears with dynamic lines forming a matrix in the background. Then, example applications flash briefly (image recognition, 3D rendering).",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "First, let's understand the dimensions. To multiply matrix A by matrix B, the number of columns in A *must* equal the number of rows in B. If A is an 'm x n' matrix and B is an 'n x p' matrix, the resulting matrix C will be an 'm x p' matrix.",
+      "anim": "Split screen. Left side: Matrix A (m x n) highlighted. Right side: Matrix B (n x p) highlighted. An arrow connects the 'n' in 'm x n' to the 'n' in 'n x p', highlighting the matching requirement. Then, the resulting matrix C (m x p) appears below with its dimensions highlighted.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Now, for the mechanics. Each element in the resulting matrix C is calculated as the dot product of a row from matrix A and a column from matrix B. Let's break down how to compute one specific element.",
+      "anim": "A 2x2 matrix A and a 2x2 matrix B are shown. A specific row from A (e.g., the first row) and a specific column from B (e.g., the first column) are highlighted. The animation then shows element-by-element multiplication and summation to calculate the corresponding element in the resulting matrix C.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 4,
+      "text": "Let's walk through a complete example. We have a 2x2 matrix A and a 2x2 matrix B. We'll calculate each element of the resulting matrix C step-by-step, showing the dot product calculation for each position. Pay close attention to which row and column are being used.",
+      "anim": "Numerical example: A = [[1, 2], [3, 4]], B = [[5, 6], [7, 8]]. The animation shows the full matrix multiplication process, visually highlighting the row and column being used for each element calculation in the resulting matrix C: [[(1*5 + 2*7), (1*6 + 2*8)], [(3*5 + 4*7), (3*6 + 4*8)]]. The final result C = [[19, 22], [43, 50]] is displayed.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 5,
+      "text": "Remember, matrix multiplication is not commutative, meaning A * B is generally not equal to B * A. Also, practice makes perfect! Work through examples and explore different matrix sizes to solidify your understanding. Good luck!",
+      "anim": "Left side: A * B calculated (using previous example). Right side: B * A calculated (showing a different result). The text 'A * B ≠ B * A' is displayed prominently. The animation then shows a montage of different matrix sizes being multiplied, encouraging practice.",
+      "layout": "split_screen"
+    }
+  ]
+}

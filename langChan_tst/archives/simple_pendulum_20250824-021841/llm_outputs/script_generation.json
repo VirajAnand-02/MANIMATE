@@ -1,0 +1,35 @@
+{
+  "title": "Understanding the Simple Pendulum",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Hello and welcome! Today, we're diving into the fascinating world of physics to explore a fundamental concept: the simple pendulum. We'll uncover what it is, how it works, and some of the key factors that influence its behavior. Get ready for a swinging good time!",
+      "anim": "Animated pendulum swinging back and forth. Title card appears: 'Understanding the Simple Pendulum'.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "A simple pendulum consists of a mass, often called a 'bob', suspended from a fixed point by a light string or rod. We assume the string is massless and doesn't stretch. When the bob is pulled back and released, gravity pulls it downwards, causing it to swing back and forth. This motion is called oscillation.",
+      "anim": "Diagram showing a pendulum with labeled parts: 'bob', 'string', 'fixed point', 'angle θ'. Animation showing the bob being pulled back and released, illustrating the swinging motion.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "The period of a pendulum, represented by 'T', is the time it takes for one complete swing – from one extreme position back to the same extreme position. A key factor influencing the period is the length of the pendulum, 'L'. Longer pendulums have longer periods. Another crucial factor is the acceleration due to gravity, 'g'.",
+      "anim": "Animation showing two pendulums side-by-side, one shorter and one longer. The longer pendulum swings slower. Formula appears on screen: T = 2π√(L/g). Highlight 'L' and 'g' in the formula.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 4,
+      "text": "Interestingly, the mass of the bob itself doesn't significantly affect the period of a *simple* pendulum, assuming the angle of swing is small. This is a key characteristic. The angle of swing also plays a role; the formula we showed is most accurate for small angles, typically less than 15 degrees.",
+      "anim": "Animation showing two pendulums with different masses swinging with almost the same period (assuming small angle). A graph illustrates the relationship between angle and period, showing increased deviation at larger angles.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 5,
+      "text": "The simple pendulum is a powerful tool for understanding fundamental physics concepts like simple harmonic motion, gravity, and energy conservation. While real-world pendulums might have some friction or air resistance, the simple pendulum model provides a valuable approximation for many situations. Thanks for joining us on this swinging adventure!",
+      "anim": "Animation showing various applications of pendulums: grandfather clock, metronome, seismometer. End screen with links to further resources.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "title": "Mastering Matrix Multiplication",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to our deep dive into matrix multiplication! Matrices are fundamental mathematical objects, essentially rectangular arrays of numbers, symbols, or expressions. They're not just abstract concepts; they power everything from computer graphics and image processing to physics simulations and machine learning. But unlike simple numbers, multiplying matrices has its own unique set of rules. Let's unravel this powerful operation step by step.",
+      "anim": "Title card 'Mastering Matrix Multiplication'. Transition to various examples of matrices appearing on screen (e.g., a 2x2, a 3x1, a 1x3). Briefly show icons representing applications like a rotating 3D cube, a neural network diagram, and a data table. A question mark appears between two generic matrices.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "First, the crucial rule for compatibility: you can only multiply two matrices, say A and B (as A times B), if the number of columns in the first matrix, A, is equal to the number of rows in the second matrix, B. If matrix A is 'm by n' and matrix B is 'n by p', then the resulting matrix C will have dimensions 'm by p'. Notice how the 'inner' dimensions, 'n' and 'n', must match, and the 'outer' dimensions, 'm' and 'p', determine the size of your answer. If they don't match, the multiplication is simply undefined!",
+      "anim": "On the left, Matrix A (labeled 'm x n') appears. On the right, Matrix B (labeled 'n x p') appears. The 'n' in 'm x n' for A and 'n' in 'n x p' for B flash and connect, emphasizing the match. An arrow points to an empty Matrix C, labeled 'm x p', with 'm' and 'p' highlighted. Then, show an example: Matrix A (2x3) and Matrix B (3x2), showing '3's matching. Resulting Matrix C (2x2). Contrast with A (2x3) and B (2x2), showing '3' and '2' not matching, with a large 'X' appearing.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Now for the actual calculation! To find any single element in the resulting matrix C, specifically the element in row 'i' and column 'j', you perform a 'dot product' of row 'i' from the first matrix and column 'j' from the second matrix. A dot product means you multiply corresponding elements from the row and column, and then sum up all those products. Let's visualize getting the first element, C-one-one: we take the first row of A and the first column of B, multiply their elements pairwise, and add them up. This gives us just one number for one slot in our answer matrix.",
+      "anim": "Show a 2x2 matrix A and a 2x2 matrix B. An empty 2x2 matrix C with a highlighted C11 slot. Row 1 of A highlights, then Column 1 of B highlights. Arrows show the first element of A's row 1 multiplying the first element of B's col 1, then the second elements multiplying. These two products appear, followed by a '+' sign and their sum, which fills the C11 slot. The process pauses, reinforcing the 'dot product' concept visually.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "Let's walk through a complete example. Here we have matrix A, a 2x2, and matrix B, also a 2x2. First, check compatibility: 2 columns of A match 2 rows of B, so our result C will be a 2x2 matrix. To find C11, we take row 1 of A and column 1 of B: (1 times 5) plus (2 times 7) equals 5 plus 14, which is 19. For C12, row 1 of A and column 2 of B: (1 times 6) plus (2 times 8) equals 6 plus 16, which is 22. For C21, row 2 of A and column 1 of B: (3 times 5) plus (4 times 7) equals 15 plus 28, which is 43. And finally, for C22, row 2 of A and column 2 of B: (3 times 6) plus (4 times 8) equals 18 plus 32, which is 50. So, our final matrix C is [[19, 22], [43, 50]]. Remember: check dimensions, then row by column, multiply and sum!",
+      "anim": "Display Matrix A = [[1,2],[3,4]] and Matrix B = [[5,6],[7,8]]. An empty 2x2 Matrix C appears. Step-by-step, highlight row 1 of A and col 1 of B, show (1*5) + (2*7) = 19 filling C11. Then for C12: row 1 of A and col 2 of B, show (1*6) + (2*8) = 22 filling C12. Continue for C21: row 2 of A and col 1 of B, show (3*5) + (4*7) = 43 filling C21. Finally for C22: row 2 of A and col 2 of B, show (3*6) + (4*8) = 50 filling C22. The complete Matrix C appears clearly. A quick recap text overlay: 'Dimensions must match!' and 'Row by Column!'",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

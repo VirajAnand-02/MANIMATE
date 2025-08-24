@@ -1,0 +1,29 @@
+{
+  "title": "Animate the Pythagorean Theorem with Moving Squares",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Hello mathematicians! Today, we're going to bring one of the most famous theorems in geometry to life: The Pythagorean Theorem. You might know it as a² + b² = c². This powerful rule applies only to right-angled triangles – triangles with one angle exactly 90 degrees. Here, 'a' and 'b' are the lengths of the two shorter sides, called legs, and 'c' is the longest side, always opposite the right angle, known as the hypotenuse. The theorem states that the square of the hypotenuse (c²) is equal to the sum of the squares of the other two sides (a² + b²).",
+      "anim": "Start with a blank screen. A right-angled triangle appears in the center. Its sides are clearly labeled 'a', 'b', 'c'. The right angle is highlighted with a square symbol. The formula 'a² + b² = c²' appears below the triangle.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "But what does 'a squared' or 'b squared' actually mean visually? Imagine drawing a perfect square on each of the legs of our right triangle. The area of the square attached to side 'a' would be 'a times a', or a². Similarly, the area of the square attached to side 'b' would be 'b times b', or b². The Pythagorean Theorem is essentially telling us that if we add the areas of these two squares, that sum will perfectly equal the area of a square drawn on the hypotenuse, side 'c'. Let's see how that looks.",
+      "anim": "The right triangle from Scene 1 remains. A square visually grows out from side 'a', its area labeled 'a²'. Then, a square grows out from side 'b', its area labeled 'b²'. Both squares are distinct colors (e.g., blue for a², red for b²).",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Now for the magic! Let's also draw a square on our hypotenuse, side 'c', with an area of c². The theorem claims that a² + b² = c². To prove this visually, we're going to take the pieces of the squares from sides 'a' and 'b' and see if they perfectly fit into the square on side 'c'. Watch closely as the smaller squares cleverly rearrange and slide into the larger square, demonstrating that their combined area is indeed equal to the area of the square on the hypotenuse. This elegant animation, often called a 'dissection proof', beautifully illustrates why a² + b² truly equals c².",
+      "anim": "The right triangle with squares on 'a' (blue) and 'b' (red) is present. A third square appears on side 'c', colored green, labeled 'c²'. The blue square (a²) and red square (b²) then break into distinct, smaller geometric pieces. These pieces then slide, rotate, and reassemble themselves to perfectly fill the green square on side 'c'. The 'a²' and 'b²' labels fade as their pieces move, and the 'c²' label remains prominent on the now filled green square.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "And there you have it! A dynamic, visual proof of the Pythagorean Theorem. This isn't just a mathematical curiosity; it's a fundamental principle used in countless real-world applications, from construction and architecture to navigation and engineering. Whether you're building a house, mapping a journey, or designing a rocket, the relationship between the sides of a right triangle is indispensable. Keep exploring the beauty of mathematics, and remember, sometimes seeing truly is believing!",
+      "anim": "The final state with the green 'c²' square completely filled by the pieces of 'a²' and 'b²' remains for a few seconds. Then, it fades back to the original right triangle with the formula 'a² + b² = c²' displayed prominently. Text overlays appear: 'Applications:', 'Construction', 'Navigation', 'Engineering'.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "title": "Unlocking Matrix Multiplication: The Secret Behind the Math",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to the fascinating world of matrices! You might have seen them organizing data, but when it comes to multiplying matrices, it's not as simple as multiplying element by element. This unique operation is fundamental in fields like computer graphics, physics, and data science. Think about how a 3D object rotates on your screen – matrix multiplication is often at play, transforming its coordinates. So, let's dive in and uncover the logic behind this powerful mathematical tool!",
+      "anim": "Scene opens with a title card 'Matrix Multiplication'. Then, a grid of numbers representing a matrix appears. A second matrix appears next to it. A question mark hovers over a 'x' symbol between them, then a red cross appears over the idea of simple element-wise multiplication. Brief animation showing a rotating 3D cube.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "Before we multiply, there's a crucial rule: the number of columns in the first matrix MUST equal the number of rows in the second matrix. If you have a 'm x n' matrix multiplied by a 'n x p' matrix, the resulting matrix will be 'm x p'. Once dimensions align, each element in the resulting matrix is found by taking the dot product of a row from the first matrix and a column from the second matrix. Remember, a dot product means multiplying corresponding elements and then summing them up.",
+      "anim": "On the left side of the screen, two matrices A (2x3) and B (3x2) appear. Highlight the '3' (columns of A) and '3' (rows of B) matching. The resulting matrix C (2x2) appears. On the right side, a single row vector [a b c] and a column vector [x; y; z] appear. Show (a*x) + (b*y) + (c*z) being calculated and highlighted.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Let's walk through an example. Take Matrix A: [1 2; 3 4] and Matrix B: [5 6; 7 8]. To find the element in the first row, first column of the result, we multiply the first row of A by the first column of B: (1*5) + (2*7) = 5 + 14 = 19. For the first row, second column: (1*6) + (2*8) = 6 + 16 = 22. We continue this for all combinations. The second row, first column: (3*5) + (4*7) = 15 + 28 = 43. And finally, the second row, second column: (3*6) + (4*8) = 18 + 32 = 50. Our resulting matrix is [19 22; 43 50].",
+      "anim": "Start with two 2x2 matrices, A and B, displayed clearly. Highlight the first row of A and the first column of B. Show the calculation (1*5) + (2*7) = 19 appear in the top-left of the result matrix. Repeat this process, highlighting the relevant row and column, and showing the calculation for each of the four elements, populating the result matrix step-by-step.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "One crucial property of matrix multiplication is that it's generally not commutative. This means A times B is usually not the same as B times A! This non-commutativity is key to its applications, like in 3D graphics where the order of transformations matters. Understanding matrix multiplication opens doors to advanced mathematics, computer science, and engineering. From encrypting data to simulating complex systems, it's a fundamental operation that powers much of our modern world. Keep exploring, and you'll see matrices everywhere!",
+      "anim": "Show two matrices A and B. Then show A*B calculation resulting in one matrix. Then show B*A calculation resulting in a different matrix, emphasizing 'A*B ≠ B*A'. Transition to a visual of a 3D object (e.g., a car or building model) being designed or rotated on a screen, with lines representing matrix transformations. End with a 'The End' or 'Keep Learning' message.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

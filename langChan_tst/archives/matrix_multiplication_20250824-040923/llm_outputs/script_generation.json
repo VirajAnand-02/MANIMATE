@@ -1,0 +1,29 @@
+{
+  "title": "Mastering Matrix Multiplication",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Welcome to our deep dive into matrix multiplication! Matrices are powerful tools for organizing data, and knowing how to multiply them is key. But unlike scalar multiplication or even matrix addition, matrix multiplication isn't done element by element. That's a common mistake! Instead, it follows a unique 'row by column' rule that we'll unravel today. Get ready to transform your understanding of matrices!",
+      "anim": "Title slide 'Matrix Multiplication: The Basics'. Display two simple 2x2 matrices, A and B. Show a quick visual attempt to multiply them element-wise, with an 'X' or 'NO' symbol appearing over the result. Transition to a large question mark, indicating 'how do we do it then?'.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "The core principle of matrix multiplication is the 'row by column' dot product. To find an element in the resulting matrix, say C_ij, you take the i-th row of the first matrix and the j-th column of the second matrix. Then, you multiply corresponding elements and sum those products. This sum gives you a single element in your new matrix. Let's look at an example: how to get the first element, C_11.",
+      "anim": "Display Matrix A (e.g., [[1, 2], [3, 4]]) and Matrix B (e.g., [[5, 6], [7, 8]]) side-by-side, with an empty Result Matrix C next to them. Highlight Row 1 of A in one color and Column 1 of B in another. Show arrows connecting A[1,1] to B[1,1] and A[1,2] to B[2,1]. Display the calculation: (A[1,1]*B[1,1]) + (A[1,2]*B[2,1]) = C[1,1]. Show the calculated value populating C[1,1].",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Now let's complete our multiplication. We've found C_11. To find C_12, we'll use Row 1 of A and Column 2 of B, performing the same dot product. For C_21, it's Row 2 of A and Column 1 of B. And finally, for C_22, we combine Row 2 of A with Column 2 of B. Notice how each element in the resulting matrix is a sum of products, systematically building our final product matrix. It takes practice, but the pattern is consistent and powerful!",
+      "anim": "Continue from Scene 2. Show the calculation for C_12 (highlight Row 1 of A, Column 2 of B), populating C_12. Then show the calculation for C_21 (highlight Row 2 of A, Column 1 of B), populating C_21. Finally, show the calculation for C_22 (highlight Row 2 of A, Column 2 of B), populating C_22. The final matrix C is fully displayed with all calculated values.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "Before you multiply, always check the dimensions! For matrix multiplication A * B to be possible, the number of columns in matrix A must equal the number of rows in matrix B. If A is an m x n matrix and B is an n x p matrix, then their product C will be an m x p matrix. The 'inner' dimensions must match, and the 'outer' dimensions give you the size of the result. So, remember: check dimensions, then it's row by column dot product for each element. Keep practicing, and you'll master matrix multiplication!",
+      "anim": "Display two matrices, A (e.g., 2x3) and B (e.g., 3x2). Circle/highlight the inner dimensions (3 and 3), showing a checkmark. Then show the outer dimensions (2 and 2) indicating the result will be 2x2. Next, display A (e.g., 2x4) and B (e.g., 3x2), highlight inner dimensions (4 and 3) with an 'X' and 'Error: Cannot Multiply'. End with a quick graphic summarizing the 'row by column' rule and dimension check.",
+      "layout": "split_screen"
+    }
+  ]
+}
