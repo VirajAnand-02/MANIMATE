@@ -74,7 +74,7 @@ DIA_TTS_TIMEOUT = int(os.getenv("DIA_TTS_TIMEOUT", "300"))  # 3 minutes default
 # --- File Paths ---
 PROJECT_ROOT = Path(__file__).parent.parent
 TEMPLATES_DIR = PROJECT_ROOT / "src" / "templates"
-RENDERS_DIR = PROJECT_ROOT / "renders"
+RENDERS_DIR = PROJECT_ROOT / "../status-code-2/video"
 ARCHIVES_DIR = PROJECT_ROOT / "archives"
 TMP_DIR = PROJECT_ROOT / "tmp_manim_scenes"
 LOGS_DIR = PROJECT_ROOT / "logs"
