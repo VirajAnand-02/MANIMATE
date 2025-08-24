@@ -50,7 +50,8 @@ export default function Home() {
 
     try {
       const api =
-        process.env.NEXT_PUBLIC_BACKEND_URL || `http://10.50.57.82:5000`;
+        // process.env.NEXT_PUBLIC_BACKEND_URL || `http://10.50.57.82:5000`;
+        process.env.NEXT_PUBLIC_BACKEND_URL || `http://localhost:5001`;
       const res = await fetch(`${api}/submit`, {
         method: "POST",
         headers: {

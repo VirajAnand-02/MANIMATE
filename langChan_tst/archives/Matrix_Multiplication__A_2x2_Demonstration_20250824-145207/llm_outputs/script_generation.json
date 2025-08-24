@@ -1,0 +1,29 @@
+{
+  "title": "Matrix Multiplication: A 2x2 Demonstration",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Hello and welcome! Today, we're demystifying matrix multiplication, specifically for 2x2 matrices. Matrices are powerful tools in math, computer graphics, and engineering. We'll take two matrices, A and B, and multiply them to get a new matrix, C. Remember, matrix multiplication isn't just multiplying corresponding elements. It's a bit more involved, but once you see the pattern, it's straightforward! Let's dive in.",
+      "anim": "Intro animation with video title. Then, two blank 2x2 matrices appear side-by-side, labeled 'A' and 'B'. Numbers populate them: A = [[1, 2], [3, 4]], B = [[5, 6], [7, 8]]. An equals sign and a question mark appear, followed by a blank 2x2 matrix for 'C'.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "To find the element in the first row, first column of our result matrix C, often called C11, we take the first row of matrix A and multiply it by the first column of matrix B. We multiply corresponding elements and then sum them up. So, for C11, we multiply (1 times 5) plus (2 times 7). That gives us 5 plus 14, which equals 19. This is our first element!",
+      "anim": "Matrices A and B are prominent on the left. Row 1 of A ( [1, 2] ) highlights. Column 1 of B ( [5, 7] ) highlights. On the right, arrows show (1 * 5) and (2 * 7) happening. The numbers '5' and '14' appear, then sum to '19'. The value '19' slides into the C11 position of the result matrix C, which is on the left.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Next, let's find C12, the element in the first row, second column of C. We use the first row of A again, but this time, the second column of B. So, it's (1 times 6) plus (2 times 8). That's 6 plus 16, resulting in 22. This goes into the C12 spot. Now for C21, second row, first column. We take the second row of A, which is [3, 4], and the first column of B, [5, 7]. This gives us (3 times 5) plus (4 times 7). That's 15 plus 28, totaling 43. And that fills our C21 position.",
+      "anim": "C12 calculation: Row 1 of A highlights, Column 2 of B highlights. Calculation (1 * 6) + (2 * 8) = 22 shown on the right. '22' slides into C12 of matrix C on the left. C21 calculation: Row 2 of A highlights, Column 1 of B highlights. Calculation (3 * 5) + (4 * 7) = 43 shown on the right. '43' slides into C21. The result matrix C is building up.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 4,
+      "text": "Finally, for our last element, C22, the second row, second column. We take the second row of A, [3, 4], and the second column of B, [6, 8]. Multiplying corresponding elements and summing them gives us (3 times 6) plus (4 times 8). That's 18 plus 32, which equals a grand total of 50. And with that, our result matrix C is complete! We've successfully multiplied two 2x2 matrices. Remember the pattern: (row of A) times (column of B) for each element. Keep practicing, and you'll master it!",
+      "anim": "C22 calculation: Row 2 of A highlights, Column 2 of B highlights. Calculation (3 * 6) + (4 * 8) = 50 shown. '50' slides into C22. The final matrix C = [[19, 22], [43, 50]] is displayed prominently in the center. A quick recap animation shows the arrows for each calculation briefly, fading out to the final matrix.",
+      "layout": "custom"
+    }
+  ]
+}

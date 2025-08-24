@@ -1,0 +1,29 @@
+{
+  "title": "Animate the Pythagorean Theorem with Moving Squares",
+  "scenes": [
+    {
+      "seq": 1,
+      "text": "Hello geometry enthusiasts! Today, we're going to bring one of the most famous mathematical theorems to life: the Pythagorean Theorem. You might know it as a² + b² = c². This powerful equation describes a fundamental relationship in geometry, specifically for right-angled triangles. It tells us that in any right triangle, the square of the length of the hypotenuse, 'c', is equal to the sum of the squares of the lengths of the other two sides, 'a' and 'b'. Let's dive in and see this magic unfold visually!",
+      "anim": "Start with a title card: 'Animate the Pythagorean Theorem'. A clean, animated right-angled triangle appears on screen. Sides 'a' and 'b' are clearly labeled as the legs, and 'c' as the hypotenuse. Text labels for 'a', 'b', 'c' animate in beside their respective sides.",
+      "layout": "title_and_main_content"
+    },
+    {
+      "seq": 2,
+      "text": "To truly understand a² + b² = c², we need to think about what 'squared' means. When we say 'a squared', we're talking about the area of a square whose side length is 'a'. Imagine a square built directly outwards from side 'a' of our triangle. Its area is a times a, or a². Similarly, for side 'b', we can construct another square with an area of b². These two squares represent the 'a²' and 'b²' parts of our equation. Notice how they perfectly extend from the legs of our right triangle.",
+      "anim": "On the left side of the screen, the right-angled triangle from Scene 1 remains static. On the right side, a square (e.g., blue) magically grows outwards from side 'a'. Immediately after, another square (e.g., yellow) grows outwards from side 'b'. The areas 'a²' and 'b²' appear as text within their respective squares.",
+      "layout": "split_screen"
+    },
+    {
+      "seq": 3,
+      "text": "Now for the exciting part! The Pythagorean Theorem states that the *sum* of these two areas, a² plus b², will exactly equal the area of a square built on the hypotenuse, c². Let's see it happen. Watch as the blue square (a²) and the yellow square (b²) break apart into smaller, interlocking pieces. These pieces then gracefully slide and rearrange themselves, perfectly filling the space of a brand new square forming on side 'c' – the hypotenuse! This visual proof beautifully demonstrates that the area of the two smaller squares combined is identical to the area of the largest square.",
+      "anim": "The two squares (blue for a², yellow for b²) from Scene 2 are prominent. A third square (e.g., green) begins to form outwards from side 'c'. The blue square then fragments into several distinct polygonal pieces. Simultaneously, the yellow square fragments into its own set of pieces. All these fragmented pieces then smoothly slide, rotate, and interlock perfectly to completely fill the green square on side 'c'. The animation should be fluid, showing no gaps or overlaps.",
+      "layout": "custom"
+    },
+    {
+      "seq": 4,
+      "text": "And there you have it! A dynamic, animated proof of the Pythagorean Theorem. We've seen how the areas represented by a² and b² can be physically transformed to perfectly constitute the area of c². This isn't just a clever trick; it's a profound mathematical truth that has countless applications, from architecture and engineering to navigation and computer graphics. Remember, a² + b² = c² isn't just an equation to memorize; it's a visual relationship of areas within a right-angled triangle. Keep exploring the beauty of mathematics!",
+      "anim": "The final state of Scene 3 (the green square on 'c' filled by the pieces of 'a²' and 'b²') holds for a moment. Then, the pieces dissolve, and the original three solid squares (a², b², c²) reappear in their respective places around the triangle. The equation 'a² + b² = c²' prominently animates onto the screen. A final title card 'The Pythagorean Theorem: a² + b² = c²' appears with a 'Thanks for watching!' message.",
+      "layout": "title_and_main_content"
+    }
+  ]
+}

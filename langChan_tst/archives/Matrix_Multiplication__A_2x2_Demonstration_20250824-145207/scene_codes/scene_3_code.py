@@ -13,6 +13,7 @@ class Scene3(SplitScreen):
     def construct_scene(self):
         from manim import *
 
+        def construct_scene(self):
         # --- Setup Matrices ---
         A = Matrix([[1, 2], [3, 4]])
         B = Matrix([[5, 6], [7, 8]])

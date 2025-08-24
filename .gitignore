@@ -9,9 +9,9 @@ __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
-*.env
+# *.env
 *.venv
-env/
+# env/
 venv/
 *.egg-info/
 dist/
