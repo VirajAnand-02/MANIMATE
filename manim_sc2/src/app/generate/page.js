@@ -753,7 +753,31 @@ Try streaming videos from your Express server!`,
   };
 
   return (
-    <div className="min-h-screen bg-black flex max-h-screen">
+    <>
+      {/* Fullscreen Video Styles */}
+      <style jsx>{`
+        .fullscreen-video {
+          width: 100vw !important;
+          height: 100vh !important;
+          object-fit: cover !important;
+          position: fixed !important;
+          top: 0 !important;
+          left: 0 !important;
+          z-index: 9999 !important;
+        }
+        
+        .fullscreen-container {
+          width: 100vw !important;
+          height: 100vh !important;
+          position: fixed !important;
+          top: 0 !important;
+          left: 0 !important;
+          z-index: 9998 !important;
+          background: black !important;
+        }
+      `}</style>
+      
+      <div className="min-h-screen bg-black flex max-h-screen">
       {/* Left Side - Chat Interface */}
       <div className="w-1/2 border-r max-h-screen border-gray-700 flex flex-col">
         {/* Chat Header */}
@@ -1034,17 +1058,9 @@ Try streaming videos from your Express server!`,
           {/* Video Container - Top Section */}
           <div 
             className={`relative bg-black transition-all duration-300 ${
-              isFullscreen ? "!fixed !inset-0 !w-screen !h-screen !z-50" : ""
+              isFullscreen ? "fullscreen-container" : ""
             }`} 
             ref={videoContainerRef}
-            style={isFullscreen ? {
-              width: '100vw',
-              height: '100vh',
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              zIndex: 9999
-            } : {}}
           >
             {selectedVideo ? (
               <div className="relative">
@@ -1055,7 +1071,7 @@ Try streaming videos from your Express server!`,
                   )}`}
                   className={`w-full object-contain bg-black transition-all duration-300 ${
                     isFullscreen 
-                      ? "h-screen object-cover" 
+                      ? "fullscreen-video" 
                       : "h-64 md:h-80"
                   }`}
                   crossOrigin="anonymous"
@@ -1114,7 +1130,9 @@ Try streaming videos from your Express server!`,
                 />
 
                 {/* Custom Video Overlay Controls */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                <div className={`absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 ${
+                  isFullscreen ? "z-50" : ""
+                }`}>
                   {/* Center Play Button */}
                   {!isPlaying && (
                     <div className="absolute inset-0 flex items-center justify-center">
@@ -1352,6 +1370,7 @@ Try streaming videos from your Express server!`,
         </div>
       </div>
     </div>
+    </>
   );
 };
 
