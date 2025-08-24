@@ -679,6 +679,19 @@ Try streaming videos from your Express server!`,
       );
       setIsFullscreen(isCurrentlyFullscreen);
       console.log("Fullscreen state changed:", isCurrentlyFullscreen);
+      
+      // Apply additional styling when in fullscreen
+      if (videoRef.current) {
+        if (isCurrentlyFullscreen) {
+          videoRef.current.style.width = '100vw';
+          videoRef.current.style.height = '100vh';
+          videoRef.current.style.objectFit = 'cover';
+        } else {
+          videoRef.current.style.width = '';
+          videoRef.current.style.height = '';
+          videoRef.current.style.objectFit = '';
+        }
+      }
     };
 
     // Add event listeners for different browsers
@@ -1019,7 +1032,20 @@ Try streaming videos from your Express server!`,
         {/* Video Player Area */}
         <div className="flex-1 flex flex-col bg-black">
           {/* Video Container - Top Section */}
-          <div className="relative bg-black" ref={videoContainerRef}>
+          <div 
+            className={`relative bg-black transition-all duration-300 ${
+              isFullscreen ? "!fixed !inset-0 !w-screen !h-screen !z-50" : ""
+            }`} 
+            ref={videoContainerRef}
+            style={isFullscreen ? {
+              width: '100vw',
+              height: '100vh',
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              zIndex: 9999
+            } : {}}
+          >
             {selectedVideo ? (
               <div className="relative">
                 <video
@@ -1027,7 +1053,11 @@ Try streaming videos from your Express server!`,
                   src={`${SERVER_URL}/stream/${encodeURIComponent(
                     selectedVideo
                   )}`}
-                  className="w-full h-64 md:h-80 object-contain bg-black"
+                  className={`w-full object-contain bg-black transition-all duration-300 ${
+                    isFullscreen 
+                      ? "h-screen object-cover" 
+                      : "h-64 md:h-80"
+                  }`}
                   crossOrigin="anonymous"
                   preload="metadata"
                   style={{
@@ -1292,4 +1322,37 @@ Try streaming videos from your Express server!`,
                           <button
                             key={index}
                             onClick={() => streamVideoFromServer(video.name)}
-                            className="w-full text-lef
+                            className="w-full text-left p-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-all flex items-center justify-between group"
+                          >
+                            <span className="text-gray-300 group-hover:text-white text-sm truncate">
+                              {video.name}
+                            </span>
+                            <span className="text-xs text-gray-500">
+                              {(video.size / 1024 / 1024).toFixed(1)}MB
+                            </span>
+                          </button>
+                        ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className="text-center text-gray-400 py-12">
+                <FiFile className="text-4xl mx-auto mb-4 opacity-50" />
+                <h3 className="text-lg font-semibold mb-2">
+                  No Video Selected
+                </h3>
+                <p className="text-sm">
+                  Choose a video from the selection panel above to view details
+                  and start streaming.
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default VideoGenerationPage;
