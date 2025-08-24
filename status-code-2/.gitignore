@@ -13,8 +13,8 @@ logs/
 Thumbs.db
 
 # Environment files
-.env
-.env.*
+# .env
+# .env.*
 
 # Build output
 dist/
